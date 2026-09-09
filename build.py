@@ -74,7 +74,7 @@ for ei,(eid, ename, edates, eintro) in enumerate(ERAS):
       <div class="toc-name">{esc(ename)}</div>
       <div class="toc-meta">{esc(edates)} &middot; {n} reels</div>
     </a>''')
-toc = f'''<nav class="toc" aria-label="Table of contents">
+toc = f'''<div class="toc" role="navigation" aria-label="Table of contents">
   <div class="wrap">
     <div class="toc-label">Jump to a section</div>
     <div class="toc-grid">{"".join(toc_items)}
@@ -83,7 +83,7 @@ toc = f'''<nav class="toc" aria-label="Table of contents">
       <div class="toc-meta">every hard term, one line each</div>
     </a></div>
   </div>
-</nav>'''
+</div>'''
 
 for ei,(eid, ename, edates, eintro) in enumerate(ERAS):
     era_reels = by_era.get(ei, [])
