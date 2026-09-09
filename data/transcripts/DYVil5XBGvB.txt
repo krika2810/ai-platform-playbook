@@ -1,0 +1,1 @@
+Here are the top five Generative AI certification courses: IBM Certified Data Science Associate, IBM Certified Data Science Professional, Azure Certified Data Science Associate, Google Cloud Certified Data Science Associate, and AWS Certified Machine Learning Expert.

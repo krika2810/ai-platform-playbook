@@ -1,0 +1,1 @@
+AI-as-a-service is a service provided by many public cloud service providers by pre-training generative AI models to your organization. Amazon AWS AI services, IBM Watson AI services, Azure Cognitive Services are key AI generative AI services available for you to use in your organization.

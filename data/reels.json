@@ -1,0 +1,722 @@
+[
+ {
+  "id": "CmCEBVLuf7q",
+  "date": "20221211",
+  "ts": 1670771552,
+  "caption": "Ilities that a cloud architect must know of. \n\n#availability\n#scalability \n#reliability \n#security \n#usability \n#adaptability \n#maintainabilty\n#sustainability \n#visibility\n#interoperability \n#recoverability\n#extensibility\n#resilience \n#performance \n#cloudability\n\n#clouds #architect #architectitcloud #architecturalsolutions #solutionarchitect #architecture \n\nDo like, share and subscribe https://www.youtube.com/c/ArchitectITCloud/home",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/CmCEBVLuf7q/",
+  "duration": null,
+  "n": 1,
+  "transcript": "These are the ilities one cloud architect must know of: availability, scalability, usability, adaptability, reliability, security, maintainability, sustainability, visibility, interoperability, extensibility, recoverability, resilience, performance, and cloudability."
+ },
+ {
+  "id": "CmUWR8qL9G9",
+  "date": "20221218",
+  "ts": 1671385183,
+  "caption": "",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/CmUWR8qL9G9/",
+  "duration": null,
+  "n": 2,
+  "transcript": "Cloud reliability is the ability of your workload consistently available for your customer. If any failure occurs to your workload, it must automatically recover from the failure. And you must know the recovery procedures. And if there is a need for your workload to scale horizontally, it must be horizontally scalable to increase the availability. And you must not guess the capacity. Always have the monitoring tool or system to measure the capacity of your workload and provision that capacity. And any platform or infrastructure failure occurs, your workload must be consistently available for your customer all the time."
+ },
+ {
+  "id": "CoLQlDUufSp",
+  "date": "20230202",
+  "ts": 1675375136,
+  "caption": "4 pre-interview prep tips for solution and cloud architects",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/CoLQlDUufSp/",
+  "duration": null,
+  "n": 3,
+  "transcript": "Follow these four pre-interview preparation tips. First, go through the company profile and understand what modernizations journey or cloud migration journey the company is in, and understand their strategy. Second, go through the job description and understand thoroughly, and match the job description with your experience, and make sure that your experience matches with job description perfectly. Third, pick your close friend and do mock interview. Once the mock interview is done, get the feedback from your friend, and if there are any mistakes, correct those. Fourth, get one key project or innovative project that you implemented in your previous company, and make sure that you have thorough knowledge on that particular project, and explain clearly to the interviewer."
+ },
+ {
+  "id": "Coxip2DsYm2",
+  "date": "20230217",
+  "ts": 1676659702,
+  "caption": "",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Coxip2DsYm2/",
+  "duration": null,
+  "n": 4,
+  "transcript": "If you want to be a successful solution architect or customer architect, follow this formula: 4I - E is equal to success. First I, investigate. Investigate customer's problem, pain points, modernization journey, digital transformation, etc. Second one, innovate. Provide innovative idea using IoT, AI, mobile technologies. Third one, initiate. Initiate the next step, initiate the next conversation, initiate the next action item for the customer to deploy the product. Fourth one, implement. Implement the solution access friendly, perfectly for the customer. And E is ego. Eliminate this ego while working with your peers and with the customers. This will lead you to great success. 4I - E is equal to success."
+ },
+ {
+  "id": "CqGAnuEgblc",
+  "date": "20230322",
+  "ts": 1679493937,
+  "caption": "",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/CqGAnuEgblc/",
+  "duration": null,
+  "n": 5,
+  "transcript": "Six areas one cloud architect or solution architect must focus on in 2023. First one, containerization, serverless computing, quantum computing, hybrid cloud or multi-cloud, cyber security or cloud security, artificial intelligence and machine learning. For detailed video, click the link below."
+ },
+ {
+  "id": "CzRpmpkAM8G",
+  "date": "20231105",
+  "ts": 1699211960,
+  "caption": "Benefits of becoming Enterprise Architect!!\n#enterprisearchitecture #togaf #architect #certificacion",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/CzRpmpkAM8G/",
+  "duration": null,
+  "n": 6,
+  "transcript": "Here are the some of the key benefits of becoming an enterprise architect. If you are performing a role of solution architect or cloud architect, you must be proceeding in the path of enterprise architect, if you are interested. So, what are all the benefits of getting the role to the enterprise architect? First one, so far, you have been focusing on one particular area, for example, infrastructure solutioning, or platform solutioning, or application solutioning, and so on. But when you become enterprise architect, your view will expand, starting from the business architecture, data architecture, technology architecture, application architecture, and implementation governance, operational excellence, all those areas. So, in order to get this role, you must have the opportunity to work such a project in your organization, and also, if you are capable enough, and if you have some time, take a look on TOGAF certification. That will add lot of value to your role. Take care. Bye."
+ },
+ {
+  "id": "DIO2-MvgBWK",
+  "date": "20250409",
+  "ts": 1744215499,
+  "caption": "IBM Bee AI Agent Framework #aiagent #ibm #bee #tech #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DIO2-MvgBWK/",
+  "duration": null,
+  "n": 7,
+  "transcript": "Three interesting facts about IBM's Bee AI agentic framework. First, it is inspired by the nature. If you look at honeycomb where honeybees live in colonies and each honey acts on one particular task to achieve the global task, so it is inspired by the nature as each individual honeybees working as AI agent. In the Bee AI agentic framework, there are multiple small agents will work on particular task to achieve a global task. Second, it uses swarm intelligence. What exactly swarm intelligence? If you take ant who are living in colonies or bird flocks where birds are living in group, each bird or each ant has a particular task, and it has its particular rule to achieve the task. At the same time, all these ants and birds work together and achieve a global task for their colony. So, it uses swarm intelligence to achieve global task. And third, it's energy efficient. IBM's Bee AI agent is energy efficient. What exactly it means, it can be deployed in your on-premises environment with your less resource capacity. Also, it will not consume much energy from your on-premises servers. And again, it can be integrated with your IoT devices easily in your on-premises servers so that you can"
+ },
+ {
+  "id": "DJIEVPEyb8-",
+  "date": "20250501",
+  "ts": 1746135050,
+  "caption": "What is LangGraph? \n\n#langraph #aiagent #architectitcloud #govindhvaradharajan #ai #langchain #solutionarchtect #aiarchitect",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DJIEVPEyb8-/",
+  "duration": null,
+  "n": 8,
+  "transcript": "What is LangGraph? LangGraph is a framework that helps you to build AI agent, a powerful AI agent for your organization. And it is a framework on top of which you will use the large language models, tools, memory, and storage so that you can build a powerful AI agent. And that AI agent will not only respond to your queries, or respond to your task, or execute the task, but also it will go by its own. It will stop when some task fails, and if needs to be looped for executing multiple tasks. So these are all achieved with the help of LangGraph. So basically, if you imagine that LangChain is an engine of your car, and LangGraph is the GPS and control system that will make your car go in right direction and stop or start whenever needed."
+ },
+ {
+  "id": "DNJjIcYufDQ",
+  "date": "20250809",
+  "ts": 1754774671,
+  "caption": "What is GPT-OSS? #gptoss #gpt5 #architectitcloud #govindhvaradharajan #ibm #watsonx #gpt",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DNJjIcYufDQ/",
+  "duration": null,
+  "n": 9,
+  "transcript": "Yesterday OpenAI released two powerful GPT-5 models: GPT-OSS 120 billion parameters and GPT-OSS 20 billion parameters. What are these two models? You might have heard a lot about these two models across the world, either through the blog or video or any type of social media content, right? I am not going to talk more about these two models, but a small information. What exactly GPT-OSS means? GPT means Generative Pre-trained Transformer. This is one of the architectures used to build the model, and version five is the current version. And OSS is open source software. And 120 and 20 are the billion parameters used to train these models. And GPT-OSS 120 is used for the enterprise applications. This needs a lot of resources. So if you are an enterprise, go and explore this model. And GPT-OSS 20 billion parameters can be used in your desktop or laptop for your personal work or your small-scale application works. Go and explore it. And IBM has incorporated GPT-OSS 120 billion parameters in watsonx.ai. And if you are an enterprise already using watsonx.ai, this GPT 120 billion parameter is already available and go and explore."
+ },
+ {
+  "id": "DR_L9TIDcqa",
+  "date": "20251208",
+  "ts": 1765164477,
+  "caption": "#aiarchitect #aijob #startup #enterprise #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DR_L9TIDcqa/",
+  "duration": null,
+  "n": 10,
+  "transcript": "Same title, different job categories. If you want to explore more about the latest AI frameworks, and experiment it fast, fail fast, and learn fast, and implement it in your organization, you must choose a startup company and join as AI solution architect. Otherwise, if you wanted to look into the enterprise-level AI architect jobs, learn about the governance, security, scalability, reliability, and other non-functional requirements which are required for the enterprises, and join as AI solution enterprise architect so that you can learn more about the standard procedures which are required for enterprises and implement it, and give the benefit to your organization."
+ },
+ {
+  "id": "DSG7BPFFGpG",
+  "date": "20251211",
+  "ts": 1765423800,
+  "caption": "Key Skills for AI Architects - 2026 #govindhvaradharajan #architectitcloud #aiagent #aiarchitect #aijobsearch",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DSG7BPFFGpG/",
+  "duration": null,
+  "n": 11,
+  "transcript": "These are all the five non-negotiable skills that you must have in 2025 and 2026. The first one, you must know about the AI services used in your favorite cloud of choice. If you are using IBM Cloud, know about watsonx.ai, and if you are using AWS, know about SageMaker, Bedrock, and all those stuffs. And uh second thing is, you must know about the LLMs being used in your project or you're planning to use. For example, the LLM produced by IBM is Granite, and uh if you want to use Granite for your uh enterprise-level use cases, you must know about it. And likewise, if you are using AWS Cloud, think about the LLMs produced by them, and go and explore the open source LLMs in Hugging Face, and use them effectively. And third one, containerization. You must know about the containerization concept, because if you are deploying AI agent, it's not going to be running on your uh on-premises, it may run on your cloud and on-premise on-premises. So you must have this hybrid cloud strategy for all AI agent solutions. And the fourth, you must know the frameworks like LangGraph, Langflow, LangChain, watsonx Orchestrate. These frameworks will help you to build effective AI agent, so that you can be an expert as AI architect. And fifth one, last but not the least, you must know about the observability frameworks like Instana, and um other observability frameworks produced by your major cloud service providers for observing the behaviors of AI agent, and learn from the observability and help out your organization. So these are all the five major areas you must keep in mind and sharpen your knowledge to survive better in 2026. All the best."
+ },
+ {
+  "id": "DSRKtImlAlr",
+  "date": "20251215",
+  "ts": 1765767600,
+  "caption": "What are the four principles of AI governance framework?\n#aijob #aigovernance #aiarchitecture #aiarchitects #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DSRKtImlAlr/",
+  "duration": null,
+  "n": 12,
+  "transcript": "Why enterprises are paying high premium for AI projects? These are all the four main reasons. These are all nothing but called AI governance framework. First one, AI explainability. What exactly it means? When you are an enterprise and adopting AI model for your AI project, that model should have the transparency and clear explainability. And second thing is, when enterprises build the AI project, they build the responsible AI project. What it means, it'll not behave weird, it'll not get affected by the vulnerabilities, it'll not respond in bad manner. And third one, the enterprises care about the compliances, security of the AI projects. And fourth one, the enterprises are very keen about observability of the AI models and AI projects. So, if you are an enterprise and releasing the AI project for the business, you must follow these four principles of AI governance framework."
+ },
+ {
+  "id": "DTAvhrakWG4",
+  "date": "20260102",
+  "ts": 1767364087,
+  "caption": "#happynewyear #health #career #worklife\u2764\ufe0f#govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DTAvhrakWG4/",
+  "duration": null,
+  "n": 13,
+  "transcript": "Happy New Year everyone. Make this year grand, successful, healthy, and prosperous for you. How can you do that? First focus on your life and work will come next. Focus on your health priorities. Make sure that you enjoy your life with good thoughts, workout, meditation, yoga, etc. And then parallelly focus on what you want to achieve in your life. Fix your goal, identify your purpose, work for that. When you have better health, you can work better for your career. Balance these two. Enjoy your life. Keep exploring. All the best."
+ },
+ {
+  "id": "DTNc3Q2DYvz",
+  "date": "20260107",
+  "ts": 1767790447,
+  "caption": "AI Architect Career - How to be successful?\n\n1. Learn\n2. Listen podcast \n3. Understand the concepts\n4. Share your understanding \n5. Implement what you learnt\n5. Contribute to the society \n\nBooks:\n\nAI Engineering - https://a.co/d/fvgV2Lm\nDesigning Autonomous AI - https://a.co/d/bdR6SCB\n\n#aiarchitect #aicareers #aijobs #successtips #architectitcloud govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DTNc3Q2DYvz/",
+  "duration": null,
+  "n": 14,
+  "transcript": "Happy New Year everyone. Make this 2026 so successful in your career by following certain rules. Suppose if you want to become AI architect or Enterprise AI architect or Solution architect, identify the right articles, webinars, and videos and podcast. Focus on spending time in listening to this, and collect right books. I have provided some of the books in the description, and go and explore those books. Start reading. Not only reading, but also start contributing your understanding about the technology to the society in the form of blogs, vlogs, and videos. This way, you can improve your skill, technology, and etc. in your area. And also seek for right project in your organization to implement whatever you have learned. This way, you can make your career so successful, and help others as well. Take care. All the best. Bye."
+ },
+ {
+  "id": "DYNtUOhPWai",
+  "date": "20260511",
+  "ts": 1778536473,
+  "caption": "Generative AI Explained Simple #genai #explainedsimply #aisimplified",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DYNtUOhPWai/",
+  "duration": null,
+  "n": 15,
+  "transcript": "Generative AI is a branch of artificial intelligence wherein you input the different types of data and statistics so that it will generate a new output based on the input information that you provide with. If you take an example of setting up a transportation system for your city, you need the transportation data, metadata, everything, right? If you feed in these details to the generative AI, it will generate a new route or map for your transportation system. And if you are a cloud architect and setting up infrastructure for your applications, give in the input as configuration and other metadata to this generative AI so that it will generate a new infrastructure configuration setup for your applications to run in the cloud infrastructure."
+ },
+ {
+  "id": "DYQXHdcgElA",
+  "date": "20260512",
+  "ts": 1778625500,
+  "caption": "",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DYQXHdcgElA/",
+  "duration": null,
+  "n": 16,
+  "transcript": "If you are starting to learn about Generative AI, start with one particular model and explore that model and know how to prompt that model with the data. So basically, when it comes to Generative AI, there are plenty of models available like foundational model, GAN, VAE. All these models are basic models available in Generative AI. So if you want to start with learning about this Generative AI, pick one particular model and see how that model will solve your business use case. This is the way to start exploring the Generative AI career in your career path."
+ },
+ {
+  "id": "DYVil5XBGvB",
+  "date": "20260514",
+  "ts": 1778799448,
+  "caption": "Top AI certifications! #aiarchitect #architectitcloud #govindhvaradharajan #aiagent #aicareers",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DYVil5XBGvB/",
+  "duration": null,
+  "n": 17,
+  "transcript": "Here are the top five Generative AI certification courses: IBM Certified Data Science Associate, IBM Certified Data Science Professional, Azure Certified Data Science Associate, Google Cloud Certified Data Science Associate, and AWS Certified Machine Learning Expert."
+ },
+ {
+  "id": "DYiVBKDNzMC",
+  "date": "20260519",
+  "ts": 1779228389,
+  "caption": "",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DYiVBKDNzMC/",
+  "duration": null,
+  "n": 18,
+  "transcript": "These are all the five non-negotiable skills that you must have in 2025 and 2026. The first one, you must know about the AI services used in your favorite cloud of choice. If you are using IBM Cloud, know about watsonx.ai, and if you are using AWS, know about SageMaker, Bedrock, all those stuffs. And the second thing is you must know about the LLMs being used in your project or you are planning to use. For example, the LLM produced by IBM is Granite, and if you want to use Granite for your enterprise-level use cases, you must know about it. And likewise, if you are using AWS Cloud, think about the LLMs produced by them and go and explore the open-source LLMs in Hugging Face and use them effectively. And third one, containerization. You must know about the containerization concept because if you are deploying AI agent, it's not going to be running on your on-premises, it may run on your cloud and on on-premises, so you must have this hybrid cloud strategy for all the AI agent solutions. And the fourth, you must know the frameworks like LangGraph, Langflow, LangChain, watsonx Orchestrate. These frameworks will help you to build effective AI agent, so that you can be an expert as AI architect. And fifth one, last but not the least, you must know about the observability frameworks like Instana and other observability frameworks produced by your major cloud service providers for observing the behavior of AI agent and learn from the observability and help out your organization. So, these are all the five major areas you must keep in mind and sharpen your knowledge to survive better in 2026. All the best."
+ },
+ {
+  "id": "DY7zMTuzP7h",
+  "date": "20260529",
+  "ts": 1780083060,
+  "caption": "Pre-Interview prep tips\n\n1. Go through company profile to understand the strategy \n2. Go through JD and match with your experience \n3. Mock interviews & correct mistakes\n4. One key innovative project\n\n#SolutionArchitect #InterviewTips #CareerAdvice #TechCareers #Architecture #EnterpriseArchitecture #ITCareers #InterviewPrep #JobSearch #CareerGoals #architect #leader #architectitcloud #govindhvaradharajan #govindh #enterprisearchitect #cloudarchitect",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DY7zMTuzP7h/",
+  "duration": null,
+  "n": 19,
+  "transcript": "Follow these four pre-interview preparation tips. First, go through the company profile and understand what modernization journey or cloud migration journey the company is in and understand their strategy. Second, go through the job description and understand thoroughly, and match the job description with your experience, and make sure that your experience matches with job description perfectly. Third, pick your close friend and do mock interview. Once the mock interview is done, get the feedback from your friend, and if there are any mistakes, correct those. Fourth, get one key project or innovative project that you implemented in your previous company, and make sure that you have thorough knowledge on that particular project and explain clearly to the interviewer."
+ },
+ {
+  "id": "DZ6PlMMsKU6",
+  "date": "20260623",
+  "ts": 1782178437,
+  "caption": "Enterprise AI Architect Guide - Available in Amazon #architectitcloud #aiarchitecture #aibook #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DZ6PlMMsKU6/",
+  "duration": null,
+  "n": 20,
+  "transcript": "Hello friends, how are you doing today? I just wanted to share a happy news that I published my second book. This is Enterprise AI Architect Guide that talks about Gen AI and AI Agent architectures. This contains all the practical implementation techniques that I followed in my projects and also it has all the best practices that you must follow as an enterprise AI architect while implementing the project for your organization. And it starts with the basic concepts of AI, Gen AI, AI Agent, how these concepts are effectively used in enterprises and how not to fail while implementing these AI agent projects for your organization. And if you are a consultant talking about or implementing AI agent project for your organization or your customer, this book is the best book for you to go and learn more about how to implement AI agent project without failing that project in the production. And also it has the best patterns like RAG architectures, human-in-the-loop architectures, and also the ReAct architecture details, etcetera, how they were implemented practically in organizations. And last but not least, you can get the tips and tricks to survive in this AI agent era, whether you are a developer, a solution architect, or enterprise architect, or tester, what are all the basic things that you must need to do to survive best in this AI world. This book is available in Amazon. I have provided the links in the description. You can go and buy and enjoy your book. Be successful in your AI career. All the best."
+ },
+ {
+  "id": "DaCAydutlCD",
+  "date": "20260626",
+  "ts": 1782439134,
+  "caption": "My First Book for Solution Architects!!\n#solutionarchitect #bestbook #aisolutions #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DaCAydutlCD/",
+  "duration": null,
+  "n": 21,
+  "transcript": "Hello friends, how are you doing today? Thank you so much for your overwhelmed response for my second book release. And many of you asked about my first book, what it is about. And in this video, I just wanted to talk a little bit about my first book. And this is my first book, all about IT trends for the solution architects. All the concepts explained with analogy so that you can easily understand. A bit about this book, it has like 25 chapters. All chapters are specifically designed and worked out and written for the solution architects. So if you want to pursue a career as a solution architect, either a platform solution architect, or infrastructure solution architect, or data solution architect, or AI solution architect, this book is the best book for you. It is available in Amazon, you can go and place your order and read the book out. So this will be helpful for you to excel in your job and succeed in your organization as a solution architect, and especially if you want to know the basics of the solution architect stuffs and principles, and this book is the one that will help you to do that. And get this book, and shape up your knowledge, and succeed in your organization and career. All the best."
+ },
+ {
+  "id": "DaUEmmAs5od",
+  "date": "20260703",
+  "ts": 1783045114,
+  "caption": "What is inference economy?\n#token #tokencost #aiinference #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DaUEmmAs5od/",
+  "duration": null,
+  "n": 22,
+  "transcript": "Tokens are new currencies now. You must know about inference economy or AI FinOps. These two are very important if you are an AI agent developer or AI developer, because the amount of money that you spend on the tokens to call the LLMs or SLMs matter, right? So, if you are using LLM or small language model for your business purpose, strategically use the small language model for the classification types of work and use the large language model for the complex analysis works. This way, you can save money on spending for the tokens."
+ },
+ {
+  "id": "DaapIJbBwuJ",
+  "date": "20260705",
+  "ts": 1783265698,
+  "caption": "Guardrails as Code - GaC #aiguardrails #gac #aiarchitecture #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DaapIJbBwuJ/",
+  "duration": null,
+  "n": 23,
+  "transcript": "guardrails as code has been a popular concept going around in the AI agent projects. So when you start implementing AI agent project, the guardrails are very very important starting from your prompting, inferencing and implementing AI agent architecture. Guardrails are very very important, right? So guardrails as code is nothing but giving your policy details, governance details in CI/CD pipeline and it takes those policies and governance and makes sure that your AI agent project from starting to end follows all the guardrails needed for executing this project. So this is called guardrails as code. Go and explore and if you have any chance to implement, implement in your organization and get complete benefit out of this concept. Take care."
+ },
+ {
+  "id": "DaeVmPtOwLb",
+  "date": "20260707",
+  "ts": 1783389754,
+  "caption": "What is the highest paying job now ?\n#highpay #aijob #aiarchtect #architectitcloud #govindhvaradharajan\n\nLinkedIn - https://www.linkedin.com/in/govindhv/ \n\nLinkedIn News-letter Series - Subscribe on LinkedIn \nhttps://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6878430018138058752 \n\nYouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1 \n\nBook for Solution Architects - https://a.co/d/0h1nhAVp \n\nBook for Enterprise AI Architects - https://a.co/d/04gWmmHr \n\nCoaching Appointments - https://architectitcloud.com/#c87768e9-1a2b-4cec-aa06-dce528a39c6d \n\nCoaching Appointment ADPList - https://adplist.org/mentors/govindh-varadharajan \n\nCoaching Appointment Topmate \u2013 https://topmate.io/govindh_varadharajan \n\nWhatsApp Community - https://whatsapp.com/channel/0029VaATzdeFsn0fmbcBow2V",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DaeVmPtOwLb/",
+  "duration": null,
+  "n": 24,
+  "transcript": "The highest paying job is not data scientist anymore. It is going to be AI cloud architect. What exactly the role means? You must know about agentic infrastructure. You must know about how to build the agentic infrastructure. What it means? You must need to know about the infrastructure components and technologies like Kubernetes, Terraform, and you must understand how to bridge the connection between the infrastructure and the AI agents which are running in the infrastructure. Also, you must need to know how to create the pipe between two agents and what are all the infrastructure technologies involved in this particular process. This way, you can equip yourself as AI cloud architect and get into a highest paying job in the market."
+ },
+ {
+  "id": "DajhFJdhknM",
+  "date": "20260709",
+  "ts": 1783563381,
+  "caption": "Context Curator Architect Job!!\n#aijobs #aiarchitecture #architectitcloud #govindhvaradharajan #enterpriseai",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DajhFJdhknM/",
+  "duration": null,
+  "n": 25,
+  "transcript": "By now you might have got to know about the coding can be completely written and executed by LLM. So, as a software engineer, you might think that you lost your job. But here is the catch. The LLM can generate all the codes for your project. But your syntax writing skill is critically important for completing the project. So, make sure that you get into this role called context curator. What exactly this role means? As a context curator architect, you must think in terms of the system guardrails, memory schemas, and where exactly the data boundaries should be defined. All those things must be defined clearly and prepared and executed as a task for your LLM to generate the code. So, explore about context curator architect. This role is emerging, and it's going to rule the IT world. So, get familiar with this, and get into this role, and land in a big job. All the best. Take care."
+ },
+ {
+  "id": "DamJ0hlPI2z",
+  "date": "20260710",
+  "ts": 1783651752,
+  "caption": "AI career advice!!\n#aicareer #aijobsearch #aiarchitect #govindhvaradharajan #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DamJ0hlPI2z/",
+  "duration": null,
+  "n": 26,
+  "transcript": "By now, you might have got into an advertisement where the bigger institutes are reaching you out to join for a course like uh the executive officer course or any AI agent related course. They may charge for like $5,000 to $10,000. So, in my research, I would not recommend you to go and spend that much money and time in completing those type of courses. So, if you want to get your profile tied up with AI features and technologies, all I would recommend you to is to go and build your own AI agent with the help of the tools available in the market. There are plenty of uh AI tools and technologies available. All you need to do is spend some dollars to subscribe to those uh features and start building your own AI agent, and embed that into your resume as your personal interest in building AI agent, or if you're an organization where you are already running some types of project and modernizing that project into AI-related project, get your hands dirty in building AI agent. So, this way is better compared to spending too much money and time in the bigger popular institutes to learn about the AI agent, and if you would like to do some certification on the AI agent side, go and explore in the major service providers like IBM, AWS, Google, Azure, etc. But uh more than that, I would recommend you to go and build your own AI agent and explore all the tools and technologies available in the market, and build your own um project if your organization is not there yet. And if your organization is there yet in building AI agent, then go and get an opportunity to build for it. This way, you can modify or equip yourself with the latest AI agent technologies. All the best."
+ },
+ {
+  "id": "Dao2xwAvTpO",
+  "date": "20260711",
+  "ts": 1783742473,
+  "caption": "What is cloud 3.0?\n#cloud #aicloud #aiarchitecture #govindhvaradharajan #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Dao2xwAvTpO/",
+  "duration": null,
+  "n": 27,
+  "transcript": "Do you know that we are living in cloud 3.0? What exactly cloud 3.0 era? Prior to this cloud 3.0, we were living in cloud 2.0 where we utilized the cloud environment or infrastructure for deploying our workload, running our workload in the public cloud or private cloud. And now after A has come, we are living in cloud 3.0 era. What exactly it means, you can run your AI workloads in the cloud. At the same time, you can connect your AI workloads which are running in the cloud to the on-premises workload in your local environment by using hybrid cloud concept. And also you can utilize the AI capabilities provided by cloud service providers and also scale your AI system effortlessly. So, this era of integrating AI workloads with your cloud of choice is called Cloud 3.0."
+ },
+ {
+  "id": "DarPWOQMzsx",
+  "date": "20260712",
+  "ts": 1783822483,
+  "caption": "One another emerging AI Job!\n#highpayingcareer #aijob #aiarchitect #govindhvaradharajan #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DarPWOQMzsx/",
+  "duration": null,
+  "n": 28,
+  "transcript": "There is one another job role emerging in this market that's called agent orchestrator. What exactly it means? If you are an enterprise or organization, you may have the digital agents helping your operations team. For example DevOps team, DevSecOps team, to intelligently automate the some of the tasks. So those agents will help your organization to save money, and also increase the efficiency. But we cannot completely rely on these digital agents. You must have one human in the loop to manage these digital agents. That role is called agent orchestrator. This role has been emerging in job market. Go and explore and get land in a job."
+ },
+ {
+  "id": "DavPw32yYTa",
+  "date": "20260713",
+  "ts": 1783956915,
+  "caption": "Why high paying AI Architect role is in demand ?\n#highpayingcareer #aiarchitect #jobdemand #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DavPw32yYTa/",
+  "duration": null,
+  "n": 29,
+  "transcript": "Hello architects, I just wanted to pass this message. If you look at the current job market, there are huge requirements for AI architects. And why is this happening now? Because most of the organisations are having legacy systems, and they need to know how to integrate this legacy systems with AI, either GenAI or Agentic AI, etc. So the AI architect roles are demanding and high demanding in the job market. And second one is most of the organisations are dealing with multi-cloud, either they may use Azure, AWS, IBM, Google Cloud, or their own on-premises environment, or they may have their own private cloud. So integrating this multi-cloud with AI is another key challenge. So they are expecting some experienced AI architects. And the third thing is since AI is more prone to the vulnerabilities and attacks, they must need the governance, security, and the AI expert who has this knowledge. So if you are an AI architect looking for a job, go and explore all these things, and you will definitely land on high-paying AI architect role. All the best."
+ },
+ {
+  "id": "Daxtl1xJ1Ph",
+  "date": "20260714",
+  "ts": 1784039613,
+  "caption": "Top AI trends in Enterprises!\n#topai #aitrend ##rag #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Daxtl1xJ1Ph/",
+  "duration": null,
+  "n": 30,
+  "transcript": "Here are the top AI agent trends in 2026. Most of the organizations are started moving away from rigid RPA systems to AI agent-based systems. And also, the operations are being executed with the help of multi-agent system in most of the enterprises. And key frameworks like ReAct and ReWOO are so popular, and most of the organizations are adopting this type of framework. What framework are you learning? Comment in the comment box below."
+ },
+ {
+  "id": "Da0dNIMxwNM",
+  "date": "20260715",
+  "ts": 1784132607,
+  "caption": "AI Architect Interview Tips!\n#aiinterview #aiarchitect #intervietips #architectitcloud\n\nLinkedIn - https://www.linkedin.com/in/govindhv/ \n\nLinkedIn News-letter Series - Subscribe on LinkedIn \nhttps://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6878430018138058752 \n\nYouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1 \n\nBook for Solution Architects - https://a.co/d/0h1nhAVp \n\nBook for Enterprise AI Architects - https://a.co/d/04gWmmHr \n\nCoaching Appointments - https://architectitcloud.com/#c87768e9-1a2b-4cec-aa06-dce528a39c6d \n\nCoaching Appointment ADPList - https://adplist.org/mentors/govindh-varadharajan \n\nCoaching Appointment Topmate \u2013 https://topmate.io/govindh_varadharajan \n\nWhatsApp Community - https://whatsapp.com/channel/0029VaATzdeFsn0fmbcBow2V",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Da0dNIMxwNM/",
+  "duration": null,
+  "n": 31,
+  "transcript": "When you appear for AI architect interview, sometimes they may ask you to white board key items. These are all the main key areas that you must need to focus and be ready to whiteboard with the interviewer. And first one is AI agent orchestration flow. How AI agent orchestration works, how multiple agents communicate with each other, and how you are going to achieve their use case with a multi-agent workflow. And second thing is state management and memory, tool selection. How the agents are maintaining the states, and how agents are selecting the tool to perform a task. So you must need to know how to whiteboard these details for the interviewer. And third one, you must need to know how to explain the security and governance part of AI agent orchestration. Master all these three areas and get pass through the interview. All the best."
+ },
+ {
+  "id": "Da7x4dzhsDZ",
+  "date": "20260718",
+  "ts": 1784377469,
+  "caption": "Red Flags - AI Architect Interview\n#aiarchitect #interviewtips #aicareer #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Da7x4dzhsDZ/",
+  "duration": null,
+  "n": 32,
+  "transcript": "These are all the red flags when you are attending interview for AI architect role. If you are not able to explain the trade off concept, for example, if you don't know when to use large language model and when to use small language model and when to go for high accuracy model and when to go for low accuracy model, so these are all the tradeoffs that you must need to know about AI project when you implement for your organization. If you don't know anything about trade off, that's a red flag for you. So learn about it. And second one, vector database. If you are an AI architect and implementing AI project for your organization, you must know how to utilize vector database properly, and if you don't know, that's going to be a red flag for your interview. And the third one is model governance and implementation of AI project in the production. If you have not done this, it's going to be hard for you to crack the interview. So get familiarize with these topics and understand it well and try deploying the project in production for your organization and get that experience and go and knock out the interview. All the best."
+ },
+ {
+  "id": "DbA-QqCSVmJ",
+  "date": "20260720",
+  "ts": 1784551805,
+  "caption": "How to secure an Enterprise AI Architect offer ?\n#aiarchitect #intervirewpreparation #aioffer #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbA-QqCSVmJ/",
+  "duration": null,
+  "n": 33,
+  "transcript": "If you want to secure an offer as enterprise AI architect, nail these five topics. First one, explain about how do you implement multi-agent system for your organization for a particular use case. For example, how do you implement multi-agent systems for customer support organization? Second thing, how do you implement AI governance for your AI project? And third one, how do you implement model observability when you implement AI agent project for your organization? And fourth one, how do you implement MLOps pipeline for your end-to-end AI agent project? And last one, but not the least, how do you approach the prompt engineering when you implement AI agent project for your organization? If you get to know about all these five areas well, definitely you can secure an AI architect offer in your career. Make sure that you nail all these topics. All the best."
+ },
+ {
+  "id": "DbGARo2SSvD",
+  "date": "20260722",
+  "ts": 1784720610,
+  "caption": "How to get more interview calls ?\n#aiarchitect #github #aiinterviews #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbGARo2SSvD/",
+  "duration": null,
+  "n": 34,
+  "transcript": "If you want to get more interviews for your AI architect role, make sure that your GitHub repository is updated with right details. Your README should contain the architecture views, demos, and architecture details, and your GitHub repository should cover governance, security, and observability. And also, you should showcase your end-to-end thinking in your GitHub repository. All these three things are mandatory if you are applying for AI architect role and would like to get more interviews. All the best."
+ },
+ {
+  "id": "DbIpeCQhI8a",
+  "date": "20260723",
+  "ts": 1784809312,
+  "caption": "3 AI Architect Roles Paying $200k!\n#highpay #aiarchitect #ea\u00ed #aicareer #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbIpeCQhI8a/",
+  "duration": null,
+  "n": 35,
+  "transcript": "What are the three AI architect roles that pay you 200K? One, Enterprise AI Architect. He who designs the enterprise AI strategies and focusing on the AI governance, and he aligns the AI with the business. Two, the Solution AI Architect or AI Solution Architect. He who designs the AI system end-to-end, and provides the solution to all AI-related problems. Three, the Cloud AI Architect. He who knows the AI services which are running in the cloud, and he builds the AI application which are cloud-native, and deploys the application in the cloud platform."
+ },
+ {
+  "id": "DbLdDR8vKUi",
+  "date": "20260724",
+  "ts": 1784903466,
+  "caption": "Why your AI Architect resume rejected?\n#airesume #aijobtips #architectitcloud #govindhvaradharajan #growthmindset",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbLdDR8vKUi/",
+  "duration": null,
+  "n": 36,
+  "transcript": "Why your AI Architect resume is rejected? Here are some of the common reasons. Do not mention that I am AI enthusiast and AI aspirants, something like that in their resume. Give the real work what you have done by using RAG framework or React framework, and showcase the savings in terms of the percentage or dollar value. And second thing is, always mention that the articles or any work that you published in any of the social media, that will definitely add value to your resume. And third thing, make sure that you highlight the key works that you have done in the project as a single-handed person along with the team."
+ },
+ {
+  "id": "DbN0gO7sGIf",
+  "date": "20260725",
+  "ts": 1784982961,
+  "caption": "Gen-AI Architect Career Tips\nPlease watch this playlist. I have provided where and how to start with - https://youtube.com/playlist?list=PLQJXmsqq_lEm6z9IN7N7ywjJkplEMo3dk&feature=shared\n#genai #careeradvice #aisolutionarchitect #govindhvaradharajan architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbN0gO7sGIf/",
+  "duration": null,
+  "n": 37,
+  "transcript": "Want to pursue your career as a generative AI solution architect, especially in this era? What are all the things that you must do? You must know about what are all the generative AI models available in the market. And second thing is you must know how those models can be integrated nicely with your existing project. And also, you must know how to identify the right use case for your organization and right generative AI model to use in that use case. So, these are all the qualities of a generative AI solution architect. I have provided a couple of links in this description. You can go and explore and get to know more about how you can pursue your career as a generative AI solution architect. Take care. Bye."
+ },
+ {
+  "id": "DbQ7TcVpsbG",
+  "date": "20260726",
+  "ts": 1785087331,
+  "caption": "AI Agent Frameworks Learnjg. - Stages!!\n#ailearning #aibasics #architectitcloud #govindhvaradharajan #aicareer",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbQ7TcVpsbG/",
+  "duration": null,
+  "n": 38,
+  "transcript": "Hello friends, how are you doing today? In this shot, I'm going to explain what are all the AI agent frameworks, tools, and services available for you to explore in different stages. For example, if you're a beginner and you wanted to explore more about AI agent solutions, go for LangChain family. LangChain family has LangChain, LangGraph, LangFlow, and LangSmith. These are all the frameworks available for you to build AI agent and play around and get your hands dirty, and make sure that you understand the concept perfectly. And second thing is, suppose if you are using any of the AWS services, Azure services, Google Cloud services, and you can go and pick the service which is specific for your particular need, and then use the AI agent services for your project. This is simply like going to food court and explore what are all the food options available, and pick the right food that you want to eat, right? And the third option is enterprise-level AI agent solutions. For this, you must need to go with IBM. IBM has watsonx.data, watsonx.ai, watsonx.orchestrate. And these frameworks are AI agent frameworks which are built and be ready to use for you to implement the enterprise-level project in your AI journey."
+ },
+ {
+  "id": "DbPcr21vSnG",
+  "date": "20260726",
+  "ts": 1785037495,
+  "caption": "One another high demanding AI job in Enterprises!\n#aiops #devops #jobsearch #govindhvaradharajan #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbPcr21vSnG/",
+  "duration": null,
+  "n": 39,
+  "transcript": "Most of the companies are desperately looking for this particular role: AIOps agent for DevOps. You must know how to build the automatic incident detection, and you must know how to implement self-healing workflows, and you must know how to implement observability with the help of Langfuse. If you know all these skills and if you have experience on it, you are going to rock in this job market. Look for this AI agent DevOps role for your career development."
+ },
+ {
+  "id": "DbTXSl3NTk5",
+  "date": "20260727",
+  "ts": 1785168980,
+  "caption": "Architecture Shift - Solution Architecture to AI Solution Architecture - Enterprise AI Architecture #gethotjob #learnaiarchitecture #support #encourage #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbTXSl3NTk5/",
+  "duration": null,
+  "n": 40,
+  "transcript": "Hello friends, I hope everyone is doing great. I have been producing a lot of contents about solution architecture, enterprise architecture, cloud architecture, etc. And you might be enjoying in YouTube channel, as well as LinkedIn as newsletter series. And if you look at the current era, the architecture is shifting from the legacy to AI-based architecture. Either it is solution architecture, it is shifting from solution architecture to AI solution architecture. And if it is an enterprise architecture, there is a major shift happening from enterprise architecture to enterprise AI architecture. And if your company or organization has been using cloud architecture, this transition is happening from legacy cloud architecture to cloud AI architecture. So my goal is to produce all these AI-infused architecture, and I will post all these contents in YouTube and as well as LinkedIn. I have provided the links to subscribe and support me so that I can produce a lot of contents for our knowledge development. We can collaborate a lot, and then we'll work together and be successful in this AI architecture era. Take care, bye."
+ },
+ {
+  "id": "DbV8BaYB2DO",
+  "date": "20260728",
+  "ts": 1785255276,
+  "caption": "AI as a Service!  AIaaS #aiaas  #aws #azure #ibm",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbV8BaYB2DO/",
+  "duration": null,
+  "n": 41,
+  "transcript": "AI-as-a-service is a service provided by many public cloud service providers by pre-training generative AI models to your organization. Amazon AWS AI services, IBM Watson AI services, Azure Cognitive Services are key AI generative AI services available for you to use in your organization."
+ },
+ {
+  "id": "DbYgwSmtX7V",
+  "date": "20260729",
+  "ts": 1785341541,
+  "caption": "Building AI Agent Workflow Automation? Do these!!\n#aiagent #workflow #aiautomation #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbYgwSmtX7V/",
+  "duration": null,
+  "n": 42,
+  "transcript": "If you are building an AI agent workflow automation for your organization, consider these three major components: the first one is automated task execution, and second one is multi-agent coordination, and third one is business process transformation. Deep dive these three topics, and get to know more about all these three components before building an AI agent workflow automation for your organization. All the best."
+ },
+ {
+  "id": "DbbQSqOpv3-",
+  "date": "20260730",
+  "ts": 1785433536,
+  "caption": "AI Agents - Explained Simple!\n#aiagents #explainedsimply #ailearning #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbbQSqOpv3-/",
+  "duration": null,
+  "n": 43,
+  "transcript": "Suppose if you are planning to buy a home, think about going and exploring all the locations and amenities that you need to buy the home, compared to having an agent helping you to find out all these facilities and book a home for you. And if you're looking for a financial advice, compare the work that you do to explore all the options to invest with financial advisor helping you to identify right investment plan for you. So AI agents are like this. They help you to achieve your business goal with the help of the artificial intelligent framework that will do all the tasks to achieve the business goal rather than you focusing on executing each and every task to achieve the business goal."
+ },
+ {
+  "id": "DbdlCDMMWdN",
+  "date": "20260731",
+  "ts": 1785511613,
+  "caption": "New Reel-Series | Season 1 - AI Solution Architect Career Transformation | Episode 1 - Certification #aicareercoach #aicareer #aijobs #architectitcloud #govindhvaradharajan\n\nLinkedIn - https://www.linkedin.com/in/govindhv/ \n\nLinkedIn News-letter Series - Subscribe on LinkedIn \nhttps://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6878430018138058752 \n\nYouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1 \n\nBook for Solution Architects - https://a.co/d/0h1nhAVp \n\nBook for Enterprise AI Architects - https://a.co/d/04gWmmHr \n\nCoaching Appointments - https://architectitcloud.com/#c87768e9-1a2b-4cec-aa06-dce528a39c6d \n\nCoaching Appointment ADPList - https://adplist.org/mentors/govindh-varadharajan \n\nCoaching Appointment Topmate \u2013 https://topmate.io/govindh_varadharajan \n\nWhatsApp Community - https://whatsapp.com/channel/0029VaATzdeFsn0fmbcBow2V",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbdlCDMMWdN/",
+  "duration": null,
+  "n": 44,
+  "transcript": "Hello friends, how are you doing today? I just started this series called reel series or short series. In this series, I'm going to host multiple seasons and each season is going to have multiple episodes. For example, this season called AI solution architect career transformation helps you to understand what are all the details that you need to follow or what are all the details that you need to execute to become AI solution architect. There are multiple AI architect role like AI solution architect, enterprise AI architect, AI cloud architect, these are all high-paying architect roles, and each season I'm going to host multiple episodes. Under each episode, you can learn about how to transform your career from existing career to AI architect career. So, as part of this particular series, today you can start learning about how you can transition your current role to AI solution architect role. So, this particular season, we are going to start with first episode called certification. Suppose if you want to become a AI solution architect, first you should need to understand what are all the components in infrastructure, platform, and application layers. So, your infrastructure layer is the base for everything and on top of that, you will have platform layer and on top of that, you will have application layer. So, to want to become a solution architect, specifically AI solution architect, you must need to understand these three layers thoroughly. So, to start with, if you are using AWS as your favorite cloud of choice or Azure or IBM Cloud, go and explore one solution architect certification in these cloud areas and register for that cloud certification, go and complete that certification. This will give you a base of what exactly you should understand as AI solution architect. This is the base for your career to move with AI solution architect role. So, save this reel and share it to your friends so that they will also get benefit out of it, and I'm going to post the next episode tomorrow. Take care, bye."
+ },
+ {
+  "id": "DbgLBm8MEOT",
+  "date": "20260801",
+  "ts": 1785598567,
+  "caption": "Season 1 : AI Solution Architect Job Transformation | Episode 2 : Pick Your Base \n\n#aiarchitect #aisolutionarchitect #aicareercoach #highpay #architectitcloud\n\nLinkedIn - https://www.linkedin.com/in/govindhv/ \n\nLinkedIn News-letter Series - Subscribe on LinkedIn \nhttps://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6878430018138058752 \n\nYouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1 \n\nBook for Solution Architects - https://a.co/d/0h1nhAVp \n\nBook for Enterprise AI Architects - https://a.co/d/04gWmmHr \n\nCoaching Appointments - https://architectitcloud.com/#c87768e9-1a2b-4cec-aa06-dce528a39c6d \n\nCoaching Appointment ADPList - https://adplist.org/mentors/govindh-varadharajan \n\nCoaching Appointment Topmate \u2013 https://topmate.io/govindh_varadharajan \n\nWhatsApp Community - https://whatsapp.com/channel/0029VaATzdeFsn0fmbcBow2V",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbgLBm8MEOT/",
+  "duration": null,
+  "n": 45,
+  "transcript": "Hello friends, how are you doing today? As part of our solution architect transformation season, in the last episode, I was talking about completing one of the solution architect certification would give you the detailed information about infrastructure, platform, and application layers. Because these three layers are critical layers for a solution architect to survive better in this world. So in this episode, after completing this certification, you will get the knowledge about all these areas that is the base for becoming a solution architect. And it depends on what level of experience you have currently. Some of you might be developers, some of you might be with operations background, some of you might be with infrastructure provisioning background. So, depending on your base experience, you must need to focus on becoming one of the solution architects. For example, if you have have a lot of experience on provisioning the infrastructure, provisioning the compute, storage, configuring the network, all those stuffs, you must need to focus on becoming AI infrastructure solution architect. So, for this, you must need to learn about what are all the AI components involved in infrastructure provisioning. For example, Nvidia GPU configuration. You must need to know about what size of the GPU must be provisioned based on the parameters, large language model parameters. So, you must need to know how much storage is required to set up this AI infrastructure for your organization. So, this is how you will take off from the normal solution architect to AI infrastructure solution architect. And similarly, if you have the background with development experience, you must need to focus on AI developer solution architect. So, for this, you must need to know certain things on how to set up your development environment that has the Copilot usage or IBM Bob usage and how you can effectively write the code, all those stuffs. So, I'll cover in detail in the following episodes, but for now, after completing your AI solution architect certification, you must need to know about where to focus based on your base experience. I hope this helps. If you like this video, share and save this video and share it to your friends so that they will also get benefit out of it. Take care, bye."
+ },
+ {
+  "id": "Dbit0HlB7Bw",
+  "date": "20260802",
+  "ts": 1785684120,
+  "caption": "Resume Tips for Experienced Architects / Developers \n#resumetips #experienceddevelopers #solutionarchitects #enterprisearchitect \n\nLinkedIn - https://www.linkedin.com/in/govindhv/ \n\nLinkedIn News-letter Series - Subscribe on LinkedIn \nhttps://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6878430018138058752 \n\nYouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1 \n\nBook for Solution Architects - https://a.co/d/0h1nhAVp \n\nBook for Enterprise AI Architects - https://a.co/d/04gWmmHr \n\nCoaching Appointments - https://architectitcloud.com/#c87768e9-1a2b-4cec-aa06-dce528a39c6d \n\nCoaching Appointment ADPList - https://adplist.org/mentors/govindh-varadharajan \n\nCoaching Appointment Topmate \u2013 https://topmate.io/govindh_varadharajan \n\nWhatsApp Community - https://whatsapp.com/channel/0029VaATzdeFsn0fmbcBow2V",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Dbit0HlB7Bw/",
+  "duration": null,
+  "n": 46,
+  "transcript": "If you're an experienced developer or experienced architect and in the process of preparing a resume, keep following all these points. Keep the resume size as only two pages length, not more than that. And in that two pages, you must cover the profile summary, skills summary, key accomplishments that shows the value that you added to your organization. And next one is project experience. Do not have all the projects in your resume. Just collect select the key projects which are relevant to the job description you are going to apply, and the last section as the education. That's it."
+ },
+ {
+  "id": "DblYespBq4t",
+  "date": "20260803",
+  "ts": 1785773573,
+  "caption": "Season 1: AI Solution Architect Transformation | Episode 3: AI Infra Solution Architect | YouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1 \n\n#aiseries #aiarchitecture #aiinfrastructure #careergrowth #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DblYespBq4t/",
+  "duration": null,
+  "n": 47,
+  "transcript": "Season 1, AI solution architect transformation. Episode 3, AI infra architect. So if you are with a background of infrastructure architect or infrastructure solution architect background, providing the infrastructure in cloud environment or on-premises environment, you must shift your focus to the AI infra architecture. And if you have been working with Kubernetes, visual machine, etc., shift your focus to the GPU topology. What exactly the GPU topology means? You must need to understand H100 and GB200 NVIDIA architecture, and also you must need to know what exactly the InfiniBand and ROCE networking concept. And you must understand how the LLM gateway works to provision the gateway services to the AI applications. And if you are working on the regular cloud-based infrastructure, shift your focus to these areas. And if you would like to know more about this, subscribe to Architect IT Cloud channel. I have provided a lot of information around it. Take care, bye."
+ },
+ {
+  "id": "DbqAsE7vr3F",
+  "date": "20260805",
+  "ts": 1785928713,
+  "caption": "Season 1: AI Solution Architect Transformation | Episode 4: Model Inference Gateway | YouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1 \n\n#aiseries #aiarchitecture #aigateway #aimodel #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbqAsE7vr3F/",
+  "duration": null,
+  "n": 48,
+  "transcript": "Season one AI solution architect transformation episode four model inference gateway if you are planning to connect to an LLM from your enterprise application, do not directly connect to the LLM. This will have a lot of issues. So always use AI gateway. AI gateway sits between your enterprise applications and LLM service providers. It will act as a load balancing actor that load balances when you connect with multiple enterprise LLM providers, and also it gives you the automated throttling and rate limiting. And again, this AI gateway will help you to monitor your tokens and trace your to tokens when you connect to the LLMs provided by multiple service providers. If you would like to know more about what exactly the model inference gateway how AI gateway works, subscribe to Architect IT Cloud channels. I have provided a lot of information about it. Take care. Bye."
+ },
+ {
+  "id": "DbtCXMqS_wK",
+  "date": "20260806",
+  "ts": 1786030300,
+  "caption": "Season 1: AI Solution Architect Transformation | Episode 5: GPU Infrastructure | YouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1 \n\n#aiseries #aiinfrastructure #gpu #nvidia #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbtCXMqS_wK/",
+  "duration": null,
+  "n": 49,
+  "transcript": "Season one AI solution architect transformation episode five GPU infrastructure when you worked as cloud infrastructure architect you might have provisioned the VMs the on premises environment or you might have provisioned EC2 instance the AWS cloud and VMs in other cloud service providers. Now when you transition yourself from cloud infrastructure architect to AI infrastructure architect you must need to know about what exactly SLURM is what exactly Ray is and what exactly MIG is. SLURM is the CPU or GPU partitioning you can do it in the infrastructure level and machine level. Ray is helping you out to provision the in memory in the application level with the Python applications. And MIG is multi instance GPU. It is provided by NVIDIA. It's an architecture where you can split the GPU literally into multiple instances. For example, if you get a GPU that has a full memory, you can slot it out with max seven partitions physical partitions. So these are all the concept that you must need to know to become AI infrastructure architect. Go and explore all these technologies to succeed your transition from classic cloud infrastructure architect to AI infrastructure architect. And subscribe to my architect edu cloud channel. You can get more about these concepts. Take care. Bye."
+ },
+ {
+  "id": "DbvudB0OTq-",
+  "date": "20260807",
+  "ts": 1786120559,
+  "caption": "Solution Architect Career Transformation | Classic SA to AI SA  #aisolutionarchitect #aicareertransformation #architectitcloud #jobchange #govindhvaradharajan  LinkedIn - https://www.linkedin.com/in/govindhv/ \n\nLinkedIn News-letter Series - Subscribe on LinkedIn \nhttps://www.linkedin.com/build-relation/newsletter-follow?entityUrn=6878430018138058752 \n\nYouTube - https://www.youtube.com/@ArchitectITCloud?sub_confirmation=1",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DbvudB0OTq-/",
+  "duration": null,
+  "n": 50,
+  "transcript": "solutions architect career has been transitioning from classic solutions architect roles to AI based solutions architect roles suppose if you have been working as classic infrastructure solutions architect provisioning the VMs in the private cloud environment or on-premises or public cloud environment helping out the platform team to achieve their goal or application team to achieve their goal you can transition yourself from classic infrastructure solutions architect to AI infrastructure solutions architect similarly if you are working in the platform engineering team acting as a platform solutions architect you can transition yourself from platform solutions architect to AI platform solutions architect and similarly if you are working as the app dev solutions architect you can transition yourself from classic app dev solutions architect to AI based app dev solutions architect similarly if you are working as the operations solutions architect in your legacy or classic environment you can transition yourself from the operations solutions architect to AI operations solutions architect and similarly when it comes to data dealing with data you might have seen data solutions architect in your organization and those folks who have been doing the data solutions architect must transition from data solutions architect to AI data solutions architect so in every layer AI will be infused all you need to do know is along with your existing experience know how the AI is playing in your area and transition yourself from classic solutions architect role to AI solutions architect role I have been providing these types of guidances and also I produce the reels and shorts and post it into Instagram and my Architect IT Cloud YouTube channel also I write a lot of articles about these career transition in LinkedIn follow me get more benefit out of it take care bye"
+ },
+ {
+  "id": "Db05q3fBeyC",
+  "date": "20260809",
+  "ts": 1786294201,
+  "caption": "Season 1: AI Solution Architect Transformation | Episode 6: Distributed Inference Scaling ##aiinference #blueplanet #aiarchitect #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Db05q3fBeyC/",
+  "duration": null,
+  "n": 51,
+  "transcript": "Season one, AI Solution Architect Transformation, episode six, Distributed Inference Scaling. What exactly it means? When you work as AI infrastructure architect, you would be provisioning the large language model in the infrastructure of your choice, either AWS, Azure, or IBM Cloud. So, when you provision this large language model in this infrastructure, it has to scale automatically to help your applications team use the effective uh LLM properly, right? So, for this, you must need to know the two major technologies to help out to distribute the LLM properly. First one is virtual large language model or vLLM, second one is TensorRT-LLM. So, virtual large language model has the Hugging Face library, and it'll helps the model to scale automatically with the help of paged attention and KV caching. So, it'll reduce the latency and increase the speed and agility of your LLM for your organizations to use effectively. Second thing is TensorRT-LLM comes with NVIDIA architecture, helps you to increase the speed and agility and reduce the latency of LLM by distributing the LLM into multiple regions. Go and explore these two technologies and be successful as AI infrastructure architect. Keep following me. I'm going to share the blueprint how you can transition from classic AI infrastructure architect to AI infrastructure architect at the end of this season. Take care. Bye."
+ },
+ {
+  "id": "Db58lg4tjAA",
+  "date": "20260811",
+  "ts": 1786463441,
+  "caption": "Season 1: AI Solution Architect Transformation | Episode 7: Private Model Hosting **Type PRIVATE For FREE Reference Architecture** #aiarchitectcoach #aiacareer #freematerials #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Db58lg4tjAA/",
+  "duration": null,
+  "n": 52,
+  "transcript": "Season one, solution architecture transformation, episode seven, private model hosting. When you transition yourself from classic infrastructure architect to AI infrastructure architect, you must need to know about how to host an LLM in on-premises that gives the uptime similar to the public cloud environment. That means like when you host an LLM in on-premises for the security and governance business use cases, it has to give similar uptime compared to the public cloud. Also, it should have zero data leakage. How you can define this architecture and create this architecture and implement the solution for your organization? Type private. I'll send you this architecture diagram."
+ },
+ {
+  "id": "Db9n0BSuRLY",
+  "date": "20260813",
+  "ts": 1786586690,
+  "caption": "AI Solution Architect Interview Tips | Enterprise AI Architect interview Tips \n#interviewtips #aiinterview #aiarchitect #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Db9n0BSuRLY/",
+  "duration": null,
+  "n": 53,
+  "transcript": "If you're planning to attend an interview for AI solutions architect or enterprise AI architect role, do not just talk about the AI agent project or Gen AI project that you implemented for your organization. You must talk about what value you are going to bring to the organization you are, if you're hired. Some interviewer may have the legacy style of not asking about what value you are going to bring to the organization, but it's your responsibility to tell what value you are going to bring to the organization if you are hired. Do not talk about the project only. Talk about what value you are going to bring to the organization if you're hired. Like I implemented AI agent project for my organization, a particular LOB, for particular business use case, and that resulted in some value in productivity, efficiency improvement, automation, and some percentage of increase in efficiency and some percentage of reduction in cost. So, these are all the things that you need to bring to the interviewer when you give an interview for AI solutions architect or enterprise AI architect. Start talking about value. You will definitely get an offer. All the best."
+ },
+ {
+  "id": "DcBdqXcBYGQ",
+  "date": "20260814",
+  "ts": 1786715929,
+  "caption": "The Single Biggest Mistake IT Folks Are Making Right Now \u2060#aiintech \u2060 \u2060#softwareengineering \u2060 \u2060#techcareers \u2060 #mustknow #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcBdqXcBYGQ/",
+  "duration": null,
+  "n": 54,
+  "transcript": "Hello guys. The world is changing. If you are a developer, you are not going to be writing only the code, and if you are a tester, you are not going to be writing only the test cases and test scenarios, and if you are an operations engineer, you are not going to do only the DevOps work. In this AI world, you are going to do all the works, and the complete SDLC will be taken care by the AI tool. So, how you can equip and be successful in your career? First, learn the prompt engineering. So, the prompt engineering only is not a solution, but you must also know what is happening in the dependent areas. For example, if you're a developer, you must need to know how to write the test cases and test scenarios, and if you're a tester, you must need to know how the code works, and if you are an operations engineer, you must need to know how the test cases works and test scenarios works and how the coding works, because you will be asked to develop a tool, not only coding or testing or operations work. So, along with the prompt engineering, learn about how all other dependent areas are working together to build a product. That's the future. I have provided some of the links to go and learn this concept easily at free of cost. You don't need to spend even a single penny to learn all this concepts. So, be a full product developer rather than being a coder or tester or operations engineer. All the best."
+ },
+ {
+  "id": "DcGeVt_uzmb",
+  "date": "20260816",
+  "ts": 1786883900,
+  "caption": "AI Automation Architect Role!\n#automation #automationarchitect #aiautomation #architectitcloud #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcGeVt_uzmb/",
+  "duration": null,
+  "n": 55,
+  "transcript": "Automation architect works with business architect, data architect, technology architect, and application architect, and across all the LOBs in your organization to find out where the business automation can be implemented, where the data automation can be implemented, where the application and technology automation can be implemented, and he works on to implement high priority automation use cases. And also, he infuses AI with the automation framework so that your organization get more benefit out of the AI and automation"
+ },
+ {
+  "id": "DcJbmALz0Os",
+  "date": "20260817",
+  "ts": 1786983015,
+  "caption": "Season 1 - AI Solution Architect Transformation | Episode 8 - Edge AI Deployment #edgeai #aiinfrastructure #aiarchitect #youraicompanion #aijobs",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcJbmALz0Os/",
+  "duration": null,
+  "n": 56,
+  "transcript": "Season one, solution audit transformation. Episode eight, edge AI deployment. So, when it comes to running the large language model in your cloud of choice, either AWS Cloud, Azure Cloud, IBM Cloud, you may face one critical problem called token cost. The token cost increases because you are using the infrastructure and large language model of someone who's running in the cloud of your choice. So in order to avoid this token cost and optimize your model with your on-premises deployment, go for edge AI deployment. So as AI infrastructure architect, you must need to know about three major areas to deploy the large language model in your on-premises environment. The first one is model optimization. You must need to know like how to optimize the model to run in the on-premises or edge deployment mode. And second one is hardware acceleration. You must need to know about the hardware acceleration that includes the GPU or TPU acceleration, how that can be fit properly in your on-premises infrastructure. And third one is you must need to know the governance and MLOps, because when you run large language model in on-premises environment, you must take care of your governance and model ML MLOps stuffs. So, go and explore all these three areas as AI infrastructure architect and you can be successful in your career. Take care. Bye."
+ },
+ {
+  "id": "DcL_G6sBAQj",
+  "date": "20260818",
+  "ts": 1787068854,
+  "caption": "Well Architected Frameworks | Know and use better for your system design \n\n#wellarchitected #framework #systemdesign #aiarchitect #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcL_G6sBAQj/",
+  "duration": null,
+  "n": 57,
+  "transcript": "Well-Architected Framework is one of the key frameworks available in every organization, whether it is public cloud or any private enterprises. If you are a solution architect or cloud architect or enterprise architect, make use of this Well-Architected Framework in better way to design your systems. Basically, this Well-Architected Framework covers major five or six areas that differs from organization to organization. The major areas are first one, operational excellence, and second one is reliability, and third one is security, and fourth one is performance optimization, and fifth one is cost optimization. And this Well-Architected Framework differ from organization to organization. For example, if IBM, if you take IBM, IBM focusing on hybrid cloud and AI technologies, right? So their Well-Architected Framework definitely includes one of the pillars"
+ },
+ {
+  "id": "DcNGIMzvv8j",
+  "date": "20260819",
+  "ts": 1787106048,
+  "caption": "Season 1 - Solution Architect Transformation | Episode 9 - LLM Caching Architecture \n\n#llmcaching #llmarchitecture #aisolutionarchitect #aiarchitecture #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcNGIMzvv8j/",
+  "duration": null,
+  "n": 58,
+  "transcript": "Season one solutions architect information, episode nine, LLM caching architecture. You can save 40% of your inferencing cost by implementing semantic caching. What exactly does semantic caching mean? Suppose if you are making a call, API call to an LLM with a particular query, the LLM receives the query, and it generates the response, and pushes the response to you to see what exactly the response for your query. And next time, in your organization, if another person comes and asks the same query, if that query is going to the LLM and it hits the LLM and gets the response again, it'll be a costly operation for you. Because the same duplicate query will be hit to the LLM two times, and your token cost will increase. So, in order to avoid this situation, you can build a semantic cache layer by using Redis and Qdrant vector DB database. So, this semantic layer acts as a caching mechanism. It caches the response produced by the LLM first time and stores in the cache. And when another person comes and asks the same question to the LLM, it does not go to LLM, but it retrieves the response from the cache and produces the response and sends the response to the user. This is called the caching architecture. As an AI enterprise architect, you must know this semantic caching mechanism when you implement AI agent project for your organization. All the best."
+ },
+ {
+  "id": "DcSLIbFJEDH",
+  "date": "20260821",
+  "ts": 1787276382,
+  "caption": "Season 1 : AI Solution Architect Transformation | Episode 10: Resilient Disaster Recovery Environment \n\n#aidisaster #airecovery #aiarchitect #aiinfrastructure #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcSLIbFJEDH/",
+  "duration": null,
+  "n": 59,
+  "transcript": "Season 1, AI Solution Architect transformation, episode 10, resilient disaster recovery environment. When you work as AI infrastructure architect, you must definitely need to consider the disaster recovery environment while setting up your enterprise-grade AI production environment. So what exactly it means? Your vector databases must be in multiple regions. When one region fails, it must need to fail over to another region to serve your request. Also, your LLM must have the fall back gateway so that when the request comes to the first LLM and if it fails, it will fall back to the secondary LLM, which is running in different region. This way, your AI infrastructure will be resilient and it can withstand all the request in case of one failure occurs in one region, and it'll be handled by the another region."
+ },
+ {
+  "id": "DcU1YhduH4d",
+  "date": "20260822",
+  "ts": 1787365825,
+  "caption": "AI Infrastructure Solution Architect Role Summary & Next Season \n\n#aijobroles #aiinfrasolutionarchitect #aiarchitect #solutionarchitect #enterpriseai",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcU1YhduH4d/",
+  "duration": null,
+  "n": 60,
+  "transcript": "Hello folks, by now you might have got an idea about AI infrastructure architect role, what are all the roles and responsibilities of an AI infrastructure architect in any organization and also what are all the key areas to focus, for example AI infrastructure architect must need to focus on GPU clustering, model inference scaling and how to provision the GPU nodes in the infrastructure and how to provision this AI infrastructure in the on-premises environment and also in the cloud of your choice either AWS, Azure or IBM Cloud, and also how to do the caching because caching is one of the key factors in the AI infrastructure architecture where that will help the organization to save a lot of money, right? And also storage, speed. So, these are all the areas that you must need to go and explore more and keep working on all these areas to become a successful AI infrastructure architect. So, I will focus on AI platform architecture roles and responsibilities and also how you can be successful AI platform architect in the next season. If you like this approach and season, just give a thumbs up and be successful in your AI infrastructure architect role. Take care, bye."
+ },
+ {
+  "id": "DcXSYZDyqhI",
+  "date": "20260823",
+  "ts": 1787447892,
+  "caption": "Are you an experienced Developer or Architect? Don\u2019t Do This !!\n#aideveloper #aijobs #aicareers #aicourses #aimistakes",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcXSYZDyqhI/",
+  "duration": null,
+  "n": 61,
+  "transcript": "Hey guys, you might have been overwhelmed with a lot of courses provided by different companies, like claude.ai, ChatGPT, OpenAI, Microsoft, IBM. So many companies are producing a lot of AI tools and technologies. Do not get overwhelmed with all these technologies and don't get into the pressure mode of learning all these things. First, do a self-analysis on your experience. Suppose if you are a developer with 10 years of experience, do not forget that that experience cannot be replaced with AI because you are needed to a company to implement the AI solutions. So, first analyze your base experience and pick the right tool to help your base experience. You're not going to completely overwrite your base experience with a AI tool. You're going to pick the right AI tools and technologies to help your role. Uh, for example, if you're a developer, get to know about how to integrate the AI technologies in your IDE, also what are all the key automation AI technologies can be integrated with your code development tool. And if you are a cloud solution architect, you have been developing all the solution architecture by using cloud services, right? For example, if you are using AWS, Azure, IBM Cloud, you might be leveraging those services to build an architecture, and you might have like 10 to 15 years of experience doing that. Do not forget the experience, just go go and explore claude.ai. Don't do that because your base experience matters, and for that, you must need to learn about what are all the AI services provided by your cloud service provider and start building the AI architecture based on that service provided by the cloud service provider. So, this way, you can bring in the AI capabilities with your base experience and survive better in this world. So, my one advice is do not get overwhelmed with a lot of AI tools and technologies and courses and certifications. Focus on your base experience and see how your base experience can be elevated with the help of all these courses and technologies. Pick your base experience and start from there. Don't just jump into claude.ai certification course or Microsoft Azure AI certification course or AWS AI certification course. Do not get into all these certification, and don't get into the pressure mode. This is my piece of advice. I hope this is helpful, and all the best."
+ },
+ {
+  "id": "Dcck0sXtqNE",
+  "date": "20260825",
+  "ts": 1787625335,
+  "caption": "Season 2 - AI Platform Solution Architect Transformation | Episode 1 - Basics of Platform \n\n#aiplatforms #aiseries #platformarchitecture #aisolutionarchitect #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Dcck0sXtqNE/",
+  "duration": null,
+  "n": 62,
+  "transcript": "Season 2 AI platform solution architect transformation, episode 1: Basics of platform. Before getting into AI platform solution architect roles and responsibilities and what are all the key tasks that AI platform solution architect does in an AI industry, you must need to understand what exactly the platform means. Platform is the layer between infrastructure and application. Imagine that you have a big cake piece. In that cake piece, you may have multiple layers. The bottom-most layer is called infrastructure and the middle layer where you have the cream, chocolate cookies, those are all called the platform layer. On top of that, you may have the name, beautiful cream and decoration, that is called your application. So, platform is sitting between infrastructure and the application. So, the platform is very critical for the applications to run fine in any infrastructure. The person who is managing this particular platform may be called platform engineer or platform solution architect. So, this platform can be provisioned in any of the infrastructure type, whether on-premises or in the cloud. In the cloud also, it is called cloud infrastructure, cloud platform, and cloud applications. In the on-premises, it's called plain infrastructure, platform, and application. So, now we got to know about what exactly the platform means, right? And let's get into the first episode of what exactly the platform architect does in the AI world. So, in classic world, the platform architect takes care of building the multiple tools which are required for the applications team to run fine their application on the platform, and they take care of the platform layer that includes, for example, OpenShift is one of the platforms for the applications to run fine. In AI world, the platform architect, or AI platform architect, must take the responsibility of setting up the clusters, nodes which can be utilized by the application teams. For example, the application team wants to run AI agent application on a platform, the platform architect must know the basics of how to provision this GPU and on top of that how you can deploy the LLMs and how they can support the application team to run fine their AI agent application. So, in your organization, there might be multiple LOBs. So, each LOB may be running or creating one agent application, AI agent application. So, if you have like 10 to 15 LOBs, 10 to 15 different application development team builds the AI agent application or multi-agent application. So, as a AI platform solution architect, you must take care of building the common tools that can be utilized by all these LOBs, so that the duplicates can be avoided. So, that is called internal developer platform. So, as a AI platform architect, you must take the responsibility of building AI internal developer platform for your app- organization to deploy and run their applications fine."
+ },
+ {
+  "id": "DcckU0kBvLf",
+  "date": "20260825",
+  "ts": 1787625083,
+  "caption": "Season 2 - AI Platform Solution Architect Transformation | Episode 1 - Basics of Platform \n\n#aiplatforms #aiseries #platformarchitecture #aisolutionarchitect #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcckU0kBvLf/",
+  "duration": null,
+  "n": 63,
+  "transcript": "Season two AI platform solution architect transformation. Episode one basics of platform. Before getting into AI platform solution architect roles and responsibilities and what are all the key tasks that AI platform solution architect does in an AI industry, you must need to understand what exactly the platform means. Platform is the layer between infrastructure and application. Imagine that you have a big cake piece. In that cake piece, you may have multiple layers. The bottom most layer is called infrastructure, and the middle layer where you have the cream, chocolate cookies, those are all called the platform layer. On top of that, you may have the name, beautiful cream and decoration, that is called your application. So, platform is sitting between infrastructure and the application. So, the platform is very critical for the applications to run fine in any infrastructure. The person who is managing this particular platform may be called platform engineer or platform solution architect. So, this platform can be provisioned in any of the infrastructure type, whether on-premises or in the cloud. In the cloud also it is called cloud infrastructure, cloud platform, and cloud applications. In the on-premises, it's called plain infrastructure, platform, and application. So, now we got to know about what exactly the platform means, right? And let's get into the first episode of what exactly the platform architect does in the AI world. So, in classic world, the platform architect takes care of building the multiple tools which are required for the applications team to run fine their application on the platform. And they take care of the platform layer that includes, for example, OpenShift is one of the platforms for the applications to run fine. In AI world, the platform architect or AI platform architect must take the responsibility of setting up the clusters, nodes which can be utilized by the application teams. For example, if the application team wants to run AI agent application on a platform, the platform architect must know the basics of how to provision this GPU and on top of that how you can deploy the LLMs and how they can support the application team to run fine their AI agent application. So, in your organization, there might be multiple LOBs. So, each LOB may be running or creating one agent application, AI agent application. So, if you have like 10 to 15 LOBs, 10 to 15 different application development team builds the AI agent application or multi-agent application. So, as a AI platform solution architect, you must take care of building the common tools that can be utilized by all these LOBs, so that the duplicates can be avoided. So, that is called internal developer platform. So, as a AI platform architect, you must take the responsibility of building AI internal developer platform for your organization to deploy and run their applications fine."
+ },
+ {
+  "id": "DcgefFpJdoC",
+  "date": "20260826",
+  "ts": 1787756282,
+  "caption": "Season 1 - AI Platform Solution Architect Transformation | Episode 2 - Centralized MCP HUB #aiplatforms #aiarchitect #mcp #architectitcloud #aijobtransformation",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcgefFpJdoC/",
+  "duration": null,
+  "n": 64,
+  "transcript": "Season 2: AI platform solutions architect transformation, episode 2: Centralized MCP Hub. If you are working as AI platform solutions architect, you must need to think in terms of having the centralized MCP Hub, the Model Context Protocol Hub. Why it is really needed? Because if you take an enterprise, there may be multiple LOBs, and each LOB might be working for different AI project. And for example, if one LOB is creating an MCP server for connecting to DB2 database, another LOB must know about it. Otherwise, you will end up creating duplicate MCP server. So as a AI platform architect, you must definitely need to know about how to create the centralized MCP Hub so that you can produce a lot of MCP servers based on the requirements from each LOB, and then host it centralized location, and that will help your team to utilize the MCP server properly. And this will avoid duplicate works, and also it will save a lot of cost to your organization. I have provided the list of key MCP server repositories. You can go and explore and get benefit out of it. Take care, bye."
+ },
+ {
+  "id": "DcjG3YWy0jc",
+  "date": "20260827",
+  "ts": 1787844829,
+  "caption": "Season 2 : AI Platform Solution Architect Transformation | Episode 3 : Multi-tenant Service Platform Architecture \n\n#aiplatformarchitecture #aidesign #aiprinciples #careerguidance #besuccessful",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcjG3YWy0jc/",
+  "duration": null,
+  "n": 65,
+  "transcript": "Season 2 AI platform solution architect. Episode 3: Multi-tenant service. If you are working as AI platform solution architect in any of the enterprises, you might have seen multiple LOBs building AI projects. And for all these LOBs, you must have a platform. You cannot have single platform for each LOB. That'll be a cost overhead. In that case, you must have a centralized AI platform for all these LOBs to access. So how do you design a sophisticated, successful AI platform for all your LOBs? First thing is you must create hard tenant isolation in your AI platform so that each LOB will access one particular area in the AI platform. And second thing is you must have usage metering for each LOBs so that you can measure the usage details. And third thing is you must have the custom rate limiting for each LOB to access this platform. And finally, you must prioritize the usage through the model routing gateway so that you can provide right service to the right LOB. Follow all these design principles and be an successful AI platform solution architect in your career. All the best."
+ },
+ {
+  "id": "DctVc2ZPeNV",
+  "date": "20260831",
+  "ts": 1788187929,
+  "caption": "Season 2 - AI Platform Solution Architect Transformation | Episode 4 - Centralized Prompt Registry \n\n#aiplatform #aicoaching #jobmarket #freeconsults #careerhelp",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DctVc2ZPeNV/",
+  "duration": null,
+  "n": 66,
+  "transcript": "Season two, AI platform solution architect transformation, episode four, Centralized Prompt Registry. In your organization, you may use the prompts to call the LLM and get the response back. These prompts can be categorized into two major categories. One is the system prompt and second one is application code-generated prompts. And you must need to definitely decouple these two prompts. System-generated prompts should be separated and tested it out, versioned it out, and created and deployed for your systems' good performance. And the app-generated prompts again needs to be separated, created, the version must be created and stored it into the repository and used it properly whenever it is needed. So, always keep in mind that as an AI platform solution architect, you must take the responsibility of managing and decoupling these two types of prompts: system prompts and app prompts, clearly, and version it, store it in the registry, and deploy it, and use it for your business needs. So, keep this in mind as an AI platform solution architect and be successful in your career. All the best."
+ },
+ {
+  "id": "DcvnT7xABlN",
+  "date": "20260901",
+  "ts": 1788264129,
+  "caption": "Our New Account - The NextGen Leaders | Along with the technical skill, You must have leadership skill to be successful in your career & life. \n\n#newaccount #leadershipcareers #aileader #leadershipcoach #govindhvaradharajan \n\nLet\u2019s connect- https://www.instagram.com/the_nextgen_leaders?igsi=MTFjNnZhYnAzbTd4bw==&utm_source=ig_contact_invite",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DcvnT7xABlN/",
+  "duration": null,
+  "n": 67,
+  "transcript": "Oh, oh, oh, oh, leader, leader, leader"
+ },
+ {
+  "id": "Dc0xH_jNX75",
+  "date": "20260903",
+  "ts": 1788437168,
+  "caption": "Season 2 - AI Platform Solution Architect Transformation \nEpisode 5 - Agent SDK Standardization \n\n#agentsdk #aiagents #aiagentprojects #claude #architectitcloud",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Dc0xH_jNX75/",
+  "duration": null,
+  "n": 68,
+  "transcript": "Season two AI platform solution architect transformation episode five agent SDK standardization. If you are working as a platform solution architect in your organization you might have standardized many things like uh MCP hub servers and the centralized registry for all the prompts to store and execute. You might have done lot of platform tools for your application development team to use across all the LOBs. Now, you must need to focus on agent SDK. What exactly agent SDK means? Agent SDK will give you the standards, documentation, procedures and best practices to implement the agent solution for your organization. Every organization has their own agent SDK standards. Claude has Claude agent SDK, and other organization can take those standard SDK and customize their uh for their needs. So, as a platform solution architect, especially AI platform solution architect, you must need to design the standard agent SDK for your organizations to utilize that agent SDK properly to build the AI agent projects. So, keep this in mind as an AI platform solution architect you must take the responsibility to build a standard agent SDK for your LOBs to work on AI agent projects. All the best."
+ },
+ {
+  "id": "Dc3yyC4ROi2",
+  "date": "20260904",
+  "ts": 1788539156,
+  "caption": "Season 2 - AI Platform Solution Architect Transformation | Episode 6 - RAG as a Service \n\n#rag #asaservice #aiplatform #aiarchitecture #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Dc3yyC4ROi2/",
+  "duration": null,
+  "n": 69,
+  "transcript": "Season 2 AI Platform Solutions Architect Transformation, episode six RAG as a service. If you are working as an AI platform solution architect in your organization you might have seen multiple development teams might have developed the AI project with different AI architectures like RAG architecture, REACT architecture, human in the loop architecture etc. So, when each individual team develops these type of AI project, they must need to introduce the document pipeline, they must need to introduce the vector indexing, and they must need to introduce the hybrid search like dense and sparse. So, these are all the key components of AI project implementation. So, when these teams create this many searches and this many vector indexing and this many document pipelines, your platform will be messy. So, in that case, how you will address this problem as an AI platform solutions architect? You must provision this RAG architecture as a service so that the teams will not build these redundant mechanisms to access it. So, you must need to provide RAG architecture as a service that consists of document pipeline, then vector indexing, hybrid search like dense and sparse, all these components can be accessed as an API call. So that you can avoid the development teams building the redundant services. Think about provisioning RAG as a service, or REACT as a service, for your AI development teams as an AI platform solutions architect. All the best."
+ },
+ {
+  "id": "Dc8n65IBiab",
+  "date": "20260906",
+  "ts": 1788701093,
+  "caption": "AI infrastructure Solution Architect Transformation | Roles & Responsibilities | Full Length Video | YouTube \n\n#aiinfrastructure #solutionarchitect #careertransition #fullvideo #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Dc8n65IBiab/",
+  "duration": null,
+  "n": 70,
+  "transcript": "Hello architects, as we completed the season 1 AI infra solution architect transformation, I provided a lot of tips and tricks so that you can be so successful in your AI infra solution architect journey. I made a full length video about the roles and responsibilities of AI infra solution architect and posted in my YouTube channel. I have provided the link to go and watch that complete video. At the end of the video, you can see a surprise that I have provided a detail that will be helpful for your AI infrastructure solution architect journey. So go and watch. Enjoy. Take care. Bye."
+ },
+ {
+  "id": "Dc_b2DQSNwn",
+  "date": "20260907",
+  "ts": 1788795157,
+  "caption": "Season 2 - AI Platform Solution Architect Transformation | Episode 7 - Enterprise Evaluation Platform \n\n#enterprisearchitecture #aisolutionarchitect #llm #aiagents #genai",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/Dc_b2DQSNwn/",
+  "duration": null,
+  "n": 71,
+  "transcript": "Season two, AI platform solution architect transformation, episode seven: enterprise evaluation platform. When you build Gen AI or AI agent project, one of the critical tasks is to evaluate the output produced by the large language model. How do you evaluate the output produced by large language model effectively? You must need to build automated pipeline using LLM-as-a-judge architecture. And also, you must need to use the curated data in the data set, and produce the ideal output, and use the semantic regression test in the continuous integration pipeline to test it out. This way, you can evaluate the LLM properly, and give it to the team who are building this LLM agent or AI agent project effectively for your organization. So follow this best practice as an AI platform solution architect, and help your organization out. All the best."
+ },
+ {
+  "id": "DdCAKP-hisW",
+  "date": "20260908",
+  "ts": 1788881396,
+  "caption": "Season 2 - AI Platform Solution Architect Transformation | Episode 8 - Unified Tools Catalog \n\n#promptengineering #aiplatform #solutionarchitect #aiagents #govindhvaradharajan",
+  "url": "https://www.instagram.com/architect_it_cloud/reel/DdCAKP-hisW/",
+  "duration": null,
+  "n": 72,
+  "transcript": "Season 2, AI platform solution architect transformation, episode 8, Unified tool catalog. If you are working for an organization, you might have seen multiple AI application development team developing a lot of AI agent project or GenAI projects. And these application teams definitely need to write the instructions to the LLMs, that's called prompt wrapping. When they write all these instructions to the LLMs, it may take a lot of time. Instead of doing all these things manually, you must use Model Context Protocol that acts as an auto-translator, converts the existing REST APIs and OpenAPI standards into the way the LLM can understand easily and build a tool catalog or library. Now, when the AI application development team connects to this unified tool catalog, the unified tool catalog that has the library that helps the LLM to understand how to connect to the local database, how to connect to the local software via MCP server, and execute the task successfully. As an AI platform solution architect, you must need to understand how this unified tool catalog would be helpful for your AI application development team. So, understand this concept clearly, how to create the unified tool catalog with the help of MCP servers, converting the existing REST API and OpenAPI standards and create this library to help your AI development team. All the best, take care."
+ }
+]

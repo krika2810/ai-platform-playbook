@@ -1,0 +1,1 @@
+These are the ilities one cloud architect must know of: availability, scalability, usability, adaptability, reliability, security, maintainability, sustainability, visibility, interoperability, extensibility, recoverability, resilience, performance, and cloudability.
