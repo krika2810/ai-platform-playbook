@@ -1,1 +1,15 @@
-{"id":"DamJ0hlPI2z","title":"Skip the $10k course - build an agent instead","badges":["career","learning"],"oneliner":"Don't pay $5,000-$10,000 for an executive AI course; spend a few dollars on tools and build your own AI agent, then put it in your portfolio.","says":"He pushes back on the ads for big-institute AI and executive courses charging $5,000 to $10,000. His recommendation: do not spend that money and time. Instead, subscribe to the AI tools already on the market, build your own AI agent with them, and embed that work into your profile.","explained":["This is his learning philosophy in its sharpest form, and it repeats across the channel: implemented proof beats purchased credentials. A course certificate tells an interviewer you attended; a working agent you built tells them you can do the job - and gives you real stories about what broke and how you fixed it, which is what interviews actually probe.","The cost asymmetry is real: serious AI tooling subscriptions run tens of dollars a month, so a few hundred dollars of building buys more signal than a five-figure program. The caveat to hold alongside: courses are not worthless for everyone - structure helps some learners. His point is about the expensive executive-track programs sold on credential prestige, not about learning itself."],"takeaway":"Buy tools, not certificates: one self-built agent in your portfolio outweighs a $10k course badge."}
+{
+  "id": "DamJ0hlPI2z",
+  "title": "Skip the $10k course - build an agent instead",
+  "badges": [
+    "career",
+    "learning"
+  ],
+  "oneliner": "Don't pay $5,000-$10,000 for an executive AI course; spend a few dollars on tools and build your own AI agent, then put it in your portfolio.",
+  "says": "He pushes back on the ads for big-institute AI and executive courses charging $5,000 to $10,000. His recommendation: do not spend that money and time. Instead, subscribe to the AI tools already on the market, build your own AI agent with them, and embed that work into your profile.",
+  "explained": [
+    "This is his learning philosophy in its sharpest form, and it repeats across the channel: implemented proof beats purchased credentials. A course certificate tells an interviewer you attended; a working agent you built tells them you can do the job - and gives you real stories about what broke and how you fixed it, which is what interviews actually probe.",
+    "The cost asymmetry is real: serious AI tooling subscriptions run tens of dollars a month, so a few hundred dollars of building buys more signal (stronger evidence of skill) than a five-figure program. The caveat to hold alongside: courses are not worthless for everyone - structure helps some learners. His point is about the expensive executive-track programs sold on credential prestige, not about learning itself."
+  ],
+  "takeaway": "Buy tools, not certificates: one self-built agent in your portfolio outweighs a $10k course badge."
+}

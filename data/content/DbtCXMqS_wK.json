@@ -1,1 +1,15 @@
-{"id":"DbtCXMqS_wK","title":"Season 1, Ep 5: GPU infrastructure's three tools","badges":["Season 1","Episode 5"],"oneliner":"Moving from cloud infra to AI infra means learning SLURM (cluster-level GPU partitioning), Ray (application-level in-memory compute for Python), and MIG (splitting one GPU into isolated slices).","says":"As a cloud infrastructure architect you provisioned VMs on-premises or EC2 instances in AWS. Transitioning to AI infrastructure architect means learning three things: SLURM, which partitions CPUs and GPUs at the infrastructure and machine level; Ray, which provisions in-memory compute at the application level for Python applications; and MIG, NVIDIA's way of splitting GPUs.","explained":["Each tool answers a different scarcity question. GPUs are the most expensive resource in the building, so sharing them well is the job. SLURM is the classic HPC scheduler - it decides which jobs get which nodes and when, at cluster scale. Ray operates one level up: it distributes Python work - data processing, model serving, training - across the cluster as in-memory tasks, which is how most AI frameworks actually scale.","MIG (Multi-Instance GPU) is the efficiency play: one physical GPU partitioned into isolated instances, so a small inference job does not waste a whole H100. Together the three express the AI infra architect's core discipline - match every workload to exactly the compute it needs, because idle GPU time is the most expensive waste in IT."],"takeaway":"GPU economics is the new capacity planning: SLURM schedules the cluster, Ray distributes the work, MIG subdivides the card."}
+{
+  "id": "DbtCXMqS_wK",
+  "title": "Season 1, Ep 5: GPU infrastructure's three tools",
+  "badges": [
+    "Season 1",
+    "Episode 5"
+  ],
+  "oneliner": "Moving from cloud infra to AI infra means learning SLURM (cluster-level GPU partitioning), Ray (application-level in-memory compute for Python), and MIG (splitting one GPU into isolated slices).",
+  "says": "As a cloud infrastructure architect you provisioned VMs on-premises or EC2 instances in AWS. Transitioning to AI infrastructure architect means learning three things: SLURM, which partitions CPUs and GPUs at the infrastructure and machine level; Ray, which provisions in-memory compute at the application level for Python applications; and MIG, NVIDIA's way of splitting GPUs.",
+  "explained": [
+    "Each tool answers a different scarcity question. GPUs are the most expensive resource in the building, so sharing them well is the job. SLURM is the classic HPC scheduler - it decides which jobs get which nodes and when, at cluster scale. Ray operates one level up: it distributes Python work - data processing, model serving, training - across the cluster as in-memory tasks, which is how most AI frameworks actually scale.",
+    "MIG (Multi-Instance GPU) is the efficiency play (the cost-saving move): one physical GPU partitioned into isolated instances, so a small inference job does not waste a whole H100. Together the three express the AI infra architect's core discipline - match every workload to exactly the compute it needs, because idle GPU time is the most expensive waste in IT."
+  ],
+  "takeaway": "GPU economics is the new capacity planning: SLURM schedules the cluster, Ray distributes the work, MIG subdivides the card."
+}

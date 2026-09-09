@@ -1,1 +1,15 @@
-{"id":"DbQ7TcVpsbG","title":"Agent frameworks by learning stage","badges":["AI concepts","learning"],"oneliner":"Beginners start with the LangChain family (LangChain, LangGraph, LangFlow, LangSmith); then move to the agent services on your cloud - AWS, Azure, or Google.","says":"He maps agent frameworks to learning stages. Beginners should explore the LangChain family: LangChain, LangGraph, LangFlow, and LangSmith - build agents, play around, get hands dirty until the concepts are solid. Then, if you work with AWS, Azure, or Google Cloud, pick the agent services specific to your needs on those platforms.","explained":["The staging is sensible because the two layers teach different things. The LangChain family teaches agent concepts hands-on: chains and prompts (LangChain), stateful multi-step agents (LangGraph), visual flow building (LangFlow), and tracing/evaluation (LangSmith). Those concepts are portable - they mean the same thing everywhere.","Cloud agent services come second because they are productized versions of the same ideas, wrapped in your provider's identity, billing, and deployment model. Learning them first would teach you a console; learning them second teaches you a platform. Pair this with his 'one model, one use case' reel (#16): pick one family, build one real thing, then expand."],"takeaway":"Learn concepts in the LangChain ecosystem first, then learn your cloud's agent services as the production expression of the same ideas."}
+{
+  "id": "DbQ7TcVpsbG",
+  "title": "Agent frameworks by learning stage",
+  "badges": [
+    "AI concepts",
+    "learning"
+  ],
+  "oneliner": "Beginners start with the LangChain family (LangChain, LangGraph, LangFlow, LangSmith); then move to the agent services on your cloud - AWS, Azure, or Google.",
+  "says": "He maps agent frameworks to learning stages. Beginners should explore the LangChain family: LangChain, LangGraph, LangFlow, and LangSmith - build agents, play around, get hands dirty (get practical, hands-on experience) until the concepts are solid. Then, if you work with AWS, Azure, or Google Cloud, pick the agent services specific to your needs on those platforms.",
+  "explained": [
+    "The staging is sensible because the two layers teach different things. The LangChain family teaches agent concepts hands-on: chains and prompts (LangChain), stateful multi-step agents (LangGraph), visual flow building (LangFlow), and tracing/evaluation (LangSmith). Those concepts are portable - they mean the same thing everywhere.",
+    "Cloud agent services come second because they are productized versions of the same ideas, wrapped in your provider's identity, billing, and deployment model. Learning them first would teach you a console; learning them second teaches you a platform. Pair this with his 'one model, one use case' reel (#16): pick one family, build one real thing, then expand."
+  ],
+  "takeaway": "Learn concepts in the LangChain ecosystem first, then learn your cloud's agent services as the production expression of the same ideas."
+}

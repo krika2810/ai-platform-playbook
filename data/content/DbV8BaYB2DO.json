@@ -1,1 +1,15 @@
-{"id":"DbV8BaYB2DO","title":"AI as a Service, in one breath","badges":["AI concepts","cloud"],"oneliner":"AIaaS = prebuilt, pre-trained AI capabilities from your cloud provider - AWS AI services, IBM Watson, Azure Cognitive Services - consumed instead of built.","says":"AI-as-a-Service is provided by public cloud providers as pre-trained generative AI models for your organization. The key offerings: Amazon AWS AI services, IBM Watson AI services, and Azure Cognitive Services.","explained":["The value proposition is speed-to-capability. Vision, speech, language understanding, and now generative models take years and millions to build in-house; as a service they are an API key away. For most business features - document extraction, translation, summarization - the service is the rational default.","The architect's questions come after the yes: What data leaves our boundary when we call it? What does per-call pricing do at our scale (the inference-economy question)? What happens to our feature if the provider deprecates the model? AIaaS is the right starting point for most capabilities - with an exit plan, which is where private hosting and open models from his Season 1 episodes come in."],"takeaway":"Default to provider AI services for speed, but architect every call with the data-boundary, cost-at-scale, and exit questions answered."}
+{
+  "id": "DbV8BaYB2DO",
+  "title": "AI as a Service, in one breath",
+  "badges": [
+    "AI concepts",
+    "cloud"
+  ],
+  "oneliner": "AIaaS = prebuilt, pre-trained AI capabilities from your cloud provider - AWS AI services, IBM Watson, Azure Cognitive Services - consumed instead of built.",
+  "says": "AI-as-a-Service is provided by public cloud providers as pre-trained generative AI models for your organization. The key offerings: Amazon AWS AI services, IBM Watson AI services, and Azure Cognitive Services.",
+  "explained": [
+    "The value proposition is speed-to-capability. Vision, speech, language understanding, and now generative models take years and millions to build in-house; as a service they are an API key away (immediately usable, just by signing up for access). For most business features - document extraction, translation, summarization - the service is the rational default.",
+    "The architect's questions come after the yes: What data leaves our boundary when we call it? What does per-call pricing do at our scale (the inference-economy question)? What happens to our feature if the provider deprecates the model? AIaaS is the right starting point for most capabilities - with an exit plan, which is where private hosting and open models from his Season 1 episodes come in."
+  ],
+  "takeaway": "Default to provider AI services for speed, but architect every call with the data-boundary, cost-at-scale, and exit questions answered."
+}

@@ -1,1 +1,15 @@
-{"id":"Dbit0HlB7Bw","title":"Resume rules for experienced architects","badges":["career","resume"],"oneliner":"Two pages maximum: profile summary, skills summary, key accomplishments with value, only the projects relevant to this job description, education.","says":"For experienced developers and architects preparing a resume: keep it to two pages. Cover a profile summary, a skills summary, key accomplishments showing the value you added to your organization, then project experience - not every project, only the key ones relevant to the job description you are applying for - and education last.","explained":["The two-page limit is a forcing function. Experienced people accumulate twenty years of material, and the instinct to include it all produces a resume where the relevant proof is buried. A screener spends seconds, so the document's job is to make the match obvious: summary says who you are, accomplishments prove value in numbers, and the tailored project list proves relevance to this role.","The tailoring rule connects to his interview-prep reels: the job description is the question paper, and the resume is your answer sheet. A project list curated per application looks like more work, but it converts better than one static document sprayed everywhere - and for experienced candidates, relevance density is the whole game."],"takeaway":"Two pages, value-quantified accomplishments, and a project list re-cut for each application. Everything else is dilution."}
+{
+  "id": "Dbit0HlB7Bw",
+  "title": "Resume rules for experienced architects",
+  "badges": [
+    "career",
+    "resume"
+  ],
+  "oneliner": "Two pages maximum: profile summary, skills summary, key accomplishments with value, only the projects relevant to this job description, education.",
+  "says": "For experienced developers and architects preparing a resume: keep it to two pages. Cover a profile summary, a skills summary, key accomplishments showing the value you added to your organization, then project experience - not every project, only the key ones relevant to the job description you are applying for - and education last.",
+  "explained": [
+    "The two-page limit is a forcing function (a constraint that forces the right behavior). Experienced people accumulate twenty years of material, and the instinct to include it all produces a resume where the relevant proof is buried. A screener spends seconds, so the document's job is to make the match obvious: summary says who you are, accomplishments prove value in numbers, and the tailored project list proves relevance to this role.",
+    "The tailoring rule connects to his interview-prep reels: the job description is the question paper and the resume is your answer sheet (the job description tells you what they will test; the resume is how you answer). A project list curated per application looks like more work, but it converts better than one static document sprayed everywhere (sent unchanged to every employer) - and for experienced candidates, relevance density is the whole game."
+  ],
+  "takeaway": "Two pages, value-quantified accomplishments, and a project list re-cut for each application. Everything else is dilution."
+}

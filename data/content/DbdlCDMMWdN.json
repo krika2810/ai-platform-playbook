@@ -1,1 +1,15 @@
-{"id":"DbdlCDMMWdN","title":"Season 1 kicks off: the AI architect transformation series","badges":["Season 1","series intro"],"oneliner":"He launches a multi-season reel series: each season has episodes that walk you from your current career to an AI architect role - solution, enterprise, or cloud.","says":"He announces the series format: multiple seasons, each with multiple episodes. Season 1 is the AI Solution Architect Career Transformation - what you need to follow and execute to become an AI solution architect. He names the high-paying roles the series targets: AI solution architect, enterprise AI architect, AI cloud architect.","explained":["This reel is the doorway to the structured part of the archive. Everything before it was standalone advice; from here he teaches sequentially. Season 1 covers the infrastructure side of the transformation - what the AI architect's platform actually consists of, from GPUs to inference gateways to disaster recovery.","Worth noting his framing of the destination roles, which matches his $200k-roles reel: solution, enterprise, and cloud flavors of the AI architect. Keep them in mind as you watch the season - each episode is a building block of one or more of those roles. The transformation promise is explicit: start from your existing architecture career, do not start over."],"takeaway":"Series intro: Season 1 = the infrastructure foundations of the AI architect role, taught episode by episode. Watch in order."}
+{
+  "id": "DbdlCDMMWdN",
+  "title": "Season 1 kicks off: the AI architect transformation series",
+  "badges": [
+    "Season 1",
+    "series intro"
+  ],
+  "oneliner": "He launches a multi-season reel series: each season has episodes that walk you from your current career to an AI architect role - solution, enterprise, or cloud.",
+  "says": "He announces the series format: multiple seasons, each with multiple episodes. Season 1 is the AI Solution Architect Career Transformation - what you need to follow and execute to become an AI solution architect. He names the high-paying roles the series targets: AI solution architect, enterprise AI architect, AI cloud architect.",
+  "explained": [
+    "This reel is the doorway (the entry point) to the structured part of the archive. Everything before it was standalone advice; from here he teaches sequentially. Season 1 covers the infrastructure side of the transformation - what the AI architect's platform actually consists of, from GPUs to inference gateways to disaster recovery.",
+    "Worth noting his framing of the destination roles, which matches his $200k-roles reel: solution, enterprise, and cloud flavors of the AI architect. Keep them in mind as you watch the season - each episode is a building block of one or more of those roles. The transformation promise is explicit: start from your existing architecture career, do not start over."
+  ],
+  "takeaway": "Series intro: Season 1 = the infrastructure foundations of the AI architect role, taught episode by episode. Watch in order."
+}

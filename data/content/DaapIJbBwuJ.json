@@ -1,1 +1,15 @@
-{"id":"DaapIJbBwuJ","title":"Guardrails as Code (GaC)","badges":["AI concepts","governance"],"oneliner":"Put your AI policies and governance rules into the CI/CD pipeline as code, so every agent project is checked against them from start to finish automatically.","says":"Guardrails as Code is becoming popular in AI agent projects. Guardrails matter at every stage - prompting, inferencing, and the agent architecture itself. GaC means encoding your policy and governance details into the CI/CD pipeline, which then enforces those guardrails across the whole AI agent project from beginning to end. He urges you to explore it and implement it in your organization.","explained":["The problem this solves: governance as documents does not scale. A policy PDF says what should happen; nothing checks whether it did. GaC moves the policy to where the work flows - the pipeline. Every change to prompts, models, or agent wiring passes through automated checks: Is this model approved? Does this prompt leak instructions? Is PII handling in place? Fail the check, fail the build.","This is the same evolution security went through with DevSecOps - policy moved from annual audits into the pipeline - and he is right that AI is following. Note how it connects to his Season 2 platform: the prompt registry, evaluation platform, and tool catalog are the things the guardrails check against. GaC is the enforcement arm of all of them."],"takeaway":"Governance that lives in documents gets ignored; governance that lives in the pipeline gets enforced. Encode policies as automated checks in CI/CD."}
+{
+  "id": "DaapIJbBwuJ",
+  "title": "Guardrails as Code (GaC)",
+  "badges": [
+    "AI concepts",
+    "governance"
+  ],
+  "oneliner": "Put your AI policies and governance rules into the CI/CD pipeline as code, so every agent project is checked against them from start to finish automatically.",
+  "says": "Guardrails as Code is becoming popular in AI agent projects. Guardrails matter at every stage - prompting, inferencing, and the agent architecture itself. GaC means encoding your policy and governance details into the CI/CD pipeline, which then enforces those guardrails across the whole AI agent project from beginning to end. He urges you to explore it and implement it in your organization.",
+  "explained": [
+    "The problem this solves: governance as documents does not scale. A policy PDF says what should happen; nothing checks whether it did. GaC moves the policy to where the work flows - the pipeline. Every change to prompts, models, or agent wiring passes through automated checks: Is this model approved? Does this prompt leak instructions? Is PII handling in place? Fail the check, fail the build.",
+    "This is the same evolution security went through with DevSecOps - policy moved from annual audits into the pipeline - and he is right that AI is following. Note how it connects to his Season 2 platform: the prompt registry, evaluation platform, and tool catalog are the things the guardrails check against. GaC is the enforcement arm (the enforcing mechanism) of all of them."
+  ],
+  "takeaway": "Governance that lives in documents gets ignored; governance that lives in the pipeline gets enforced. Encode policies as automated checks in CI/CD."
+}

@@ -1,1 +1,15 @@
-{"id":"Dcck0sXtqNE","title":"Season 2, Ep 1: What a platform actually is","badges":["Season 2","Episode 1"],"oneliner":"The platform is the layer between infrastructure and applications - the cream in the cake - where shared services live so every team doesn't rebuild them.","says":"Before the roles and responsibilities of an AI platform solution architect, you must understand what a platform is: the layer between infrastructure and application. His analogy: a cake where the bottom layer is infrastructure, the middle - the cream and chocolate cookies - is the platform layer, and the decoration on top is the application.","explained":["The cake analogy encodes the season's whole argument. Infrastructure (the base) is undifferentiated - compute, storage, GPUs from Season 1. Applications (the decoration) are where business value shows. The platform in the middle is where leverage lives: build a capability once - model access, retrieval, prompts, evaluation - and every application team consumes it instead of rebuilding it badly in six different ways.","This is why the role exists as its own discipline. Infrastructure architects answer 'is it running?'; application architects answer 'does it solve the problem?'; platform architects answer 'are we building the same thing fifty times?' Season 2 is the answer to that question, service by service: MCP hub, multi-tenancy, prompt registry, agent SDK, RAG, evaluation, tool catalog."],"takeaway":"Platform = shared services between raw infrastructure and business apps. Its job is leverage: build once, govern centrally, let every team consume."}
+{
+  "id": "Dcck0sXtqNE",
+  "title": "Season 2, Ep 1: What a platform actually is",
+  "badges": [
+    "Season 2",
+    "Episode 1"
+  ],
+  "oneliner": "The platform is the layer between infrastructure and applications - the cream in the cake (the valuable middle layer) - where shared services live so every team doesn't rebuild them.",
+  "says": "Before the roles and responsibilities of an AI platform solution architect, you must understand what a platform is: the layer between infrastructure and application. His analogy: a cake where the bottom layer is infrastructure, the middle - the cream and chocolate cookies - is the platform layer, and the decoration on top is the application.",
+  "explained": [
+    "The cake analogy encodes the season's whole argument. Infrastructure (the base) is undifferentiated - compute, storage, GPUs from Season 1. Applications (the decoration) are where business value shows. The platform in the middle is where leverage lives: build a capability once - model access, retrieval, prompts, evaluation - and every application team consumes it instead of rebuilding it badly in six different ways.",
+    "This is why the role exists as its own discipline. Infrastructure architects answer 'is it running?'; application architects answer 'does it solve the problem?'; platform architects answer 'are we building the same thing fifty times?' Season 2 is the answer to that question, service by service: MCP hub, multi-tenancy, prompt registry, agent SDK, RAG, evaluation, tool catalog."
+  ],
+  "takeaway": "Platform = shared services between raw infrastructure and business apps. Its job is leverage (doing more with the same effort): build once, govern centrally, let every team consume."
+}

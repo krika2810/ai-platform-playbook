@@ -1,1 +1,15 @@
-{"id":"DYVil5XBGvB","title":"His five certification picks for GenAI","badges":["career","certifications"],"oneliner":"IBM Data Science Associate and Professional, Azure Data Science Associate, Google Cloud Data Science Associate, AWS Machine Learning - his five picks.","says":"A rapid-fire list of five Generative AI certification courses: IBM Certified Data Science Associate, IBM Certified Data Science Professional, Azure Certified Data Science Associate, Google Cloud Certified Data Science Associate, and AWS Certified Machine Learning Expert.","explained":["Read the list structurally: one cert per major ecosystem. The point is not to collect all five - it is that each cloud and vendor stack has a credential that signals you know its AI services, and you should carry the one matching your environment. That mirrors his non-negotiable-skills reel: your stack, concretely.","Two cautions worth adding that he himself voices elsewhere. Certification names and levels change often, so verify the current names on the vendor sites before booking an exam. And a cert without a project is weak evidence - his later career reels are blunt that certificates open the door but implemented work closes the deal."],"takeaway":"Pick the one certification that matches the cloud and stack you actually work on - then back it with a real implementation."}
+{
+  "id": "DYVil5XBGvB",
+  "title": "His five certification picks for GenAI",
+  "badges": [
+    "career",
+    "certifications"
+  ],
+  "oneliner": "IBM Data Science Associate and Professional, Azure Data Science Associate, Google Cloud Data Science Associate, AWS Machine Learning - his five picks.",
+  "says": "A rapid-fire list of five Generative AI certification courses: IBM Certified Data Science Associate, IBM Certified Data Science Professional, Azure Certified Data Science Associate, Google Cloud Certified Data Science Associate, and AWS Certified Machine Learning Expert.",
+  "explained": [
+    "Read the list structurally: one cert per major ecosystem. The point is not to collect all five - it is that each cloud and vendor stack has a credential that signals you know its AI services, and you should carry the one matching your environment. That mirrors his non-negotiable-skills reel: your stack, concretely.",
+    "Two cautions worth adding that he himself voices elsewhere. Certification names and levels change often, so verify the current names on the vendor sites before booking an exam. And a cert without a project is weak evidence - his later career reels are blunt that certificates open the door (get you considered) but implemented work closes the deal (gets you hired)."
+  ],
+  "takeaway": "Pick the one certification that matches the cloud and stack you actually work on - then back it with a real implementation."
+}

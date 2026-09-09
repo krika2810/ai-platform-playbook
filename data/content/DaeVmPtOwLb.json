@@ -1,1 +1,15 @@
-{"id":"DaeVmPtOwLb","title":"The highest-paying job: AI cloud architect","badges":["career","roles"],"oneliner":"The top-paying role is shifting from data scientist to AI cloud architect - someone who builds the agentic infrastructure: Kubernetes, Terraform, and the plumbing that connects infrastructure to agents.","says":"The highest-paying job is no longer data scientist; it is becoming the AI cloud architect. That means knowing agentic infrastructure and how to build it: infrastructure components and technologies like Kubernetes and Terraform, how to bridge the connection between the infrastructure and the AI agents running on it, how to create the pipe between two agents, and what infrastructure technologies that involves.","explained":["Notice what the role is not: it is not training models and not writing prompts. It is the infrastructure craft - the platforms agents run on, the networks they talk over, the pipelines that deploy them. That is exactly why it pays: models are becoming commodities, while the skill of running them reliably and cheaply at enterprise scale is scarce.","The 'pipe between two agents' is the detail to sit with. Multi-agent systems live or die on communication: message queues, service meshes, event streams, identity between agents. That is cloud architecture with new workloads, which is precisely the transition his Season 1 series teaches a classic solution architect to make."],"takeaway":"The money is moving from modeling to infrastructure. Kubernetes, Terraform, and agent-to-agent plumbing are the high-leverage skills."}
+{
+  "id": "DaeVmPtOwLb",
+  "title": "The highest-paying job: AI cloud architect",
+  "badges": [
+    "career",
+    "roles"
+  ],
+  "oneliner": "The top-paying role is shifting from data scientist to AI cloud architect - someone who builds the agentic infrastructure: Kubernetes, Terraform, and the plumbing (the underlying connecting infrastructure) that connects infrastructure to agents.",
+  "says": "The highest-paying job is no longer data scientist; it is becoming the AI cloud architect. That means knowing agentic infrastructure and how to build it: infrastructure components and technologies like Kubernetes and Terraform, how to bridge the connection between the infrastructure and the AI agents running on it, how to create the pipe between two agents, and what infrastructure technologies that involves.",
+  "explained": [
+    "Notice what the role is not: it is not training models and not writing prompts. It is the infrastructure craft - the platforms agents run on, the networks they talk over, the pipelines that deploy them. That is exactly why it pays: models are becoming commodities, while the skill of running them reliably and cheaply at enterprise scale is scarce.",
+    "The 'pipe between two agents' (the communication link two agents talk over) is the detail to sit with. Multi-agent systems live or die on communication: message queues, service meshes, event streams, identity between agents. That is cloud architecture with new workloads, which is precisely the transition his Season 1 series teaches a classic solution architect to make."
+  ],
+  "takeaway": "The money is moving from modeling to infrastructure. Kubernetes, Terraform, and agent-to-agent plumbing are the high-leverage skills."
+}

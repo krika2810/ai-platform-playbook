@@ -1,1 +1,15 @@
-{"id":"DcNGIMzvv8j","title":"Season 1, Ep 9: LLM caching architecture","badges":["Season 1","Episode 9"],"oneliner":"Semantic caching can cut inferencing cost by ~40%: when someone repeats a query the LLM already answered, serve the cached response instead of paying for the model again.","says":"You can save 40% of inferencing cost with semantic caching. Without it: an API call goes to the LLM, the model generates a response, and when another person in your organization asks the same query, it hits the LLM again - paying twice for a duplicate. Semantic caching intercepts repeat queries and serves the stored answer.","explained":["The economics follow directly from the inference-economy reel: if every token costs money, every repeated question is money burned. Enterprise traffic is full of repeats - the same policy questions, the same how-do-I requests - which is why a 40% saving is realistic rather than marketing.","The 'semantic' part is what makes it powerful and tricky. A plain cache matches exact strings; a semantic cache matches meaning - 'how do I reset my password' and 'password reset steps' are the same question. Matching by meaning uses the same embedding machinery as RAG, with a threshold deciding how similar is similar enough. Set it too loose and users get stale or wrong answers; too tight and you save nothing. That threshold is an architecture decision with a dollar sign on it - and Season 2's evaluation platform is how you tune it safely."],"takeaway":"Before scaling model spend, add a semantic cache: same-meaning questions should never hit the model twice."}
+{
+  "id": "DcNGIMzvv8j",
+  "title": "Season 1, Ep 9: LLM caching architecture",
+  "badges": [
+    "Season 1",
+    "Episode 9"
+  ],
+  "oneliner": "Semantic caching can cut inferencing cost by ~40%: when someone repeats a query the LLM already answered, serve the cached response instead of paying for the model again.",
+  "says": "You can save 40% of inferencing cost with semantic caching. Without it: an API call goes to the LLM, the model generates a response, and when another person in your organization asks the same query, it hits the LLM again - paying twice for a duplicate. Semantic caching intercepts repeat queries and serves the stored answer.",
+  "explained": [
+    "The economics follow directly from the inference-economy reel: if every token costs money, every repeated question is money burned (money wasted). Enterprise traffic is full of repeats - the same policy questions, the same how-do-I requests - which is why a 40% saving is realistic rather than marketing.",
+    "The 'semantic' part is what makes it powerful and tricky. A plain cache matches exact strings; a semantic cache matches meaning - 'how do I reset my password' and 'password reset steps' are the same question. Matching by meaning uses the same embedding machinery as RAG, with a threshold deciding how similar is similar enough. Set it too loose and users get stale or wrong answers; too tight and you save nothing. That threshold is an architecture decision with a dollar sign on it (a decision with direct cost consequences) - and Season 2's evaluation platform is how you tune it safely."
+  ],
+  "takeaway": "Before scaling model spend, add a semantic cache: same-meaning questions should never hit the model twice."
+}

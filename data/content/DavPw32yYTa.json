@@ -1,1 +1,15 @@
-{"id":"DavPw32yYTa","title":"Why AI architects are suddenly so expensive","badges":["career","market"],"oneliner":"Demand is exploding because every enterprise has the same two hard problems: integrating legacy systems with AI, and integrating multi-cloud estates with AI.","says":"The job market has huge demand for AI architects, for three reasons. First, most organizations run legacy systems and need people who know how to integrate them with GenAI or agentic AI. Second, most organizations deal with multi-cloud - Azure, AWS, IBM, Google, on-premises, private cloud - and integrating that estate with AI is a key challenge. Third (cut off in the reel), the market expects experienced AI architects.","explained":["The demand logic is worth understanding because it tells you what to learn. The scarce skill is not 'knows AI' - it is integration judgment: how to bolt AI onto a thirty-year-old core system without breaking it, and how to make AI work across a messy multi-cloud reality where data, identity, and networking differ per provider.","This also explains the premium he referenced in the governance reel. Enterprises are not paying for demos; they are paying for people who can land AI inside real constraints - legacy estates, compliance, multiple clouds. If you are positioning for these roles, his implied syllabus is: integration patterns, hybrid and multi-cloud architecture, and governance - not just model knowledge."],"takeaway":"The market pays for integration, not novelty: legacy-plus-AI and multi-cloud-plus-AI are the two problems behind the hiring wave."}
+{
+  "id": "DavPw32yYTa",
+  "title": "Why AI architects are suddenly so expensive",
+  "badges": [
+    "career",
+    "market"
+  ],
+  "oneliner": "Demand is exploding because every enterprise has the same two hard problems: integrating legacy systems with AI, and integrating multi-cloud estates with AI.",
+  "says": "The job market has huge demand for AI architects, for three reasons. First, most organizations run legacy systems and need people who know how to integrate them with GenAI or agentic AI. Second, most organizations deal with multi-cloud - Azure, AWS, IBM, Google, on-premises, private cloud - and integrating that estate with AI is a key challenge. Third (cut off in the reel), the market expects experienced AI architects.",
+  "explained": [
+    "The demand logic is worth understanding because it tells you what to learn. The scarce skill is not 'knows AI' - it is integration judgment: how to bolt AI onto (attach AI to) a thirty-year-old core system without breaking it, and how to make AI work across a messy multi-cloud reality where data, identity, and networking differ per provider.",
+    "This also explains the premium he referenced in the governance reel. Enterprises are not paying for demos; they are paying for people who can land AI inside real constraints - legacy estates, compliance, multiple clouds. If you are positioning for these roles, his implied syllabus is: integration patterns, hybrid and multi-cloud architecture, and governance - not just model knowledge."
+  ],
+  "takeaway": "The market pays for integration, not novelty: legacy-plus-AI and multi-cloud-plus-AI are the two problems behind the hiring wave."
+}
