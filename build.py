@@ -189,8 +189,10 @@ function applySort(dir) {{
       .sort((a, b) => dir === 'asc' ? a.dataset.date.localeCompare(b.dataset.date) : b.dataset.date.localeCompare(a.dataset.date))
       .forEach(a => s.appendChild(a));
   }});
+  const eraKey = s => Math.min(...[...s.querySelectorAll('.reel')].map(r => +r.dataset.date));
   const glossary = document.getElementById('glossary');
-  (dir === 'asc' ? eras : eras.slice().reverse()).forEach(s => document.body.insertBefore(s, glossary));
+  eras.sort((a, b) => dir === 'asc' ? eraKey(a) - eraKey(b) : eraKey(b) - eraKey(a))
+      .forEach(s => document.body.insertBefore(s, glossary));
   sortBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sort === dir)));
   document.querySelectorAll('.tip.open').forEach(x => x.classList.remove('open'));
 }}
