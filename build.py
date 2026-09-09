@@ -97,7 +97,8 @@ for ei,(eid, ename, edates, eintro) in enumerate(ERAS):
         takeaway = tipify(c.get('takeaway',''))
         badges = ''.join(f'<span class="badge">{esc(b)}</span>' for b in c.get('badges',[]))
         dup = '<span class="badge dup">duplicate post</span>' if c.get('duplicate') else ''
-        parts.append(f'''  <article class="reel" id="reel-{r['n']}">
+        embed_url = f"https://www.instagram.com/reel/{r['id']}/embed"
+        parts.append(f'''  <article class="reel" id="reel-{r['n']}" data-date="{r['date']}">
     <div class="wrap reel-grid">
       <aside class="rail">
         <div class="num">{r['n']}<span class="of">/{total}</span></div>
@@ -110,7 +111,8 @@ for ei,(eid, ename, edates, eintro) in enumerate(ERAS):
         <div class="says"><span class="sec-label">What he says</span><p>{says}</p></div>
         <div class="explained"><span class="sec-label">The idea, explained</span>{explained}</div>
         <div class="takeaway"><span class="tk-label">Why it matters</span>{takeaway}</div>
-        <a class="watch" href="{r['url']}" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+        <div class="reel-embed" data-embed="{embed_url}"><span class="embed-note">Instagram reel - video loads as you scroll to it</span></div>
+        <a class="watch" href="{r['url']}" target="_blank" rel="noopener">Watch on Instagram &nearr;</a>
       </div>
     </div>
   </article>''')
@@ -144,6 +146,13 @@ html_doc = f'''<!DOCTYPE html>
     <div class="kicker">@architect_it_cloud &middot; Govindh Varadharajan &middot; AI Architect &middot; 2&times; LinkedIn Top Voice</div>
     <h1>Every reel he has posted.<br>Explained in plain English.</h1>
     <div class="bigcount"><span class="n">{total}</span><span class="l">reels, from the first to the latest, in the order he posted them</span></div>
+    <div class="sort-toggle" role="group" aria-label="Sort reels by posted date">
+      <span class="sort-label">Order</span>
+      <div class="seg">
+        <button type="button" data-sort="asc" aria-pressed="true">Oldest first</button>
+        <button type="button" data-sort="desc" aria-pressed="false">Newest first</button>
+      </div>
+    </div>
     <p class="sub">Read it like a book. Each reel gets its core message in one highlighted line, a summary of what he actually says, a full plain-English explanation, and the reason it matters - with hover tooltips on every hard term and a link to the original reel.</p>
     <div class="hero-stats">{hero_stats}</div>
   </div>
@@ -170,6 +179,40 @@ document.addEventListener('click', e => {{
   document.querySelectorAll('.tip.open').forEach(x => {{ if (x !== t) x.classList.remove('open'); }});
   if (t) t.classList.toggle('open');
 }});
+
+// sort toggle: oldest-first (default) or newest-first, by posted date
+const sortBtns = [...document.querySelectorAll('[data-sort]')];
+function applySort(dir) {{
+  const eras = [...document.querySelectorAll('.era')];
+  eras.forEach(s => {{
+    [...s.querySelectorAll('.reel')]
+      .sort((a, b) => dir === 'asc' ? a.dataset.date.localeCompare(b.dataset.date) : b.dataset.date.localeCompare(a.dataset.date))
+      .forEach(a => s.appendChild(a));
+  }});
+  const glossary = document.getElementById('glossary');
+  (dir === 'asc' ? eras : eras.slice().reverse()).forEach(s => document.body.insertBefore(s, glossary));
+  sortBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.sort === dir)));
+  document.querySelectorAll('.tip.open').forEach(x => x.classList.remove('open'));
+}}
+sortBtns.forEach(b => b.addEventListener('click', () => applySort(b.dataset.sort)));
+
+// lazy Instagram embeds: swap in the official iframe only when the card nears the viewport
+const embedIO = new IntersectionObserver(entries => {{
+  entries.forEach(en => {{
+    if (!en.isIntersecting) return;
+    const slot = en.target;
+    embedIO.unobserve(slot);
+    const f = document.createElement('iframe');
+    f.src = slot.dataset.embed;
+    f.loading = 'lazy';
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('allow', 'encrypted-media; clipboard-write');
+    f.title = 'Instagram reel embed';
+    slot.textContent = '';
+    slot.appendChild(f);
+  }});
+}}, {{ rootMargin: '900px 0px' }});
+document.querySelectorAll('.reel-embed[data-embed]').forEach(s => embedIO.observe(s));
 </script>
 </body>
 </html>'''
