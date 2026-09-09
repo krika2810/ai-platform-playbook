@@ -113,11 +113,12 @@ footer a{color:var(--accent)}
 .seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
 /* inline instagram embeds */
-.reel-embed{margin-top:22px}
+.reel-embed{margin-top:22px;min-height:782px;max-width:420px;display:flex;align-items:center;justify-content:center}
 .reel-embed .embed-note{display:block;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);border:1px dashed var(--line);border-radius:12px;padding:18px;text-align:center;max-width:420px}
-.reel-embed iframe{width:100%;max-width:420px;height:780px;border:1px solid var(--line);border-radius:12px;background:var(--card);display:block}
+.reel-embed iframe{width:100%;max-width:420px;height:780px;border:1px solid var(--line);border-radius:12px;background:var(--card);display:block;align-self:flex-start}
 @media (max-width:640px){
   .reel-embed iframe{height:720px}
+  .reel-embed{min-height:722px}
 }
 
 /* table of contents */
