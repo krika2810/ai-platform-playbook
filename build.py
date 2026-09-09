@@ -36,14 +36,8 @@ def fresh_tips():
     TIP_RE.clear()
 
 ERAS = [
-    ("era-foundations", "The Foundations", "Dec 2022 - Nov 2023",
-     "Before the AI series began: cloud architecture fundamentals, interview craft, and the enterprise-architecture mindset everything else builds on."),
-    ("era-explainers", "The First AI Explainers", "Apr - Aug 2025",
-     "The channel pivots to AI: agent frameworks, open-weight models, and the first plain-English explainers."),
-    ("era-skills", "The AI Architect Skillset", "Dec 2025 - Jan 2026",
-     "What an AI architect actually needs in 2026: skills, governance, and career habits."),
-    ("era-playbook", "The Career Playbook & AI Concepts", "May - Jul 2026",
-     "A dense run of career strategy, interview prep, and the money side of AI - inference economics, guardrails, Cloud 3.0, agents."),
+    ("era-rest", "The Rest - Foundations, Early Explainers, Career & Concepts", "Dec 2022 - Jul 2026",
+     "Everything outside the two seasons: cloud architecture fundamentals, the first AI explainers, architect skills and governance, career strategy and interview craft, plus one-off concepts and announcements - all in the order he posted them."),
     ("era-season1", "Season 1 - AI Solution Architect Transformation", "Jul 31 - Aug 22, 2026",
      "His first structured series: ten episodes that walk a classic solution architect into AI infrastructure - certifications, GPU infrastructure, inference gateways, scaling, private hosting, edge, caching, and DR."),
     ("era-season2", "Season 2 - AI Platform Solution Architect Transformation", "Aug 25 - Sep 8, 2026",
@@ -51,12 +45,9 @@ ERAS = [
 ]
 
 def era_for(date):
-    if date < '20250401': return 0
-    if date < '20250901': return 1
-    if date < '20260501': return 2
-    if date < '20260731': return 3
-    if date < '20260825': return 4
-    return 5
+    if date < '20260731': return 0
+    if date < '20260825': return 1
+    return 2
 
 def fmt_date(d):
     from datetime import datetime
@@ -74,6 +65,25 @@ for r in reels:
 nav = ''.join(f'<a href="#{e[0]}">{esc(e[1])}</a>' for e in ERAS if e[0].split("-",1)[1] and by_era.get(ERAS.index(e)) is not None)
 
 hero_stats = f'{total} reels &middot; {sum(len(v) for k,v in by_era.items())} explained &middot; {fmt_date(reels[0]["date"])} &rarr; {fmt_date(reels[-1]["date"])}'
+
+toc_items = []
+for ei,(eid, ename, edates, eintro) in enumerate(ERAS):
+    n = len(by_era.get(ei, []))
+    if not n: continue
+    toc_items.append(f'''<a class="toc-card" href="#{eid}">
+      <div class="toc-name">{esc(ename)}</div>
+      <div class="toc-meta">{esc(edates)} &middot; {n} reels</div>
+    </a>''')
+toc = f'''<nav class="toc" aria-label="Table of contents">
+  <div class="wrap">
+    <div class="toc-label">Jump to a section</div>
+    <div class="toc-grid">{"".join(toc_items)}
+    <a class="toc-card" href="#glossary">
+      <div class="toc-name">Glossary</div>
+      <div class="toc-meta">every hard term, one line each</div>
+    </a></div>
+  </div>
+</nav>'''
 
 for ei,(eid, ename, edates, eintro) in enumerate(ERAS):
     era_reels = by_era.get(ei, [])
@@ -158,7 +168,7 @@ html_doc = f'''<!DOCTYPE html>
   </div>
 </section>
 
-{''.join(parts)}
+{toc}\n{''.join(parts)}
 
 <section class="glossary" id="glossary">
   <div class="wrap">
