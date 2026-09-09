@@ -3,507 +3,1376 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The AI Platform Playbook - Learnings from @architect_it_cloud</title>
-<meta name="description" content="A learning site built from Govindh Varadharajan's Instagram reels on AI platform solution architecture: every reel explained in full, plain English.">
+<title>The AI Architect Reel Companion - all 72 reels of @architect_it_cloud, explained</title>
+<meta name="description" content="Every reel Govindh Varadharajan (@architect_it_cloud) has posted, in order, each one explained in plain English - from the first cloud fundamentals reel to Season 2 of the AI Platform Solution Architect series.">
 <style>
-  :root{
-    --paper:#faf8f5;
-    --ink:#1c1a17;
-    --ink-soft:#57534b;
-    --line:#e6e0d8;
-    --accent:#2563eb;
-    --accent-soft:#eff4ff;
-    --green:#0f7b4d;
-    --green-soft:#ecf7f1;
-    --amber:#b45309;
-    --amber-soft:#fdf6ec;
-    --card:#ffffff;
-    --radius:14px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--paper);color:var(--ink);
-    line-height:1.65;font-size:17px;
-  }
-  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
-  /* header */
-  header.top{
-    border-bottom:1px solid var(--line);
-    background:rgba(250,248,245,.9);backdrop-filter:blur(8px);
-    position:sticky;top:0;z-index:50;
-  }
-  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-  .brand{font-weight:650;font-size:15px;letter-spacing:-.01em}
-  .brand span{color:var(--accent)}
-  nav.chapters{display:flex;gap:4px;overflow-x:auto;font-size:13px}
-  nav.chapters a{color:var(--ink-soft);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
-  nav.chapters a:hover{background:var(--accent-soft);color:var(--accent)}
-  /* hero */
-  .hero{padding:84px 0 56px;border-bottom:1px solid var(--line)}
-  .kicker{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
-  .hero h1{font-size:clamp(34px,5.5vw,52px);line-height:1.08;letter-spacing:-.03em;font-weight:700;max-width:16ch}
-  .hero p.sub{margin-top:22px;font-size:19px;color:var(--ink-soft);max-width:60ch}
-  .hero .byline{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14px;color:var(--ink-soft)}
-  .pill{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:550;color:var(--ink-soft);text-decoration:none}
-  .pill:hover{border-color:var(--accent);color:var(--accent)}
-  /* platform map */
-  .map-section{padding:64px 0}
-  .map-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;overflow-x:auto}
-  .map-note{font-size:13px;color:var(--ink-soft);margin-top:14px}
-  svg text{font-family:inherit}
-  .map-node{cursor:pointer}
-  .map-node rect{transition:filter .15s ease}
-  .map-node:hover rect{filter:brightness(.94)}
-  /* sections */
-  section.chapter{padding:64px 0;border-top:1px solid var(--line)}
-  .ch-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px}
-  .tag-ep{background:var(--accent-soft);color:var(--accent)}
-  .tag-career{background:var(--green-soft);color:var(--green)}
-  .tag-news{background:var(--amber-soft);color:var(--amber)}
-  h2{font-size:30px;letter-spacing:-.02em;line-height:1.15;font-weight:700;margin-bottom:8px}
-  .ch-meta{font-size:14px;color:var(--ink-soft);margin-bottom:28px}
-  .ch-meta a{color:var(--accent);text-decoration:none;font-weight:550}
-  .ch-meta a:hover{text-decoration:underline}
-  h3{font-size:19px;font-weight:650;margin:34px 0 12px;letter-spacing:-.01em}
-  p{margin-bottom:16px;color:#2c2a26}
-  p.lead{font-size:18px;color:var(--ink)}
-  .he-says{
-    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
-    border-radius:0 10px 10px 0;padding:18px 22px;margin:22px 0;font-size:15.5px;color:var(--ink-soft);
-  }
-  .he-says b{color:var(--ink)}
-  .he-says .lbl{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-  ul.takeaways{margin:14px 0 18px 4px;list-style:none}
-  ul.takeaways li{position:relative;padding-left:26px;margin-bottom:10px;color:#2c2a26}
-  ul.takeaways li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;border-radius:2px;background:var(--accent)}
-  ul.takeaways.green li::before{background:var(--green)}
-  /* tooltips */
-  .term{border-bottom:1.5px dotted var(--accent);cursor:help;position:relative;color:inherit;text-decoration:none}
-  .term:hover{background:var(--accent-soft)}
-  .term::after{
-    content:attr(data-def);
-    position:absolute;left:50%;bottom:135%;transform:translateX(-50%) translateY(4px);
-    background:var(--ink);color:#fff;font-size:13px;line-height:1.45;
-    padding:10px 14px;border-radius:10px;width:max-content;max-width:280px;
-    opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:40;font-weight:400;
-    box-shadow:0 8px 24px rgba(0,0,0,.18);white-space:normal;text-align:left;
-  }
-  .term:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
-  /* glossary */
-  .glossary{padding:64px 0;border-top:1px solid var(--line)}
-  .g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:24px}
-  .g-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-  .g-item b{display:block;font-size:14.5px;margin-bottom:5px}
-  .g-item span{font-size:13.5px;color:var(--ink-soft);line-height:1.5;display:block}
-  /* reels index */
-  .reels-index{padding:64px 0;border-top:1px solid var(--line)}
-  .r-row{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
-  .r-row .d{color:var(--ink-soft);font-size:13px;min-width:96px;font-variant-numeric:tabular-nums}
-  .r-row a{color:var(--accent);text-decoration:none;font-weight:550}
-  .r-row a:hover{text-decoration:underline}
-  .r-row .t{flex:1}
-  .r-row .dup{color:var(--ink-soft);font-size:13px}
-  footer{border-top:1px solid var(--line);padding:40px 0 60px;font-size:13.5px;color:var(--ink-soft)}
-  footer a{color:var(--accent);text-decoration:none}
-  @media(max-width:640px){
-    nav.chapters{display:none}
-    .hero{padding:56px 0 40px}
-  }
+:root{
+  --paper:#faf7f2;
+  --paper-deep:#f3eee6;
+  --ink:#201c17;
+  --ink-soft:#5b554c;
+  --line:#e5ddd1;
+  --accent:#9a3412;         /* burnt orange */
+  --accent-soft:#fbe9df;
+  --hl:#fdf0c8;             /* highlight yellow */
+  --green:#166534;
+  --green-soft:#eaf5ec;
+  --card:#fffdf9;
+  --radius:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Charter,'Bitstream Charter',Cambria,Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:17.5px}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+h1,h2,h3,.brand,.num,.kicker,.ol-label,.sec-label,.tk-label,.badge,.era-dates,.era-count,.hero-stats,nav,.watch{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+
+/* header */
+header.top{position:sticky;top:0;z-index:60;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:58px;gap:14px}
+.brand{font-weight:700;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+.brand span{color:var(--accent)}
+nav{display:flex;gap:2px;overflow-x:auto;font-size:12.5px}
+nav a{color:var(--ink-soft);text-decoration:none;padding:6px 9px;border-radius:8px;white-space:nowrap}
+nav a:hover{background:var(--accent-soft);color:var(--accent)}
+
+/* hero */
+.hero{padding:88px 0 64px;border-bottom:1px solid var(--line);background:
+  radial-gradient(1200px 400px at 20% -10%, #f6ede1 0%, transparent 60%),
+  var(--paper)}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.hero h1{font-size:clamp(34px,5.6vw,54px);line-height:1.06;letter-spacing:-.03em;font-weight:800;max-width:20ch}
+.bigcount{display:flex;align-items:baseline;gap:16px;margin-top:34px;padding:22px 26px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);max-width:520px;box-shadow:0 1px 0 rgba(32,28,23,.04),0 12px 30px -18px rgba(32,28,23,.25)}
+.bigcount .n{font-size:64px;font-weight:800;letter-spacing:-.04em;color:var(--accent);line-height:1}
+.bigcount .l{font-size:15px;color:var(--ink-soft);max-width:26ch;line-height:1.45}
+.hero p.sub{margin-top:26px;font-size:19px;color:var(--ink-soft);max-width:56ch}
+.hero-stats{margin-top:22px;font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);text-transform:uppercase}
+
+/* era sections */
+.era{padding:0 0 10px}
+.era-head{padding:72px 0 36px}
+.era-dates{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.era-head h2{font-size:clamp(26px,3.6vw,36px);letter-spacing:-.025em;font-weight:800}
+.era-head p{margin-top:12px;color:var(--ink-soft);max-width:62ch}
+.era-count{display:inline-block;margin-top:16px;font-size:12px;font-weight:700;color:var(--ink-soft);border:1px solid var(--line);border-radius:999px;padding:4px 12px;background:var(--card)}
+
+/* reel entries */
+.reel{padding:6px 0 44px;border-top:1px dashed var(--line)}
+.reel-grid{display:grid;grid-template-columns:92px 1fr;gap:26px;padding-top:34px}
+.rail{position:relative}
+.rail .num{font-size:40px;font-weight:800;letter-spacing:-.03em;color:var(--accent);line-height:1;position:sticky;top:80px}
+.rail .of{font-size:16px;color:var(--ink-soft);font-weight:600}
+.rail .date{position:sticky;top:124px;font-size:12.5px;color:var(--ink-soft);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-weight:600;margin-top:6px}
+.body h3{font-size:23px;letter-spacing:-.02em;font-weight:750;line-height:1.25;margin:8px 0 16px}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:3px 10px}
+.badge.dup{color:var(--ink-soft);background:var(--paper-deep)}
+.oneliner{background:linear-gradient(transparent 55%, var(--hl) 55%, var(--hl) 96%, transparent 96%);background-color:transparent;border-left:3px solid var(--accent);padding:14px 18px;font-size:18.5px;font-weight:600;line-height:1.55;border-radius:0 10px 10px 0;background-color:#fff7e2}
+.ol-label,.sec-label,.tk-label{display:block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.says{margin-top:22px}
+.says p{color:var(--ink-soft);font-style:italic}
+.explained{margin-top:22px}
+.explained p{margin-bottom:14px}
+.explained .sec-label{color:var(--ink-soft)}
+.takeaway{margin-top:22px;background:var(--green-soft);border:1px solid #d3e8d8;border-radius:12px;padding:14px 18px;font-size:16px}
+.tk-label{color:var(--green)}
+.watch{display:inline-block;margin-top:18px;font-size:13.5px;font-weight:700;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.watch:hover{border-bottom-color:var(--accent)}
+
+/* tooltips */
+.tip{position:relative;border-bottom:1.5px dotted var(--accent);cursor:help;font-weight:600}
+.tip-bubble{visibility:hidden;opacity:0;position:absolute;left:50%;bottom:135%;transform:translateX(-50%) translateY(4px);background:var(--ink);color:var(--paper);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:13px;font-weight:500;line-height:1.45;padding:10px 13px;border-radius:10px;width:max-content;max-width:270px;white-space:normal;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);transition:opacity .15s,transform .15s,visibility .15s;z-index:70;pointer-events:none}
+.tip-bubble::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--ink)}
+.tip:hover .tip-bubble,.tip:focus .tip-bubble,.tip.open .tip-bubble{visibility:visible;opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* glossary */
+.glossary{padding:70px 0 80px;border-top:1px solid var(--line);background:var(--paper-deep)}
+.glossary h2{font-size:clamp(24px,3.4vw,32px);letter-spacing:-.02em;font-weight:800;margin-bottom:28px}
+.g-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+.g-item{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 15px}
+.g-item dt{font-weight:700;font-size:14.5px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.g-item dd{font-size:14px;color:var(--ink-soft);margin-top:3px}
+
+footer{padding:34px 0 44px;font-size:13.5px;color:var(--ink-soft);border-top:1px solid var(--line)}
+footer a{color:var(--accent)}
+
+@media (max-width:640px){
+  .reel-grid{grid-template-columns:1fr;gap:8px}
+  .rail .num,.rail .date{position:static}
+  .rail{display:flex;align-items:baseline;gap:10px}
+  .g-grid{grid-template-columns:1fr}
+  .bigcount .n{font-size:52px}
+}
+
 </style>
 </head>
 <body>
-
 <header class="top">
-  <div class="wrap">
-    <div class="brand">The AI Platform <span>Playbook</span></div>
-    <nav class="chapters">
-      <a href="#map">The Map</a>
-      <a href="#ep1">Ep 1</a><a href="#ep2">Ep 2</a><a href="#ep3">Ep 3</a><a href="#ep4">Ep 4</a>
-      <a href="#ep5">Ep 5</a><a href="#ep6">Ep 6</a><a href="#ep7">Ep 7</a><a href="#ep8">Ep 8</a>
-      <a href="#career">Career</a><a href="#glossary">Glossary</a>
-    </nav>
+  <div class="wrap bar">
+    <div class="brand">The <span>Reel Companion</span></div>
+    <nav><a href="#era-foundations">The Foundations</a><a href="#era-explainers">The First AI Explainers</a><a href="#era-skills">The AI Architect Skillset</a><a href="#era-playbook">The Career Playbook &amp; AI Concepts</a><a href="#era-season1">Season 1 - AI Solution Architect Transformation</a><a href="#era-season2">Season 2 - AI Platform Solution Architect Transformation</a><a href="#glossary">Glossary</a></nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <div class="kicker">A learning site built from Instagram reels</div>
-    <h1>How to architect an enterprise AI platform, one reel at a time.</h1>
-    <p class="sub">Govindh Varadharajan (<a href="https://www.instagram.com/architect_it_cloud/" style="color:var(--accent)">@architect_it_cloud</a>), an AI architect and 2x LinkedIn Top Voice, is posting a reel series called <b>AI Platform Solution Architect Transformation</b>. Each reel is one to four minutes of dense, practical guidance. This site takes every reel he has posted, writes out what he says, and then explains each concept in full, plain English - so you can actually learn it, not just watch it.</p>
-    <div class="byline">
-      <a class="pill" href="https://www.instagram.com/architect_it_cloud/">Instagram - @architect_it_cloud</a>
-      <a class="pill" href="https://www.youtube.com/@ArchitectITCloud">YouTube - Architect IT Cloud</a>
-      <span class="pill">12 reels collected - 8 episodes + career advice + announcements</span>
-      <span class="pill">Reels current as of Sep 9, 2026</span>
+    <div class="kicker">@architect_it_cloud &middot; Govindh Varadharajan &middot; AI Architect &middot; 2&times; LinkedIn Top Voice</div>
+    <h1>Every reel he has posted.<br>Explained in plain English.</h1>
+    <div class="bigcount"><span class="n">72</span><span class="l">reels, from the first to the latest, in the order he posted them</span></div>
+    <p class="sub">Read it like a book. Each reel gets its core message in one highlighted line, a summary of what he actually says, a full plain-English explanation, and the reason it matters - with hover tooltips on every hard term and a link to the original reel.</p>
+    <div class="hero-stats">72 reels &middot; 72 explained &middot; Dec 11, 2022 &rarr; Sep 8, 2026</div>
+  </div>
+</section>
+
+<section class="era" id="era-foundations">
+  <div class="wrap">
+    <div class="era-head">
+      <div class="era-dates">Dec 2022 - Nov 2023</div>
+      <h2>The Foundations</h2>
+      <p>Before the AI series began: cloud architecture fundamentals, interview craft, and the enterprise-architecture mindset everything else builds on.</p>
+      <div class="era-count">6 reels</div>
     </div>
-  </div>
-</section>
-
-<section class="map-section" id="map">
-  <div class="wrap">
-    <div class="kicker">Start here</div>
-    <h2>The whole series on one map</h2>
-    <p style="margin-top:10px;color:var(--ink-soft);max-width:62ch">Every episode is one building block of a single idea: an enterprise should not let every team build its own AI plumbing. It should build one shared <b>AI platform</b> that every line of business uses. Click any block to jump to the chapter that explains it.</p>
-    <div class="map-card" style="margin-top:26px">
-      <svg viewBox="0 0 820 470" width="100%" role="img" aria-label="Architecture map of the enterprise AI platform described in the reel series">
-        <!-- Applications layer -->
-        <text x="20" y="30" font-size="12" font-weight="700" fill="#57534b" letter-spacing="2">APPLICATIONS - what the business teams build</text>
-        <g class="map-node" onclick="location.hash='ep1'">
-          <rect x="20" y="42" width="780" height="56" rx="12" fill="#eff4ff" stroke="#c7d9fa"/>
-          <text x="400" y="66" text-anchor="middle" font-size="15" font-weight="650" fill="#1c1a17">AI agent apps from every line of business (LOB 1, LOB 2, ... LOB 15)</text>
-          <text x="400" y="86" text-anchor="middle" font-size="12.5" fill="#57534b">Each team builds agents - they should NOT each build the plumbing (Episode 1)</text>
-        </g>
-        <!-- Platform layer -->
-        <text x="20" y="132" font-size="12" font-weight="700" fill="#57534b" letter-spacing="2">THE AI INTERNAL DEVELOPER PLATFORM - shared services, built once</text>
-        <g class="map-node" onclick="location.hash='ep2'">
-          <rect x="20" y="144" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-          <text x="145" y="172" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Centralized MCP Hub</text>
-          <text x="145" y="192" text-anchor="middle" font-size="11.5" fill="#57534b">One place hosting every MCP</text>
-          <text x="145" y="208" text-anchor="middle" font-size="11.5" fill="#57534b">server - no duplicates (Ep 2)</text>
-        </g>
-        <g class="map-node" onclick="location.hash='ep8'">
-          <rect x="285" y="144" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-          <text x="410" y="172" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Unified Tool Catalog</text>
-          <text x="410" y="192" text-anchor="middle" font-size="11.5" fill="#57534b">REST / OpenAPI turned into</text>
-          <text x="410" y="208" text-anchor="middle" font-size="11.5" fill="#57534b">LLM-ready tools (Ep 8)</text>
-        </g>
-        <g class="map-node" onclick="location.hash='ep4'">
-          <rect x="550" y="144" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-          <text x="675" y="172" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Centralized Prompt Registry</text>
-          <text x="675" y="192" text-anchor="middle" font-size="11.5" fill="#57534b">Prompts versioned, tested and</text>
-          <text x="675" y="208" text-anchor="middle" font-size="11.5" fill="#57534b">stored outside the code (Ep 4)</text>
-        </g>
-        <g class="map-node" onclick="location.hash='ep6'">
-          <rect x="20" y="246" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-          <text x="145" y="274" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">RAG as a Service</text>
-          <text x="145" y="294" text-anchor="middle" font-size="11.5" fill="#57534b">Document pipelines + vector</text>
-          <text x="145" y="310" text-anchor="middle" font-size="11.5" fill="#57534b">search behind one API (Ep 6)</text>
-        </g>
-        <g class="map-node" onclick="location.hash='ep5'">
-          <rect x="285" y="246" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-          <text x="410" y="274" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Standard Agent SDK</text>
-          <text x="410" y="294" text-anchor="middle" font-size="11.5" fill="#57534b">One blessed way to build</text>
-          <text x="410" y="310" text-anchor="middle" font-size="11.5" fill="#57534b">agents across the org (Ep 5)</text>
-        </g>
-        <g class="map-node" onclick="location.hash='ep7'">
-          <rect x="550" y="246" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-          <text x="675" y="274" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Evaluation Platform</text>
-          <text x="675" y="294" text-anchor="middle" font-size="11.5" fill="#57534b">LLM-as-judge + golden data +</text>
-          <text x="675" y="310" text-anchor="middle" font-size="11.5" fill="#57534b">regression tests in CI (Ep 7)</text>
-        </g>
-        <!-- Multi-tenancy band -->
-        <g class="map-node" onclick="location.hash='ep3'">
-          <rect x="20" y="348" width="780" height="52" rx="12" fill="#ecf7f1" stroke="#9fd8bd"/>
-          <text x="400" y="370" text-anchor="middle" font-size="14" font-weight="650" fill="#0f7b4d">Multi-tenant by design: hard tenant isolation - usage metering - per-LOB rate limits - model routing gateway</text>
-          <text x="400" y="389" text-anchor="middle" font-size="12" fill="#57534b">One platform safely shared by every LOB (Episode 3)</text>
-        </g>
-        <!-- Infra layer -->
-        <text x="20" y="432" font-size="12" font-weight="700" fill="#57534b" letter-spacing="2">INFRASTRUCTURE - GPU clusters, nodes, cloud or on-prem (the platform architect provisions this, Ep 1)</text>
-        <rect x="20" y="442" width="780" height="20" rx="8" fill="#f1ede6" stroke="#e6e0d8"/>
-      </svg>
-      <p class="map-note">Read the map bottom to top: infrastructure at the base, the shared platform in the middle, business applications on top. Episodes 2 and 4 to 8 are the individual platform services. Episode 3 is the design discipline that lets many teams share them safely.</p>
+  </div>  <article class="reel" id="reel-1">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">1<span class="of">/72</span></div>
+        <div class="date">Dec 11, 2022</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">foundations</span></div>
+        <h3>The 15 -ilities every cloud architect must know</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Architecture quality is a checklist: <span class="tip" tabindex="0">availability<span class="tip-bubble" role="tooltip">The share of time a system stays up and usable, usually measured in nines (99.9% = three nines).</span></span>, <span class="tip" tabindex="0">scalability<span class="tip-bubble" role="tooltip">A system's ability to handle more users or work by adding resources rather than redesigning.</span></span>, usability, adaptability, <span class="tip" tabindex="0">reliability<span class="tip-bubble" role="tooltip">How consistently a system produces correct results over time, not just whether it is up.</span></span>, security, maintainability, sustainability, visibility, interoperability, extensibility, recoverability, resilience, performance, and cloudability.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>He reads out the full list of fifteen <span class="tip" tabindex="0">-ilities<span class="tip-bubble" role="tooltip">The quality attributes of a system - availability, scalability, reliability, security - that architects must design for deliberately.</span></span> and frames them as the baseline vocabulary of a cloud architect - the qualities you are expected to design for on purpose, not discover after go-live.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>This is his very first reel, and it sets the tone for the whole channel: architecture is a discipline of named, checkable qualities. Each -ility is a question you ask of a design. Availability asks what happens when something fails at 2 AM. Scalability asks what happens when traffic triples. Maintainability asks whether the next engineer can change the system without fear. Recoverability asks how fast you come back from disaster.</p><p>The practical use of the list is review discipline. Before calling a design done, walk the fifteen words and write one sentence for each: how does this system achieve it, and how would we know? The ones you cannot answer are your design risks. Architects are paid to make these qualities explicit and traded off consciously - you rarely maximize all fifteen, so choosing which matter most for this workload is the actual job.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Save the list. Run every design review against all fifteen -ilities and write down how the system achieves each one; a blank answer is a design risk.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/CmCEBVLuf7q/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="chapter" id="ep1">
+  </article>  <article class="reel" id="reel-2">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">2<span class="of">/72</span></div>
+        <div class="date">Dec 18, 2022</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">foundations</span></div>
+        <h3>Cloud reliability, defined properly</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>A reliable workload stays available through failures, recovers automatically, scales horizontally, and never runs on guessed capacity.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>He defines <span class="tip" tabindex="0">reliability<span class="tip-bubble" role="tooltip">How consistently a system produces correct results over time, not just whether it is up.</span></span> as consistent <span class="tip" tabindex="0">availability<span class="tip-bubble" role="tooltip">The share of time a system stays up and usable, usually measured in nines (99.9% = three nines).</span></span> for the customer: failures must trigger automatic recovery, you must know the recovery procedures, the workload must scale horizontally to protect availability, capacity must be measured with monitoring rather than guessed, and the workload must survive platform and infrastructure failures.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>Notice what this definition is not: it is not 'the system does not break.' Everything breaks. Reliability is about what happens next - whether the failure is even visible to the customer. That is why he pairs every failure with a recovery behavior: automatic recovery, rehearsed procedures, horizontal scaling so one node dying is a non-event.</p><p>The most underrated line here is 'you must not guess the capacity.' Capacity planning is a measurement discipline, not intuition. Monitoring tells you the real headroom; provisioning follows the data. Teams that guess either waste money on idle capacity or discover their real limits during a traffic spike - which is to say, in front of customers.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Reliability = automatic recovery + rehearsed procedures + horizontal scale + measured capacity. If any one is missing, you are relying on luck.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/CmUWR8qL9G9/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-3">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">3<span class="of">/72</span></div>
+        <div class="date">Feb 2, 2023</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span><span class="badge">interview</span></div>
+        <h3>Four pre-interview prep moves for architects</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Research the company's journey, match your experience to the job description, rehearse with a mock interview, and walk in with one project you know cold.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>He gives four steps: study the company profile to understand where they are in their modernization or cloud migration journey and what their strategy is; read the job description thoroughly and match it against your experience until the fit is tight; run a mock interview with a close friend and fix whatever the feedback surfaces; and pick one key or innovative project from your past work that you can explain in complete depth.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>Each step targets a different failure mode. Company research stops generic answers - when you can say 'you are mid-migration from X to Y, and here is where I have done exactly that,' you stop sounding like every other candidate. Job-description matching stops you from preparing for the job you wish it were instead of the job it is.</p><p>The mock interview exists because speaking answers out loud is a different skill from knowing them; the first time you say an answer should not be in front of the panel. And the one deep project is your proof of depth: interviewers probe one story hard to test whether your resume is real. A project you know cold - decisions, trade-offs, what broke, what you would do differently - carries the whole interview.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Preparation is specific, not general: their strategy, this job description, spoken rehearsal, one project in full depth.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/CoLQlDUufSp/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-4">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">4<span class="of">/72</span></div>
+        <div class="date">Feb 17, 2023</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span><span class="badge">framework</span></div>
+        <h3>The 4I - E formula for solution architects</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Investigate, Innovate, Initiate, Implement - minus Ego - equals success as an architect.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>His formula: investigate the customer's problems, pain points, and modernization journey; innovate with ideas using technologies like IoT, AI, and mobile; initiate the next step, conversation, and action item so deals and projects keep moving; implement the solution cleanly for the customer. Then subtract ego when working with peers and customers.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>The four I's map the full arc of an architect's engagement. Investigate comes first because architects who pitch before they understand get politely ignored. Innovate is not about novelty for its own sake - it is bringing the customer options they did not know existed. Initiate is the least technical and most decisive: projects die in the gaps between meetings, and the architect who always sends the follow-up, books the next session, and names the next action is the one whose designs actually get built.</p><p>Subtracting ego is the multiplier. Architecture work is persuasion across teams you do not control. The moment the job becomes proving you are the smartest person in the room, people stop bringing you their real constraints - and a design made without the real constraints is fiction.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Skills get the design right; initiation gets it built; dropped ego keeps people honest with you. All five parts are required.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Coxip2DsYm2/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-5">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">5<span class="of">/72</span></div>
+        <div class="date">Mar 22, 2023</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">foundations</span><span class="badge">trends</span></div>
+        <h3>Six focus areas for architects in 2023</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>His 2023 bet: containers, serverless, quantum computing, hybrid and multi-cloud, cloud security, and AI/ML.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>A quick list of the six areas a cloud or <span class="tip" tabindex="0">solution architect<span class="tip-bubble" role="tooltip">The person who designs how a business problem becomes a working technical system.</span></span> should focus on in 2023: containerization, serverless computing, quantum computing, hybrid or multi-cloud, cyber security / cloud security, and artificial intelligence and machine learning.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>Read three years later, the list aged well - which is itself the lesson. Containers and serverless became the default way workloads ship. Hybrid and multi-cloud became the enterprise default rather than a strategy. Security moved from a review step to a design input. And AI/ML went from one item on a list to the subject of his entire channel.</p><p>Quantum computing is the one speculative pick, and it is still speculative - a reminder that trend lists are maps of where attention is going, not guarantees. The durable skill is noticing which trends are maturing into defaults and positioning early, the way he did with AI.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Watch what the list got right: the trends that became defaults were the boring infrastructure ones plus AI. Bet on maturity curves, not hype.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/CqGAnuEgblc/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-6">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">6<span class="of">/72</span></div>
+        <div class="date">Nov 5, 2023</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span><span class="badge">enterprise architecture</span></div>
+        <h3>Why make the jump to Enterprise Architect</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>A <span class="tip" tabindex="0">solution architect<span class="tip-bubble" role="tooltip">The person who designs how a business problem becomes a working technical system.</span></span> goes deep on one area; an <span class="tip" tabindex="0">enterprise architect<span class="tip-bubble" role="tooltip">The architect who looks across the whole organization's technology, not just one system.</span></span> goes wide across business, data, application, and technology - and governs all of it.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>He makes the case that solution and cloud architects should consider the enterprise architect path. As a solution architect you focus on one area - infrastructure, platform, or application solutioning. As an enterprise architect your view expands to business architecture, data architecture, technology architecture, application architecture, plus implementation governance and operational excellence. Getting there needs the right project opportunity in your organization, and certifications like <span class="tip" tabindex="0">TOGAF<span class="tip-bubble" role="tooltip">The Open Group Architecture Framework - the standard method for enterprise architecture work.</span></span> help.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>This is the classic depth-versus-breadth fork in an architecture career. The solution architect's power is credibility in the details: you can design the actual system. The enterprise architect's power is coherence across the whole estate: every team's decisions add up to one direction, standards get enforced, and technology spend traces to business strategy.</p><p>His practical point deserves emphasis: you cannot study your way into this role. You need a project where the wide view is actually yours - and those go to people who have already shown they can hold more than their own lane. The certification (he mentions TOGAF) gives you the shared vocabulary of business/data/application/technology architecture, but the opportunity has to be earned inside your organization first.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>If you want the EA path, start acting wide before the title arrives - volunteer for cross-cutting work, then let the certification formalize it.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/CzRpmpkAM8G/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article></section><section class="era" id="era-explainers">
   <div class="wrap">
-    <span class="ch-tag tag-ep">Season 2 - Episode 1 - Aug 25, 2026</span>
-    <h2>Basics of Platform: what a platform actually is</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dcck0sXtqNE/">instagram.com/reel/Dcck0sXtqNE</a> (3 min 45 s) - posted twice, also as <a href="https://www.instagram.com/reel/DcckU0kBvLf/">reel/DcckU0kBvLf</a></p>
-
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    A platform is the layer between <b>infrastructure</b> and <b>application</b>. Picture a cake: the bottom layer is infrastructure, the cream and cookies in the middle are the platform, the decoration on top is the application. In the classic world, a platform architect builds the tools application teams need to run on something like OpenShift. In the AI world, the platform architect must know how to provision GPUs, deploy LLMs on top, and support application teams running AI agent apps. With 10 to 15 lines of business each building agent apps, the platform architect must build common tools all of them share - an <b>internal developer platform</b> - so duplicate work disappears.</div>
-
-    <h3>The idea, explained</h3>
-    <p class="lead">Most people who "work in tech" work on one of three layers, and being clear about which layer you are on changes every design decision you make.</p>
-    <p>The <b>infrastructure layer</b> is raw capacity: servers, GPUs, networks, storage. It answers the question "what compute do we have?" The <b>application layer</b> is what the business actually wanted: the customer-support agent, the document-summarizing tool, the sales-copilot. It answers "what does the user get?" The <b>platform layer</b> sits between them and answers a third question: "how does an application team get from raw compute to a running, reliable app without becoming infrastructure experts?"</p>
-    <p>That middle layer is easy to underestimate because when it works, nobody notices it. In the classic cloud world, platforms like OpenShift or Kubernetes distros did this job: an app team shipped code, and the platform handled deployment, scaling, logging and secrets. The app team never thought about load balancers or node pools.</p>
-    <p>AI changes what the platform must provide. An application team building an AI agent needs things a classic platform never offered: GPU capacity carved out for them, a deployed LLM endpoint they can call, a vector database, a way to register tools the agent can use, somewhere to keep prompts, and a way to test whether the model's answers are any good. If the platform does not offer these as shared services, every team builds its own version - badly, and five times over.</p>
-    <p>That is the punchline of Episode 1, and honestly of the whole series: the AI platform architect's job is to build an <span class="term" data-def="Internal Developer Platform - a company's own internal product that gives development teams self-serve tools (environments, pipelines, AI services) so they can ship without waiting on other teams.">internal developer platform</span> (IDP) for AI. "Internal" because its customers are your own developers. "Platform" because it is built once and used by every team. When 10 to 15 lines of business each need an agent app, the choice is not "15 teams build 15 apps." It is "15 teams build 15 apps, and either 15 copies of the plumbing or one."</p>
-
-    <h3>Why it matters</h3>
-    <ul class="takeaways">
-      <li><b>Duplicated plumbing is invisible waste.</b> Every team that builds its own document pipeline, its own prompt store, its own model gateway is spending engineering months the company pays for more than once.</li>
-      <li><b>The platform is a product, not a project.</b> It has customers (your developers), a roadmap, and adoption as its success metric. Episode 1 is where that framing starts.</li>
-      <li><b>Your role definition follows the layer.</b> An AI platform solution architect is not the person building the agent app. They are the person making it cheap and safe for fifteen teams to build theirs.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="ep2">
+    <div class="era-head">
+      <div class="era-dates">Apr - Aug 2025</div>
+      <h2>The First AI Explainers</h2>
+      <p>The channel pivots to AI: agent frameworks, open-weight models, and the first plain-English explainers.</p>
+      <div class="era-count">3 reels</div>
+    </div>
+  </div>  <article class="reel" id="reel-7">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">7<span class="of">/72</span></div>
+        <div class="date">Apr 9, 2025</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">AI explainers</span></div>
+        <h3>IBM's Bee AI framework in three facts</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>IBM's Bee framework runs many small specialized AI agents like a bee colony - swarm intelligence, with each agent doing one task toward a shared goal, and it is energy efficient.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>Three facts about IBM's Bee agentic framework: it is inspired by nature, specifically honeybee colonies where each bee handles one task toward the colony's goal - in Bee, many small agents each take a particular task to achieve a global one. It uses swarm intelligence, the same principle as ant colonies and bird flocks: individuals follow local rules, and the group accomplishes the large task together. And it is energy efficient compared to monolithic approaches.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>This reel captures a design philosophy that later runs through his whole platform series: many small, single-purpose agents beat one giant do-everything model. A monolithic agent is hard to test, hard to debug, and fails opaquely. A swarm of narrow agents is composable - each one is simple enough to verify, and the system's intelligence comes from how they are coordinated.</p><p>Swarm intelligence is the coordination pattern: no central puppet-master, just agents following local rules and passing work along. The energy-efficiency claim follows from the same idea - small specialized components can run smaller models for their narrow task instead of invoking a frontier model for everything. That trade-off, cost and energy versus capability per task, becomes a recurring theme in his <span class="tip" tabindex="0">inference<span class="tip-bubble" role="tooltip">Running a trained model to get answers - the ongoing cost of AI, as opposed to one-time training.</span></span>-economics reels.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Agent architecture mirrors good software architecture: small, single-purpose components with clear coordination beat one opaque monolith.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DIO2-MvgBWK/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-8">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">8<span class="of">/72</span></div>
+        <div class="date">May 1, 2025</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">AI explainers</span><span class="badge">agents</span></div>
+        <h3>What is LangGraph?</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>LangChain is the engine; <span class="tip" tabindex="0">LangGraph<span class="tip-bubble" role="tooltip">A framework for building multi-step AI agents as graphs of states and decisions, from the LangChain ecosystem.</span></span> is the GPS and control system - it lets agents loop, branch, stop on failure, and drive themselves.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>He defines LangGraph as a framework for building powerful AI agents: on top of it you combine large language models, tools, memory, and storage. The resulting agent does not just respond - it acts on its own, stops when a task fails, and loops when a task needs repeating. His analogy: LangChain is your car's engine; LangGraph is the GPS and control system that keeps the car going in the right direction, starting and stopping when needed.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>The key idea is that real agent work is not a straight line. A question-answer bot is one call to a model. A real task - research this, compare options, draft the thing, check it, fix what failed - needs loops, branches, and retries. LangGraph models that as a graph: nodes are steps, edges are decisions about where to go next, and state carries what has been learned so far.</p><p>His car analogy is worth keeping because it names the division of labor correctly. The <span class="tip" tabindex="0">LLM<span class="tip-bubble" role="tooltip">Large language model - the engine behind chatbots and copilots.</span></span> supplies raw capability, like an engine supplies power. But an engine without steering is useless. LangGraph supplies the control flow: when to call which tool, when to loop back after a failure, when to stop. When he later talks about <span class="tip" tabindex="0">agent SDK<span class="tip-bubble" role="tooltip">A standard software development kit for building AI agents, so every team builds them the same way.</span></span> standardization in Season 2, this is the layer he means.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>An agent = model + tools + memory + control flow. LangGraph is the control-flow layer; learn it as 'graphs of steps with state', not as another chatbot wrapper.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DJIEVPEyb8-/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-9">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">9<span class="of">/72</span></div>
+        <div class="date">Aug 9, 2025</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">AI explainers</span><span class="badge">models</span></div>
+        <h3>What GPT-OSS actually means</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span><span class="tip" tabindex="0">GPT-OSS<span class="tip-bubble" role="tooltip">OpenAI's open-weight model release (gpt-oss) that anyone can download and run themselves.</span></span> = OpenAI's open-source models: 120B parameters for enterprises with serious infrastructure, 20B for lighter use.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>OpenAI released two open models: GPT-OSS 120B and GPT-OSS 20B. He decodes the name: GPT stands for Generative Pre-trained Transformer, OSS for open-source software, and the numbers are billions of training parameters. The 120B model targets enterprise applications and needs heavy resources; the 20B is the lighter option.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>The name decoding is the useful part. Every model name is compressed information: the family (GPT), the license posture (OSS - weights you can download and run yourself), and the size (parameters are the model's learned dials; more parameters generally means more capability and much more hardware).</p><p>The size choice is an architecture decision, not a flex. A 120B-parameter model needs multiple high-end GPUs just to load, and its running cost follows. A 20B model fits on a fraction of that. His advice - enterprises explore the big one, others the small - is really about matching model size to the actual workload, a theme he expands later in his <span class="tip" tabindex="0">inference<span class="tip-bubble" role="tooltip">Running a trained model to get answers - the ongoing cost of AI, as opposed to one-time training.</span></span>-economy reels. Open weights also change who controls your AI: you can host it yourself, which matters for data privacy and becomes central in his private-model-hosting episode in Season 1.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Model names encode the decision: family, openness, size. Bigger is not better - match parameter count to the workload and the hardware you actually have.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DNJjIcYufDQ/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article></section><section class="era" id="era-skills">
   <div class="wrap">
-    <span class="ch-tag tag-ep">Season 2 - Episode 2 - Aug 26, 2026</span>
-    <h2>The Centralized MCP Hub</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DcgefFpJdoC/">instagram.com/reel/DcgefFpJdoC</a> (1 min 14 s)</p>
-
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    In an enterprise, multiple lines of business work on different AI projects. If one LOB builds an <b>MCP server</b> to connect to a DB2 database, the other LOBs need to know it exists - otherwise you end up with duplicate MCP servers doing the same job. As an AI platform architect, build a <b>centralized MCP Hub</b>: produce MCP servers based on each LOB's requirements, host them in one central location, and let every team use them. It avoids duplicate work and saves the organization real cost.</div>
-
-    <h3>The idea, explained</h3>
-    <p class="lead">An AI agent is only as useful as the systems it can reach. <span class="term" data-def="Model Context Protocol - an open standard (started by Anthropic) that defines how an LLM application discovers and calls external tools and data sources in a uniform way, instead of every integration being custom code.">Model Context Protocol</span> (MCP) is the emerging standard for making those connections.</p>
-    <p>Before MCP, connecting an LLM to a company system meant bespoke work every time: custom function-calling schemas, custom glue code, custom auth handling. MCP standardizes this. An <span class="term" data-def="MCP server - a small service that exposes a system (a database, an API, a file store) to LLM applications through the Model Context Protocol: it lists the tools it offers and executes them on request.">MCP server</span> wraps a system - say a DB2 database, a ticketing tool, or a document store - and presents it to any MCP-aware agent in a uniform way: "here are the tools I offer, here is how to call them."</p>
-    <p>Now picture the enterprise without a hub. Team A needs DB2 data, so they write a DB2 MCP server: connection handling, credentials, query tools, tests, deployment. Three months later Team B needs the same database, does not know Team A's server exists, and builds it again. Multiply by every database and every SaaS tool in the company, and you get dozens of near-identical connectors, each with its own bugs, its own security posture, its own on-call burden.</p>
-    <p>The centralized MCP Hub is the platform answer: one team (the platform team) builds and hosts the MCP servers as shared services. A hub gives you four concrete benefits. <b>Discovery</b>: a team can look up "is there already a connector for this system?" before building anything. <b>Security review once</b>: credentials, network rules and audit logging are vetted a single time by people who own that risk, instead of fifteen times with fifteen levels of care. <b>Maintenance once</b>: when the DB2 driver changes, one server gets patched, not fifteen. <b>Cost</b>: one deployment to run and monitor, not a fleet of forgotten duplicates.</p>
-
-    <h3>Why it matters</h3>
-    <ul class="takeaways">
-      <li><b>Connectors are infrastructure, not features.</b> The hub treats them as shared platform services, owned and operated centrally.</li>
-      <li><b>The registry is as valuable as the servers.</b> "What do we already have?" being answerable in one search is what actually stops duplication.</li>
-      <li><b>This is the same pattern as Episode 1's IDP</b> applied to integrations: build once, share with every LOB.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="ep3">
+    <div class="era-head">
+      <div class="era-dates">Dec 2025 - Jan 2026</div>
+      <h2>The AI Architect Skillset</h2>
+      <p>What an AI architect actually needs in 2026: skills, governance, and career habits.</p>
+      <div class="era-count">5 reels</div>
+    </div>
+  </div>  <article class="reel" id="reel-10">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">10<span class="of">/72</span></div>
+        <div class="date">Dec 8, 2025</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span></div>
+        <h3>Same title, two different jobs: startup vs enterprise AI architect</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>A startup AI architect experiments fast with the newest frameworks; an enterprise AI architect masters governance, security, and scale. Pick deliberately.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>The same job title hides two different careers. At a startup, an AI <span class="tip" tabindex="0">solution architect<span class="tip-bubble" role="tooltip">The person who designs how a business problem becomes a working technical system.</span></span> explores the latest AI frameworks, experiments fast, fails fast, learns fast, and pushes things into the organization. At an enterprise, the role centers on governance, security, <span class="tip" tabindex="0">scalability<span class="tip-bubble" role="tooltip">A system's ability to handle more users or work by adding resources rather than redesigning.</span></span>, <span class="tip" tabindex="0">reliability<span class="tip-bubble" role="tooltip">How consistently a system produces correct results over time, not just whether it is up.</span></span>, and the other non-functional requirements, plus the standard procedures enterprises run on.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>This is one of the most practical career reels he has posted. The skills that make you shine in one environment can be irrelevant in the other. Startup velocity rewards breadth and speed - you try ten frameworks and ship two. Enterprise scale rewards depth in the qualities that keep a large organization safe: who is allowed to use which model, what data may touch it, how it is audited, how it recovers.</p><p>The strategic read: choose the environment that trains the muscles you want next. If you want cutting-edge technique, startups compress years of exposure into months. If you want the governance and platform skills his two seasons teach, enterprises are where those problems actually exist. His whole later series is essentially the enterprise syllabus.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Before chasing an 'AI architect' title, ask which version of the job it is - framework explorer or platform guardian - and whether that is the muscle you want to build.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DR_L9TIDcqa/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-11">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">11<span class="of">/72</span></div>
+        <div class="date">Dec 11, 2025</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span><span class="badge">skills</span></div>
+        <h3>The five non-negotiable skills for AI architects</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Know your cloud's AI services, know the LLMs you will actually use, know containers - the non-negotiable base for AI architects in 2026.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>His non-negotiables: know the AI services of your cloud of choice (<span class="tip" tabindex="0">watsonx<span class="tip-bubble" role="tooltip">IBM's enterprise AI platform for building, governing, and running models.</span></span> on IBM Cloud; SageMaker and Bedrock on AWS); know the LLMs your project uses or plans to use (IBM's Granite, AWS's models, or open-source models on Hugging Face); and know containerization, because that is how these workloads actually run.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>The pattern in the list is 'your stack, concretely.' Not AI services in general - the ones on the cloud your employer runs. Not LLMs in the abstract - the specific models your projects will call, with their limits and costs. This is what separates an architect from an enthusiast: decisions are made against a real stack with real constraints.</p><p>Containerization makes the list because AI workloads ship like everything else: packaged, orchestrated, and scaled as containers. An AI architect who cannot reason about how the model server is deployed, scaled, and isolated is designing in the air. The open-source-model point matters too - knowing what Hugging Face offers keeps you from defaulting to the most expensive hosted option for every problem.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Audit yourself against the stack you actually work on: its AI services, its models, its container platform. Generic AI knowledge is not the job.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DSG7BPFFGpG/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-12">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">12<span class="of">/72</span></div>
+        <div class="date">Dec 15, 2025</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">AI explainers</span><span class="badge">governance</span></div>
+        <h3>The four pillars of AI governance</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Enterprises pay a premium for AI that is explainable, responsible, compliant and secure, and observable - those four are the governance framework.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>Why do enterprises pay a high premium for AI projects? Four reasons, which together form the <span class="tip" tabindex="0">AI governance<span class="tip-bubble" role="tooltip">The policies, controls, and accountability that keep AI systems safe, legal, and aligned with company rules.</span></span> framework: explainability (the model must be transparent about why it answers as it does), responsible AI (it must not behave weirdly, get exploited by vulnerabilities, or respond badly), compliance and security, and observability of the models and projects.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>Each pillar answers a different stakeholder's fear. Explainability answers the regulator and the customer: 'why did the system say that?' Responsible AI answers the public and the legal team: the system stays within acceptable behavior even under attack. Compliance and security answer the auditors: data handling, access, and the rules of your industry. Observability answers the engineering team: you cannot fix or improve what you cannot see.</p><p>The premium point is the one to remember. Governance is not a tax on AI projects - it is most of what an enterprise is buying. A demo model is cheap; a model that a bank can defend to its regulator is the expensive part. This is why his Season 2 platform series spends entire episodes on evaluation and centralized registries: governance is an architecture, not a slide deck.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>When scoping AI work, price the governance in from day one - explainability, responsible behavior, compliance, observability are the deliverable, not overhead.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DSRKtImlAlr/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-13">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">13<span class="of">/72</span></div>
+        <div class="date">Jan 2, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">personal</span><span class="badge">career</span></div>
+        <h3>New Year: health first, career second</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Fix your health and your goals in parallel - better health is what powers better work.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>A New Year message: focus on your life first and work comes next. Prioritize health - good thoughts, workout, meditation, yoga - and in parallel fix your goal, identify your purpose, and work toward it. When your health is better, you work better. Balance the two.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>A short personal entry in the archive, and worth keeping because it explains the cadence of everything around it. His framing - health as the platform that career runs on - is the same systems thinking he applies to cloud architecture: the workload is only as reliable as what it runs on.</p><p>For the purposes of this site, treat it as a breather between the technical runs - and a reminder from him that the point of the career advice is a working life, not just a working resume.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Sustainable careers are built on maintained health. The two goals are parallel tracks, not competitors.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DTAvhrakWG4/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-14">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">14<span class="of">/72</span></div>
+        <div class="date">Jan 7, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span><span class="badge">learning</span></div>
+        <h3>How to actually become an AI architect in 2026</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Learn from the right sources, share your understanding publicly, then implement it on a real project - consumption alone is not the path.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>His career formula: identify the right articles, webinars, videos, and podcasts; collect the right books (linked in his description) and read them; then contribute your understanding back as blogs, vlogs, and videos; and seek a project in your organization where you can implement what you learned.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>The loop is learn - share - implement, and the middle step is the one most people skip. Sharing forces understanding: you cannot write a clear blog post about something you half-know, and the attempt exposes the gaps. It also builds the public evidence of skill that later reels tie directly to interview calls.</p><p>The last step is the filter that makes the rest count. Knowledge you never implement decays into trivia. His advice to seek the project inside your current organization is deliberate - you rarely need to change jobs to start practicing architecture; you need to attach yourself to the work. That is also how the enterprise-architect opportunity from reel #6 actually opens up.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Close the loop: learn it, teach it publicly, build it at work. Any missing step stalls the other two.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DTNc3Q2DYvz/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article></section><section class="era" id="era-playbook">
   <div class="wrap">
-    <span class="ch-tag tag-ep">Season 2 - Episode 3 - Aug 27, 2026</span>
-    <h2>Multi-tenant Service Platform Architecture</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DcjG3YWy0jc/">instagram.com/reel/DcjG3YWy0jc</a> (1 min 19 s)</p>
-
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    Multiple LOBs build AI projects, and they all need a platform. One platform per LOB is a cost overhead, so you need <b>one centralized AI platform</b> they all share. Four design principles make that work: (1) <b>hard tenant isolation</b> so each LOB only touches its own area, (2) <b>usage metering</b> per LOB so consumption is measurable, (3) <b>custom rate limiting</b> per LOB, and (4) a <b>model routing gateway</b> that prioritizes usage so the right service reaches the right LOB.</div>
-
-    <h3>The idea, explained</h3>
-    <p class="lead">Sharing one platform across the whole company is the cost-efficient answer - but sharing without design is how one team's experiment takes down everyone else's production.</p>
-    <p><b>Hard tenant isolation</b> means each LOB's data, prompts, documents and workloads are separated by construction, not by politeness. In practice: separate namespaces or accounts, separate API keys, separate vector indexes, no shared caches that could bleed one tenant's data into another's answer. "Hard" is the key word. If isolation depends on developers remembering to filter by customer ID, it will eventually leak. AI makes this sharper than classic multi-tenancy, because a retrieval system that mixes tenants' documents does not just expose rows in a table - it can speak one LOB's confidential data into another LOB's chat window.</p>
-    <p><b>Usage metering</b> means measuring consumption per tenant: tokens processed, GPU minutes, vector storage, number of agent runs. This is not only about billing teams back (though <span class="term" data-def="Chargeback / showback - internal accounting where the platform team reports (showback) or bills (chargeback) each business unit for the share of platform resources it consumed.">chargeback</span> changes behavior fast). It is how you learn which LOB is about to hit its limits, which workloads are unexpectedly expensive, and whether the platform is actually getting adopted.</p>
-    <p><b>Custom rate limiting</b> per LOB is the safety valve. Without it, one team's load-test or runaway agent loop can saturate the shared model endpoints and every other tenant's app slows down. Per-tenant quotas - requests per minute, tokens per day - keep the platform fair and keep one tenant's incident from becoming everyone's incident.</p>
-    <p>The <span class="term" data-def="Model routing gateway - a single entry point that receives every LLM request and decides which model should serve it, based on rules like cost, capability needed, tenant priority and current load.">model routing gateway</span> ties it together. Every LLM call in the company flows through one gateway, which decides where each request goes: an expensive frontier model for a hard reasoning task, a small cheap model for classification, a priority lane for the LOB running a customer-facing launch. This gives the platform team one place to enforce policy, control cost, fail over when a provider degrades, and upgrade models without asking fifteen teams to change code.</p>
-
-    <h3>Why it matters</h3>
-    <ul class="takeaways">
-      <li><b>These four principles are a checklist.</b> Isolation, metering, rate limits, routing - a shared AI platform missing any one of them will either be unsafe, unaffordable, or unfair.</li>
-      <li><b>Multi-tenancy is what makes the economics work.</b> It is the reason "one platform for everyone" beats "one platform each."</li>
-      <li><b>The gateway is the control point.</b> Whoever owns routing owns cost, priority and policy for the whole company's AI usage.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="ep4">
+    <div class="era-head">
+      <div class="era-dates">May - Jul 2026</div>
+      <h2>The Career Playbook &amp; AI Concepts</h2>
+      <p>A dense run of career strategy, interview prep, and the money side of AI - inference economics, guardrails, Cloud 3.0, agents.</p>
+      <div class="era-count">29 reels</div>
+    </div>
+  </div>  <article class="reel" id="reel-15">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">15<span class="of">/72</span></div>
+        <div class="date">May 11, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">AI explainers</span></div>
+        <h3>Generative AI, explained simply</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Generative AI takes your data as input and produces something new from it - a new route map, a new infrastructure config - instead of just analyzing what exists.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>Generative AI is the branch of AI where you input data and statistics and it generates new output based on what you provided. His examples: feed a city's transportation data and it generates a new route or map for the transport system; feed infrastructure configuration and metadata and it generates a new cloud infrastructure setup for your applications.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>The definition is deliberately plain, and the examples are chosen from his own world. The transport example shows 'generate' means create-a-new-artifact, not summarize-an-old-one. The infrastructure example is the one aimed at his audience: configuration files, architecture diagrams, and deployment scripts are all generatable artifacts, which is why <span class="tip" tabindex="0">GenAI<span class="tip-bubble" role="tooltip">Generative AI - models that produce new text, images, or code rather than just classifying data.</span></span> landed in the architect's toolbox rather than staying a curiosity.</p><p>The mental model to carry forward: generative models are pattern completers trained on enormous corpora. Give them enough context about what you want - the data, the metadata, the constraints - and the output quality tracks the input quality. That idea, input context deciding output quality, becomes the entire basis of his <span class="tip" tabindex="0">RAG<span class="tip-bubble" role="tooltip">Retrieval-augmented generation - the model first looks up your documents, then answers from them.</span></span> and prompt-registry episodes in Season 2.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>GenAI = new artifacts from your inputs. The quality of what it makes is bounded by the quality of context you feed it.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DYNtUOhPWai/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-16">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">16<span class="of">/72</span></div>
+        <div class="date">May 12, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">AI explainers</span><span class="badge">learning</span></div>
+        <h3>How to start learning GenAI: one model, one use case</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Don't survey everything - pick one model, learn to prompt it, and test it against one business use case.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>If you are starting with Generative AI, start with one particular model: explore it and learn how to prompt it with data. There are many model families - foundational models, GANs, VAEs - but pick one and see how it solves your business use case. That is the way to start a <span class="tip" tabindex="0">GenAI<span class="tip-bubble" role="tooltip">Generative AI - models that produce new text, images, or code rather than just classifying data.</span></span> career path.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>This is the antidote to tutorial-hopping. The field offers an endless buffet - foundation models, GANs, VAEs, diffusion - and sampling everything teaches you the vocabulary of all of it and the skill of none. Depth on one model transfers: prompting, evaluating outputs, and knowing failure modes are skills that carry across models.</p><p>The use-case anchor is doing quiet work here. 'See how that model solves your business use case' turns learning into a project with a pass/fail test. You will learn more from one model that fails your use case - and figuring out why - than from five models demoed on toy prompts.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>One model + one real use case + prompt practice beats surveying every model family. Depth transfers; browsing does not.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DYQXHdcgElA/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-17">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">17<span class="of">/72</span></div>
+        <div class="date">May 14, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span><span class="badge">certifications</span></div>
+        <h3>His five certification picks for GenAI</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>IBM Data Science Associate and Professional, Azure Data Science Associate, Google Cloud Data Science Associate, AWS Machine Learning - his five picks.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>A rapid-fire list of five Generative AI certification courses: IBM Certified Data Science Associate, IBM Certified Data Science Professional, Azure Certified Data Science Associate, Google Cloud Certified Data Science Associate, and AWS Certified Machine Learning Expert.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>Read the list structurally: one cert per major ecosystem. The point is not to collect all five - it is that each cloud and vendor stack has a credential that signals you know its AI services, and you should carry the one matching your environment. That mirrors his non-negotiable-skills reel: your stack, concretely.</p><p>Two cautions worth adding that he himself voices elsewhere. Certification names and levels change often, so verify the current names on the vendor sites before booking an exam. And a cert without a project is weak evidence - his later career reels are blunt that certificates open the door but implemented work closes the deal.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Pick the one certification that matches the cloud and stack you actually work on - then back it with a real implementation.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DYVil5XBGvB/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-18">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">18<span class="of">/72</span></div>
+        <div class="date">May 19, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span><span class="badge">skills</span><span class="badge dup">duplicate post</span></div>
+        <h3>The five non-negotiable skills, reposted</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>A repost of his non-negotiable skills reel from December 2025 - same message: know your cloud's AI services, your project's LLMs, and containerization.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>Same script as the December 2025 skills reel: know the AI services on your cloud of choice (<span class="tip" tabindex="0">watsonx<span class="tip-bubble" role="tooltip">IBM's enterprise AI platform for building, governing, and running models.</span></span> for IBM Cloud, SageMaker and Bedrock for AWS), know the LLMs your project will use (Granite, AWS's models, open-source models on Hugging Face), and know containerization.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>The content is a repeat of reel #11, so the explanation lives there. The interesting part is that he reposted it five months later - a signal he considers this the baseline checklist his audience keeps needing.</p><p>If you already worked through #11, treat this as revision: the stack-specific skills audit - my cloud's AI services, my project's models, my container platform - is worth redoing whenever your stack changes.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Duplicate of #11 - same five non-negotiables. Use it as a prompt to re-audit yourself against your current stack.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DYiVBKDNzMC/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-19">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">19<span class="of">/72</span></div>
+        <div class="date">May 29, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">career</span><span class="badge">interview</span></div>
+        <h3>Pre-interview prep, the 2026 retelling</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>Same four moves as his 2023 reel: company strategy, job-description match, mock interview with feedback, one project in full depth.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>The four pre-interview tips again: study the company profile to understand its modernization or cloud migration journey and strategy; match the job description against your experience; run a mock interview with a close friend and fix what the feedback finds; and have one key innovative project you know thoroughly and can explain clearly.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>The script is nearly word-for-word the 2023 version - and that is the tell. Three years of interviewing candidates did not change his list, which means these four failures are still the ones costing people offers.</p><p>If you have already read reel #3, use this version as the checklist on the morning of the interview: Can I name their current strategy? Does my experience map to every line of the JD? Have I said my answers out loud to another human? Do I have one project I can defend to any depth?</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Duplicate advice, deliberate repetition: these four steps are his permanent interview checklist. Run them every time.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DY7zMTuzP7h/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-20">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">20<span class="of">/72</span></div>
+        <div class="date">Jun 23, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"><span class="badge">announcement</span><span class="badge">book</span></div>
+        <h3>His second book: Enterprise AI Architect Guide</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span>His second book is out on Amazon - <span class="tip" tabindex="0">GenAI<span class="tip-bubble" role="tooltip">Generative AI - models that produce new text, images, or code rather than just classifying data.</span></span> and AI agent architectures with practical implementation techniques and best practices from his own projects.</div>
+        <div class="says"><span class="sec-label">What he says</span><p>He announces his second book, the Enterprise AI Architect Guide, covering GenAI and AI agent architectures. It contains the practical implementation techniques he followed in his projects and the best practices for enterprise AI architects. It starts with the basic concepts - AI, GenAI, AI agents - how they are used effectively in enterprises, and how not to fail when implementing AI agent projects. He recommends it especially for consultants implementing AI agent projects.</p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span><p>This reel is an announcement, but it doubles as a map of the channel's thesis. The book's arc - concepts, then enterprise application, then failure modes - is exactly the arc of his two seasons: Season 1 builds the infrastructure understanding, Season 2 builds the platform disciplines that keep AI projects from failing.</p><p>The 'how not to fail' framing is the tell about his audience. Most AI content sells possibility; his sells durability. If the reels are the free sample, the book is where he says the full implementation detail lives - worth knowing it exists when a reel leaves you wanting the checklist version.</p></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span>Announcement, not a lesson: the Enterprise AI Architect Guide (Amazon) is the long-form version of this channel's playbook.</div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DZ6PlMMsKU6/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-21">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">21<span class="of">/72</span></div>
+        <div class="date">Jun 26, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>My First Book for Solution Architects!!
+#solutionarchitect #bestbook #aisolution</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DaCAydutlCD/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-22">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">22<span class="of">/72</span></div>
+        <div class="date">Jul 3, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>What is inference economy?
+#token #tokencost #aiinference #architectitcloud #gov</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DaUEmmAs5od/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-23">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">23<span class="of">/72</span></div>
+        <div class="date">Jul 5, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Guardrails as Code - GaC #aiguardrails #gac #aiarchitecture #architectitcloud #g</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DaapIJbBwuJ/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-24">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">24<span class="of">/72</span></div>
+        <div class="date">Jul 7, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>What is the highest paying job now ?
+#highpay #aijob #aiarchtect #architectitclo</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DaeVmPtOwLb/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-25">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">25<span class="of">/72</span></div>
+        <div class="date">Jul 9, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Context Curator Architect Job!!
+#aijobs #aiarchitecture #architectitcloud #govin</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DajhFJdhknM/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-26">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">26<span class="of">/72</span></div>
+        <div class="date">Jul 10, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI career advice!!
+#aicareer #aijobsearch #aiarchitect #govindhvaradharajan #arc</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DamJ0hlPI2z/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-27">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">27<span class="of">/72</span></div>
+        <div class="date">Jul 11, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>What is cloud 3.0?
+#cloud #aicloud #aiarchitecture #govindhvaradharajan #archite</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Dao2xwAvTpO/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-28">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">28<span class="of">/72</span></div>
+        <div class="date">Jul 12, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>One another emerging AI Job!
+#highpayingcareer #aijob #aiarchitect #govindhvarad</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DarPWOQMzsx/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-29">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">29<span class="of">/72</span></div>
+        <div class="date">Jul 13, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Why high paying AI Architect role is in demand ?
+#highpayingcareer #aiarchitect </h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DavPw32yYTa/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-30">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">30<span class="of">/72</span></div>
+        <div class="date">Jul 14, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Top AI trends in Enterprises!
+#topai #aitrend ##rag #architectitcloud</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Daxtl1xJ1Ph/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-31">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">31<span class="of">/72</span></div>
+        <div class="date">Jul 15, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI Architect Interview Tips!
+#aiinterview #aiarchitect #intervietips #architecti</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Da0dNIMxwNM/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-32">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">32<span class="of">/72</span></div>
+        <div class="date">Jul 18, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Red Flags - AI Architect Interview
+#aiarchitect #interviewtips #aicareer #archit</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Da7x4dzhsDZ/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-33">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">33<span class="of">/72</span></div>
+        <div class="date">Jul 20, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>How to secure an Enterprise AI Architect offer ?
+#aiarchitect #intervirewprepara</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbA-QqCSVmJ/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-34">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">34<span class="of">/72</span></div>
+        <div class="date">Jul 22, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>How to get more interview calls ?
+#aiarchitect #github #aiinterviews #architecti</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbGARo2SSvD/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-35">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">35<span class="of">/72</span></div>
+        <div class="date">Jul 23, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>3 AI Architect Roles Paying $200k!
+#highpay #aiarchitect #eaí #aicareer #archite</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbIpeCQhI8a/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-36">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">36<span class="of">/72</span></div>
+        <div class="date">Jul 24, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Why your AI Architect resume rejected?
+#airesume #aijobtips #architectitcloud #g</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbLdDR8vKUi/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-37">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">37<span class="of">/72</span></div>
+        <div class="date">Jul 25, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Gen-AI Architect Career Tips
+Please watch this playlist. I have provided where a</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbN0gO7sGIf/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-38">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">38<span class="of">/72</span></div>
+        <div class="date">Jul 26, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI Agent Frameworks Learnjg. - Stages!!
+#ailearning #aibasics #architectitcloud </h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbQ7TcVpsbG/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-39">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">39<span class="of">/72</span></div>
+        <div class="date">Jul 26, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>One another high demanding AI job in Enterprises!
+#aiops #devops #jobsearch #gov</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbPcr21vSnG/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-40">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">40<span class="of">/72</span></div>
+        <div class="date">Jul 27, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Architecture Shift - Solution Architecture to AI Solution Architecture - Enterpr</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbTXSl3NTk5/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-41">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">41<span class="of">/72</span></div>
+        <div class="date">Jul 28, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI as a Service!  AIaaS #aiaas  #aws #azure #ibm</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbV8BaYB2DO/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-42">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">42<span class="of">/72</span></div>
+        <div class="date">Jul 29, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Building AI Agent Workflow Automation? Do these!!
+#aiagent #workflow #aiautomati</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbYgwSmtX7V/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-43">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">43<span class="of">/72</span></div>
+        <div class="date">Jul 30, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI Agents - Explained Simple!
+#aiagents #explainedsimply #ailearning #architecti</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbbQSqOpv3-/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article></section><section class="era" id="era-season1">
   <div class="wrap">
-    <span class="ch-tag tag-ep">Season 2 - Episode 4 - Aug 31, 2026</span>
-    <h2>The Centralized Prompt Registry</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DctVc2ZPeNV/">instagram.com/reel/DctVc2ZPeNV</a> (1 min 27 s)</p>
+    <div class="era-head">
+      <div class="era-dates">Jul 31 - Aug 22, 2026</div>
+      <h2>Season 1 - AI Solution Architect Transformation</h2>
+      <p>His first structured series: ten episodes that walk a classic solution architect into AI infrastructure - certifications, GPU infrastructure, inference gateways, scaling, private hosting, edge, caching, and DR.</p>
+      <div class="era-count">18 reels</div>
+    </div>
+  </div>  <article class="reel" id="reel-44">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">44<span class="of">/72</span></div>
+        <div class="date">Jul 31, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>New Reel-Series | Season 1 - AI Solution Architect Career Transformation | Episo</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbdlCDMMWdN/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-45">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">45<span class="of">/72</span></div>
+        <div class="date">Aug 1, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1 : AI Solution Architect Job Transformation | Episode 2 : Pick Your Base</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbgLBm8MEOT/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-46">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">46<span class="of">/72</span></div>
+        <div class="date">Aug 2, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Resume Tips for Experienced Architects / Developers 
+#resumetips #experienceddev</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Dbit0HlB7Bw/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-47">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">47<span class="of">/72</span></div>
+        <div class="date">Aug 3, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1: AI Solution Architect Transformation | Episode 3: AI Infra Solution Ar</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DblYespBq4t/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-48">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">48<span class="of">/72</span></div>
+        <div class="date">Aug 5, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1: AI Solution Architect Transformation | Episode 4: Model Inference Gate</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbqAsE7vr3F/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-49">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">49<span class="of">/72</span></div>
+        <div class="date">Aug 6, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1: AI Solution Architect Transformation | Episode 5: GPU Infrastructure |</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbtCXMqS_wK/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-50">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">50<span class="of">/72</span></div>
+        <div class="date">Aug 7, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Solution Architect Career Transformation | Classic SA to AI SA  #aisolutionarchi</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DbvudB0OTq-/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-51">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">51<span class="of">/72</span></div>
+        <div class="date">Aug 9, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1: AI Solution Architect Transformation | Episode 6: Distributed Inferenc</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Db05q3fBeyC/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-52">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">52<span class="of">/72</span></div>
+        <div class="date">Aug 11, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1: AI Solution Architect Transformation | Episode 7: Private Model Hostin</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Db58lg4tjAA/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-53">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">53<span class="of">/72</span></div>
+        <div class="date">Aug 13, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI Solution Architect Interview Tips | Enterprise AI Architect interview Tips 
+#</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Db9n0BSuRLY/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-54">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">54<span class="of">/72</span></div>
+        <div class="date">Aug 14, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>The Single Biggest Mistake IT Folks Are Making Right Now ⁠#aiintech ⁠ ⁠#software</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcBdqXcBYGQ/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-55">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">55<span class="of">/72</span></div>
+        <div class="date">Aug 16, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI Automation Architect Role!
+#automation #automationarchitect #aiautomation #ar</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcGeVt_uzmb/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-56">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">56<span class="of">/72</span></div>
+        <div class="date">Aug 17, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1 - AI Solution Architect Transformation | Episode 8 - Edge AI Deployment</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcJbmALz0Os/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-57">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">57<span class="of">/72</span></div>
+        <div class="date">Aug 18, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Well Architected Frameworks | Know and use better for your system design 
 
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    Prompts fall into two major categories: <b>system prompts</b> and <b>application-code-generated prompts</b>. You must decouple the two. System prompts should be separated out, tested, versioned and deployed deliberately. Application-generated prompts also need to be separated, versioned, stored in a repository, and pulled from there when needed. Managing and decoupling these two prompt types - versioning them, storing them in a registry, deploying them - is the AI platform architect's responsibility.</div>
+#well</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcL_G6sBAQj/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-58">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">58<span class="of">/72</span></div>
+        <div class="date">Aug 19, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1 - Solution Architect Transformation | Episode 9 - LLM Caching Architect</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcNGIMzvv8j/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-59">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">59<span class="of">/72</span></div>
+        <div class="date">Aug 21, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1 : AI Solution Architect Transformation | Episode 10: Resilient Disaster</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcSLIbFJEDH/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-60">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">60<span class="of">/72</span></div>
+        <div class="date">Aug 22, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI Infrastructure Solution Architect Role Summary &amp; Next Season 
 
-    <h3>The idea, explained</h3>
-    <p class="lead">In most companies today, the most behavior-critical text in the entire AI system is sitting as a string literal inside some application's source code. That is the problem this episode is about.</p>
-    <p>A <span class="term" data-def="System prompt - the standing instructions given to an LLM that define its role, rules, tone and boundaries for every request: 'You are a support agent for X. Never discuss refunds over $500.'">system prompt</span> is the standing instruction set: who the model is, what it may and may not do, how it should format answers. It is effectively policy written in English. An <b>application-generated prompt</b> is what the code assembles per request: the user's question plus retrieved documents, conversation history, and templated instructions stitched together at runtime.</p>
-    <p>Why decouple them? Because they change for different reasons, at different speeds, owned by different people. A system prompt changes when policy or behavior needs to change - and that change should go through review and testing like any policy change. An application prompt is assembled by code and changes with the code. Hard-coding both into the app means a wording fix to the assistant's tone requires a full application release, and nobody can answer "what instructions is production running right now?"</p>
-    <p>A prompt registry treats prompts as versioned assets, the way an artifact repository treats binaries. Each prompt has a name, versions, a changelog, test results, and a deployment state ("v7 is live for the support agent, v8 is in testing"). That unlocks things hard-coded prompts can never do: <b>rollback</b> when a prompt change degrades answers, <b>A/B comparison</b> between versions on real traffic, <b>review workflow</b> so a domain expert can improve wording without touching code, and <b>audit</b> - when the model said something wrong last Tuesday, you can see exactly which instructions it was running.</p>
-    <p>Notice how this connects to the evaluation platform in Episode 7: versioned prompts in a registry are what make prompt changes testable in CI, instead of vibes.</p>
-
-    <h3>Why it matters</h3>
-    <ul class="takeaways">
-      <li><b>Prompts are configuration and policy, not code.</b> Manage their lifecycle the way you manage any other production asset.</li>
-      <li><b>"Which prompt produced that answer?" must be answerable.</b> Versioning is what makes AI behavior auditable.</li>
-      <li><b>Decoupling unlocks speed.</b> The people best at improving prompts are often not the people who deploy the app.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="ep5">
+#aijobroles #a</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcU1YhduH4d/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-61">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">61<span class="of">/72</span></div>
+        <div class="date">Aug 23, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Are you an experienced Developer or Architect? Don’t Do This !!
+#aideveloper #ai</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcXSYZDyqhI/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article></section><section class="era" id="era-season2">
   <div class="wrap">
-    <span class="ch-tag tag-ep">Season 2 - Episode 5 - Sep 3, 2026</span>
-    <h2>Agent SDK Standardization</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dc0xH_jNX75/">instagram.com/reel/Dc0xH_jNX75</a> (1 min 32 s)</p>
-
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    You have standardized the MCP hub and the centralized prompt registry. Now focus on the <b>agent SDK</b>. An agent SDK gives you the standards, documentation, procedures and best practices for implementing agent solutions in your organization. Every serious organization has one - Claude has the Claude Agent SDK - and you can take a standard SDK like that and customize it for your needs. As the AI platform solution architect, designing the standard agent SDK for your LOBs is your responsibility.</div>
-
-    <h3>The idea, explained</h3>
-    <p class="lead">An <span class="term" data-def="Agent SDK - a software development kit for building AI agents: libraries, templates and conventions covering how an agent calls tools, keeps memory, logs its steps, handles errors and gets evaluated.">agent SDK</span> answers a deceptively simple question: when a developer in your company sits down to build an AI agent, what do they start from?</p>
-    <p>Without a standard, each developer starts from a tutorial. One team builds agents as Python scripts with raw API calls and hand-rolled retry logic. Another uses a framework with completely different conventions. A third copy-pastes something from a hackathon. Six months later the company has fifteen agent codebases that share nothing: different logging, different error handling, different ways of calling tools, different levels of security care. Nobody can maintain anyone else's agent, and every review starts from zero.</p>
-    <p>A standard agent SDK fixes the shape of the solution before anyone writes business logic. A good one typically includes: <b>scaffolding</b> (a new agent starts from a template with the right project structure), <b>tool interfaces</b> (one blessed way to connect tools - in this series, through the MCP hub), <b>memory and state patterns</b> (how conversation context is stored and retrieved), <b>observability</b> (every agent run logs its steps, tool calls and token usage in a format the platform can collect), <b>guardrail hooks</b> (standard places to insert safety checks), and <b>evaluation hooks</b> (every agent built on the SDK can be plugged into the Episode 7 evaluation pipeline without extra work).</p>
-    <p>His point about customization is practical: you do not have to invent this from nothing. Vendor SDKs (he names the Claude Agent SDK) encode tested patterns for tool use, agent loops and context management. The platform architect's job is to adopt one as the base, wrap it in the organization's own conventions - naming, auth, logging destinations, approved models through the routing gateway - and publish that as "the way we build agents here."</p>
-
-    <h3>Why it matters</h3>
-    <ul class="takeaways">
-      <li><b>Standardization is what turns agents from experiments into a portfolio.</b> Fifteen agents built one way can be operated; fifteen built fifteen ways cannot.</li>
-      <li><b>The SDK is where the platform's other services get adopted.</b> If the template wires in the MCP hub, prompt registry and evaluation hooks by default, teams use them without being told to.</li>
-      <li><b>Onboarding speed is the visible win.</b> A new team's first agent goes from weeks of framework decisions to days of filling in business logic.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="ep6">
-  <div class="wrap">
-    <span class="ch-tag tag-ep">Season 2 - Episode 6 - Sep 4, 2026</span>
-    <h2>RAG as a Service</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dc3yyC4ROi2/">instagram.com/reel/Dc3yyC4ROi2</a> (1 min 49 s)</p>
-
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    Different teams build AI projects with different architectures - RAG, ReAct, human-in-the-loop. Every team doing RAG ends up building the same key components: a <b>document pipeline</b>, <b>vector indexing</b>, and <b>hybrid search</b> (dense and sparse). When many teams each build these, the platform gets messy. The fix: provision <b>RAG as a Service</b> - document pipeline, vector indexing and hybrid search exposed as API calls - so no team builds redundant mechanisms. Think about offering RAG as a Service, or even ReAct as a Service, to your development teams.</div>
-
-    <h3>The idea, explained</h3>
-    <p class="lead"><span class="term" data-def="RAG (Retrieval-Augmented Generation) - the pattern where the AI first retrieves relevant documents from your own data, then the LLM answers using those documents as context, so answers are grounded in company facts instead of model memory.">RAG</span> is how an AI answers questions from your company's own documents: find the relevant pieces, hand them to the model, and let it answer from them. It is the most common enterprise AI pattern - and the one most often rebuilt from scratch by every team that needs it.</p>
-    <p>Under the hood, every RAG system has the same three machinery layers he names. The <b>document pipeline</b> takes raw content - PDFs, wikis, policy docs - and prepares it: extracting text, splitting it into chunks, and computing an <span class="term" data-def="Embedding - a numerical vector that captures the meaning of a piece of text, so that texts with similar meaning have similar vectors and can be found by mathematical similarity.">embedding</span> for each chunk. <b>Vector indexing</b> stores those embeddings in a database built for similarity search, so "find chunks about refund policy" becomes a fast lookup. <b>Hybrid search</b> combines two retrieval styles: <b>dense</b> search (embedding similarity - good at meaning, so "money back" finds "refund") and <b>sparse</b> search (keyword matching like BM25 - good at exact terms like part numbers and error codes). Neither alone is reliable; together they cover both ways people phrase things.</p>
-    <p>Each of these layers has real depth: chunking strategy changes answer quality, index tuning changes latency, hybrid ranking needs weighting. When every application team implements this stack independently, you get the Episode 2 problem again, squared: five document pipelines with five different chunking bugs, five vector indexes to operate, five search quality levels. And the team building the customer-support agent - whose actual job is the agent - is instead spending its quarter on retrieval plumbing.</p>
-    <p>RAG as a Service turns the whole stack into platform APIs: "ingest these documents into collection X" and "query collection X with this question, hybrid mode." Teams get retrieval as a dependency, the way they get databases today. The platform team owns chunking defaults, index operations and search quality tuning once, centrally, and every consumer benefits from every improvement. His aside about <b>ReAct as a Service</b> generalizes the thought: any agent pattern every team rebuilds (the ReAct reasoning loop, human-in-the-loop approval flows) is a candidate for the same treatment.</p>
-
-    <h3>Why it matters</h3>
-    <ul class="takeaways">
-      <li><b>Retrieval quality is a platform concern.</b> Centralizing it means one team gets very good at chunking, indexing and ranking - instead of every team getting mediocre at it.</li>
-      <li><b>The API boundary is the point.</b> Application teams think in questions and answers; the platform thinks in pipelines and indexes.</li>
-      <li><b>Watch for the pattern, not just RAG.</b> Anything three teams have each built once belongs on the platform roadmap.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="ep7">
-  <div class="wrap">
-    <span class="ch-tag tag-ep">Season 2 - Episode 7 - Sep 7, 2026</span>
-    <h2>The Enterprise Evaluation Platform</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dc_b2DQSNwn/">instagram.com/reel/Dc_b2DQSNwn</a> (59 s)</p>
-
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    One of the critical tasks in any GenAI or agent project is evaluating the LLM's output. Do it effectively: build an automated pipeline using <b>LLM-as-a-judge</b> architecture, use <b>curated datasets</b> with ideal outputs, and run <b>semantic regression tests</b> in the continuous integration pipeline. Then you can properly evaluate the LLM and hand a reliable foundation to the teams building agent projects.</div>
-
-    <h3>The idea, explained</h3>
-    <p class="lead">Classic software testing asks "does the output equal the expected output?" AI breaks that question. Ask an LLM the same thing twice and you get two different phrasings - both possibly correct. So how do you test it? This episode is the platform answer.</p>
-    <p>The first tool is <span class="term" data-def="LLM-as-a-judge - using a second LLM to grade the first model's answers against criteria (correctness, completeness, tone, faithfulness to sources), producing scores automatically instead of humans reviewing every output.">LLM-as-a-judge</span>: since a model's output is open-ended text, use another model to grade it. The judge gets the question, the system's answer, and a rubric - "is this answer correct, grounded in the provided documents, and appropriately concise?" - and returns scores. It is not perfect, but it scales: thousands of answers graded in minutes, consistently, where human review covers a handful.</p>
-    <p>The second tool is the <b>curated dataset</b>, often called a golden set: a carefully built collection of representative inputs with ideal outputs, reviewed by humans who know the domain. "Here are 200 real support questions and what great answers look like." This dataset is the yardstick everything else measures against. Building it is unglamorous and absolutely load-bearing - an evaluation pipeline is only as trustworthy as its golden set.</p>
-    <p>The third tool is where it becomes engineering: <b>semantic regression tests in CI</b>. On every change - a new model version, a prompt update from the Episode 4 registry, a retrieval tweak - the pipeline runs the golden set through the system, the judge scores the outputs, and semantic comparison checks answers against the ideal ones (meaning-equivalent counts as passing; exact string match is neither possible nor desired). If quality drops below the bar, the change does not ship, exactly like a failing unit test. "Regression" is the key word: the goal is to catch the moment a change that improved one thing quietly broke three others.</p>
-    <p>As a platform capability, this is offered to every team the way the other services are: register your agent, point at your golden set, get evaluation runs on every change and dashboards over time. Nobody should be shipping prompt or model changes on instinct.</p>
-
-    <h3>Why it matters</h3>
-    <ul class="takeaways">
-      <li><b>Evaluation is what makes AI changes deployable.</b> Without it, every model upgrade or prompt edit is a gamble discovered by users.</li>
-      <li><b>The golden set is an asset.</b> Curate it with domain experts, grow it from real failures, protect it.</li>
-      <li><b>Automation is the difference between testing and theater.</b> If evaluation is not in CI, it happens once and never again.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="ep8">
-  <div class="wrap">
-    <span class="ch-tag tag-ep">Season 2 - Episode 8 - Sep 8, 2026</span>
-    <h2>The Unified Tool Catalog</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DdCAKP-hisW/">instagram.com/reel/DdCAKP-hisW</a> (1 min 56 s)</p>
-
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    Application teams building AI agents spend a lot of time writing instructions so LLMs can use their systems - "prompt wrapping." Instead of doing this manually, use <b>MCP as an auto-translator</b>: convert existing REST APIs and OpenAPI standards into a form LLMs understand easily, and build a <b>tool catalog</b> - a library. When the AI development team connects to this unified tool catalog, the LLM can see how to connect to the local database or local software through MCP servers and execute the task successfully.</div>
-
-    <h3>The idea, explained</h3>
-    <p class="lead">An agent acts on the world through <span class="term" data-def="Tool calling (function calling) - the mechanism where the LLM, instead of replying in text, requests a specific action: 'call get_order_status with order_id 12345' - and the system executes it and feeds the result back.">tools</span>: callable actions like "look up an order," "create a ticket," "run this query." Episode 8 is about where those tools come from, and why nobody should be writing them by hand.</p>
-    <p>The manual approach he warns against - writing per-integration prompt instructions and glue for every system - has three failure modes. It is slow: every team hand-describes the same APIs for their own agents. It drifts: five hand-written descriptions of the same API diverge, and each agent behaves slightly differently against the same system. And it rots: when the API changes, somebody has to remember every place its description was embedded.</p>
-    <p>Here is the leverage most enterprises are sitting on: their systems are already described. Decades of REST APIs come with <span class="term" data-def="OpenAPI (Swagger) - a standard machine-readable format for describing a REST API: its endpoints, parameters and responses. Most enterprise APIs already publish an OpenAPI spec.">OpenAPI</span> specifications - machine-readable documents listing every endpoint, parameter and response. MCP tooling can read an OpenAPI spec and generate the corresponding tool definitions automatically: the endpoint becomes a tool, the parameters become its schema, the descriptions become what the LLM reads to decide when and how to call it. The "auto-translator" framing is exact: from API-speak to LLM-speak, without a human rewriting anything.</p>
-    <p>The <b>unified tool catalog</b> is where those generated tools live: one library, browsable by every team - "we have tools for orders, inventory, ticketing, the DB2 reporting database" - each backed by the MCP servers from Episode 2's hub. An application team building an agent stops integrating systems and starts selecting capabilities from a catalog. The LLM gets accurate, current tool definitions; the platform team gets one place to version, secure and audit every tool in the company.</p>
-    <p>Notice the series closing its own loop here: the tool catalog (Ep 8) sits on the MCP hub (Ep 2), is consumed through the standard agent SDK (Ep 5), shared safely across LOBs by the multi-tenant design (Ep 3), and kept honest by the evaluation platform (Ep 7). It is one platform, explained one reel at a time.</p>
-
-    <h3>Why it matters</h3>
-    <ul class="takeaways">
-      <li><b>Your API specs are a head start.</b> OpenAPI-to-tool generation turns years of existing documentation into agent capability almost for free.</li>
-      <li><b>Generated beats handwritten.</b> Tools derived from the spec stay correct as APIs evolve; hand-written prompt glue silently rots.</li>
-      <li><b>A catalog changes the team's job</b> from "integrate systems" to "compose capabilities" - which is where the business value actually is.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="career">
-  <div class="wrap">
-    <span class="ch-tag tag-career">Career advice - Aug 23, 2026</span>
-    <h2>"Don't Do This": experienced developers and architects, don't start over</h2>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DcXSYZDyqhI/">instagram.com/reel/DcXSYZDyqhI</a> (2 min 54 s)</p>
-
-    <div class="he-says"><span class="lbl">What he says in the reel</span>
-    Do not get overwhelmed by the flood of AI courses, tools and certifications from every company. Do a self-analysis of your base experience first. If you have 10 years as a developer, that experience cannot be replaced by AI - companies need it to implement AI solutions. Pick AI tools that <b>elevate your base experience</b>, not overwrite it. Developers: learn AI integrations in your IDE and automation in your core toolchain. Cloud architects: do not drop everything to chase a generic AI certification - learn the AI services of <b>your</b> cloud provider and build AI architecture on top of the expertise you already have.</div>
-
-    <h3>The idea, explained</h3>
-    <p class="lead">The anxiety is real: every week brings a new model, a new framework, a new certification track, and a new wave of "learn this or be left behind." His advice cuts through it with one move - anchor on what you already are.</p>
-    <p>The logic is about where value actually sits. A company adopting AI does not need fifteen thousand people who all took the same introductory AI course. It needs people who understand its systems, its data, its customers - and can now also apply AI there. Ten years of knowing how this organization's software actually works, where the bodies are buried, and why that integration is fragile, is precisely the context that makes someone's AI work land in production instead of in a demo. The model is interchangeable; the context is not.</p>
-    <p>So the learning strategy is additive, not replacement. A developer asks: "how does AI plug into how I already build?" - AI assistance in the IDE, AI-driven test generation, automation in the existing toolchain. A cloud solution architect asks: "what AI services does my cloud provider offer, and how do they compose into the architectures I already design?" Someone with a decade on AWS who learns AWS's AI services is immediately dangerous in a way that a person with a fresh generic certification and no architecture scar tissue is not.</p>
-    <p>There is a second, quieter benefit: this path is finite. "Learn all of AI" is an endless, demoralizing curriculum. "Learn the AI capabilities adjacent to my existing expertise" is a bounded one you can actually finish - and each new thing connects to something you already understand, which is how learning sticks.</p>
-
-    <h3>How to apply it</h3>
-    <ul class="takeaways green">
-      <li><b>Write down your base experience in one sentence</b> ("10 years, backend, payments systems"). Every AI learning decision gets judged against it: does this make that sentence more powerful?</li>
-      <li><b>Map AI onto your current tools first</b> - your IDE, your cloud, your framework - before touching anything outside your stack.</li>
-      <li><b>Treat certifications as a means, not the goal.</b> The goal is AI applied to your domain; a cert is worth doing only if it serves that.</li>
-    </ul>
-  </div>
-</section>
-
-<section class="chapter" id="announcements">
-  <div class="wrap">
-    <span class="ch-tag tag-news">Also on his channel</span>
-    <h2>Two announcements worth knowing</h2>
-
-    <h3>Season 1 exists - and there is a full-length roles-and-responsibilities video</h3>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dc8n65IBiab/">instagram.com/reel/Dc8n65IBiab</a> (42 s, Sep 6, 2026)</p>
-    <p>Before this Season 2 on the AI <b>platform</b> architect, he completed <b>Season 1: AI Infrastructure Solution Architect Transformation</b> - the layer below this one: GPUs, clusters, nodes, the infrastructure itself. He has posted a full-length video on the roles and responsibilities of the AI infrastructure solution architect on his YouTube channel (<a href="https://www.youtube.com/@ArchitectITCloud" style="color:var(--accent)">@ArchitectITCloud</a>), with a promised bonus detail at the end. If Episode 1's "provision GPUs and deploy LLMs" layer is what you want to go deeper on, Season 1 is the companion curriculum.</p>
-
-    <h3>A second account: The NextGen Leaders</h3>
-    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DcvnT7xABlN/">instagram.com/reel/DcvnT7xABlN</a> (20 s, Sep 1, 2026)</p>
-    <p>A short teaser announcing his new account, <b>The NextGen Leaders</b>. His caption states the premise: alongside technical skill, you need leadership skill to succeed in your career and life. The reel itself is just a musical teaser - no teaching content - but it tells you where his non-technical content will live going forward.</p>
-  </div>
-</section>
+    <div class="era-head">
+      <div class="era-dates">Aug 25 - Sep 8, 2026</div>
+      <h2>Season 2 - AI Platform Solution Architect Transformation</h2>
+      <p>The current series: eight episodes on building the shared enterprise AI platform - MCP hub, multi-tenancy, prompt registry, agent SDK, RAG-as-a-service, evaluation, and the unified tool catalog.</p>
+      <div class="era-count">11 reels</div>
+    </div>
+  </div>  <article class="reel" id="reel-62">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">62<span class="of">/72</span></div>
+        <div class="date">Aug 25, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 2 - AI Platform Solution Architect Transformation | Episode 1 - Basics of</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Dcck0sXtqNE/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-63">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">63<span class="of">/72</span></div>
+        <div class="date">Aug 25, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 2 - AI Platform Solution Architect Transformation | Episode 1 - Basics of</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcckU0kBvLf/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-64">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">64<span class="of">/72</span></div>
+        <div class="date">Aug 26, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 1 - AI Platform Solution Architect Transformation | Episode 2 - Centraliz</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcgefFpJdoC/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-65">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">65<span class="of">/72</span></div>
+        <div class="date">Aug 27, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 2 : AI Platform Solution Architect Transformation | Episode 3 : Multi-ten</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcjG3YWy0jc/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-66">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">66<span class="of">/72</span></div>
+        <div class="date">Aug 31, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 2 - AI Platform Solution Architect Transformation | Episode 4 - Centraliz</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DctVc2ZPeNV/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-67">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">67<span class="of">/72</span></div>
+        <div class="date">Sep 1, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Our New Account - The NextGen Leaders | Along with the technical skill, You must</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DcvnT7xABlN/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-68">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">68<span class="of">/72</span></div>
+        <div class="date">Sep 3, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 2 - AI Platform Solution Architect Transformation 
+Episode 5 - Agent SDK </h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Dc0xH_jNX75/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-69">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">69<span class="of">/72</span></div>
+        <div class="date">Sep 4, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 2 - AI Platform Solution Architect Transformation | Episode 6 - RAG as a </h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Dc3yyC4ROi2/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-70">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">70<span class="of">/72</span></div>
+        <div class="date">Sep 6, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>AI infrastructure Solution Architect Transformation | Roles &amp; Responsibilities |</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Dc8n65IBiab/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-71">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">71<span class="of">/72</span></div>
+        <div class="date">Sep 7, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 2 - AI Platform Solution Architect Transformation | Episode 7 - Enterpris</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/Dc_b2DQSNwn/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article>  <article class="reel" id="reel-72">
+    <div class="wrap reel-grid">
+      <aside class="rail">
+        <div class="num">72<span class="of">/72</span></div>
+        <div class="date">Sep 8, 2026</div>
+      </aside>
+      <div class="body">
+        <div class="badges"></div>
+        <h3>Season 2 - AI Platform Solution Architect Transformation | Episode 8 - Unified T</h3>
+        <div class="oneliner"><span class="ol-label">In one line</span></div>
+        <div class="says"><span class="sec-label">What he says</span><p></p></div>
+        <div class="explained"><span class="sec-label">The idea, explained</span></div>
+        <div class="takeaway"><span class="tk-label">Why it matters</span></div>
+        <a class="watch" href="https://www.instagram.com/architect_it_cloud/reel/DdCAKP-hisW/" target="_blank" rel="noopener">Watch the reel &nearr;</a>
+      </div>
+    </div>
+  </article></section>
 
 <section class="glossary" id="glossary">
   <div class="wrap">
-    <div class="kicker">Reference</div>
-    <h2>Glossary: every key term in one place</h2>
-    <div class="g-grid">
-      <div class="g-item"><b>AI platform</b><span>The shared layer between infrastructure and applications that gives every team common AI services: models, tools, retrieval, prompts, evaluation.</span></div>
-      <div class="g-item"><b>Internal developer platform (IDP)</b><span>A company's internal self-serve product for its own developers: environments, pipelines and services consumed without tickets or waiting.</span></div>
-      <div class="g-item"><b>LOB (line of business)</b><span>A distinct business unit inside an enterprise - retail, insurance, support - each building its own applications on the shared platform.</span></div>
-      <div class="g-item"><b>MCP (Model Context Protocol)</b><span>An open standard for connecting LLM applications to external tools and data in a uniform way, replacing custom per-integration glue.</span></div>
-      <div class="g-item"><b>MCP server</b><span>A service that wraps one system (database, API, file store) and exposes it to agents through MCP: listing its tools and executing them.</span></div>
-      <div class="g-item"><b>MCP Hub</b><span>A centralized, governed home hosting all of an organization's MCP servers, so connectors are discovered and reused instead of rebuilt.</span></div>
-      <div class="g-item"><b>Tool calling</b><span>The mechanism where an LLM requests a concrete action ("call get_order_status") instead of just replying in text, and the system executes it.</span></div>
-      <div class="g-item"><b>OpenAPI</b><span>A machine-readable standard describing a REST API's endpoints, parameters and responses - the raw material tools are generated from.</span></div>
-      <div class="g-item"><b>Unified tool catalog</b><span>A central library of LLM-ready tools, generated from API specs via MCP, that every agent team composes from instead of hand-integrating.</span></div>
-      <div class="g-item"><b>System prompt</b><span>The standing instructions defining an LLM's role, rules and boundaries for every request - policy written in English.</span></div>
-      <div class="g-item"><b>Prompt registry</b><span>A versioned store for prompts, managed like release artifacts: tested, reviewed, deployed, and answerable to "which version ran when?"</span></div>
-      <div class="g-item"><b>Multi-tenancy</b><span>One platform serving many business units, with hard isolation between each tenant's data, prompts and workloads.</span></div>
-      <div class="g-item"><b>Usage metering</b><span>Measuring each tenant's consumption (tokens, GPU time, storage) for cost visibility, limits and adoption tracking.</span></div>
-      <div class="g-item"><b>Rate limiting</b><span>Per-tenant quotas on requests or tokens, so one team's spike or runaway agent cannot degrade the shared platform for everyone.</span></div>
-      <div class="g-item"><b>Model routing gateway</b><span>A single entry point for all LLM traffic that picks the right model per request by cost, capability, tenant priority and load.</span></div>
-      <div class="g-item"><b>RAG</b><span>Retrieval-Augmented Generation: retrieve relevant documents first, then have the LLM answer grounded in them instead of its memory.</span></div>
-      <div class="g-item"><b>Document pipeline</b><span>The machinery that turns raw documents into searchable knowledge: text extraction, chunking, embedding.</span></div>
-      <div class="g-item"><b>Embedding</b><span>A numerical vector capturing a text's meaning, so semantically similar texts can be found by mathematical similarity.</span></div>
-      <div class="g-item"><b>Hybrid search</b><span>Retrieval combining dense (embedding/meaning) and sparse (keyword/BM25) search, covering both paraphrases and exact terms.</span></div>
-      <div class="g-item"><b>Agent SDK</b><span>The standard kit for building agents in an org: scaffolding, tool interfaces, memory patterns, logging and evaluation hooks.</span></div>
-      <div class="g-item"><b>ReAct</b><span>An agent pattern that interleaves reasoning steps and tool actions: think, act, observe, repeat until done.</span></div>
-      <div class="g-item"><b>LLM-as-a-judge</b><span>Using a second LLM to grade the first's outputs against a rubric, so evaluation scales beyond human review.</span></div>
-      <div class="g-item"><b>Golden dataset</b><span>A curated set of representative inputs with expert-reviewed ideal outputs - the yardstick all evaluation measures against.</span></div>
-      <div class="g-item"><b>Semantic regression test</b><span>A CI check that fails a change when answer quality drops by meaning (not exact string match), catching quiet AI regressions.</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="reels-index">
-  <div class="wrap">
-    <div class="kicker">Provenance</div>
-    <h2>Every reel, accounted for</h2>
-    <p style="margin-top:10px;color:var(--ink-soft)">All 12 reels on @architect_it_cloud as of Sep 9, 2026, collected and transcribed. Each chapter above links its source; here is the flat list.</p>
-    <div style="margin-top:18px">
-      <div class="r-row"><span class="d">Sep 8, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DdCAKP-hisW/">Ep 8 - Unified Tools Catalog</a></span></div>
-      <div class="r-row"><span class="d">Sep 7, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dc_b2DQSNwn/">Ep 7 - Enterprise Evaluation Platform</a></span></div>
-      <div class="r-row"><span class="d">Sep 6, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dc8n65IBiab/">Announcement - Season 1 recap + full-length YouTube video</a></span></div>
-      <div class="r-row"><span class="d">Sep 4, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dc3yyC4ROi2/">Ep 6 - RAG as a Service</a></span></div>
-      <div class="r-row"><span class="d">Sep 3, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dc0xH_jNX75/">Ep 5 - Agent SDK Standardization</a></span></div>
-      <div class="r-row"><span class="d">Sep 1, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcvnT7xABlN/">Announcement - The NextGen Leaders (new account)</a></span></div>
-      <div class="r-row"><span class="d">Aug 31, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DctVc2ZPeNV/">Ep 4 - Centralized Prompt Registry</a></span></div>
-      <div class="r-row"><span class="d">Aug 27, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcjG3YWy0jc/">Ep 3 - Multi-tenant Service Platform Architecture</a></span></div>
-      <div class="r-row"><span class="d">Aug 26, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcgefFpJdoC/">Ep 2 - Centralized MCP Hub</a></span></div>
-      <div class="r-row"><span class="d">Aug 25, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dcck0sXtqNE/">Ep 1 - Basics of Platform</a></span></div>
-      <div class="r-row"><span class="d">Aug 25, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcckU0kBvLf/">Ep 1 - Basics of Platform</a> <span class="dup">(same video posted twice)</span></span></div>
-      <div class="r-row"><span class="d">Aug 23, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcXSYZDyqhI/">Career advice - "Experienced Developer or Architect? Don't Do This"</a></span></div>
-    </div>
+    <h2>Glossary - every hard term, one line each</h2>
+    <dl class="g-grid"><div class="g-item"><dt>-ilities</dt><dd>The quality attributes of a system - availability, scalability, reliability, security - that architects must design for deliberately.</dd></div><div class="g-item"><dt>Agent SDK</dt><dd>A standard software development kit for building AI agents, so every team builds them the same way.</dd></div><div class="g-item"><dt>Agentic AI</dt><dd>AI that doesn't just answer but takes actions - plans steps, calls tools, and completes tasks on its own.</dd></div><div class="g-item"><dt>AI governance</dt><dd>The policies, controls, and accountability that keep AI systems safe, legal, and aligned with company rules.</dd></div><div class="g-item"><dt>AIaaS</dt><dd>AI as a Service - prebuilt AI capabilities (vision, language, agents) consumed over cloud APIs instead of built in-house.</dd></div><div class="g-item"><dt>AIOps</dt><dd>Using AI to run IT operations - detecting incidents, predicting failures, and automating fixes.</dd></div><div class="g-item"><dt>Availability</dt><dd>The share of time a system stays up and usable, usually measured in nines (99.9% = three nines).</dd></div><div class="g-item"><dt>BluePlanet</dt><dd>IBM's reference architecture pattern for enterprise AI platforms.</dd></div><div class="g-item"><dt>Cloud 3.0</dt><dd>His term for the current cloud era: cloud as the operating layer for AI, after 1.0 (hosting) and 2.0 (cloud-native apps).</dd></div><div class="g-item"><dt>Context curator</dt><dd>An emerging role that manages what information an AI system sees - the quality of context decides the quality of answers.</dd></div><div class="g-item"><dt>Disaster recovery</dt><dd>The plan and infrastructure for bringing systems back after an outage or region failure.</dd></div><div class="g-item"><dt>Edge AI</dt><dd>Running AI models on devices close to users (stores, factories, phones) instead of a central cloud, for speed and privacy.</dd></div><div class="g-item"><dt>Embedding</dt><dd>Turning text into a list of numbers so similar meanings sit near each other - the basis of semantic search.</dd></div><div class="g-item"><dt>Enterprise Architect</dt><dd>The architect who looks across the whole organization's technology, not just one system.</dd></div><div class="g-item"><dt>Evaluation platform</dt><dd>Shared tooling that tests AI answers for correctness, safety, and quality before and after release.</dd></div><div class="g-item"><dt>GenAI</dt><dd>Generative AI - models that produce new text, images, or code rather than just classifying data.</dd></div><div class="g-item"><dt>GPT-OSS</dt><dd>OpenAI's open-weight model release (gpt-oss) that anyone can download and run themselves.</dd></div><div class="g-item"><dt>GPU</dt><dd>Graphics processing unit - the chip that trains and runs AI models; the scarce resource in AI infrastructure.</dd></div><div class="g-item"><dt>Guardrails as Code</dt><dd>Writing AI safety rules as versioned, testable code instead of documents nobody enforces.</dd></div><div class="g-item"><dt>Hallucination</dt><dd>When an AI model states something false with full confidence.</dd></div><div class="g-item"><dt>Inference</dt><dd>Running a trained model to get answers - the ongoing cost of AI, as opposed to one-time training.</dd></div><div class="g-item"><dt>Inference economy</dt><dd>The economics of running models at scale - every token costs money, so architecture decides the bill.</dd></div><div class="g-item"><dt>Inference gateway</dt><dd>A single front door that routes model requests to the right model, region, or provider.</dd></div><div class="g-item"><dt>KV cache</dt><dd>A memory trick that stores a model's earlier work so long conversations stay fast.</dd></div><div class="g-item"><dt>LangGraph</dt><dd>A framework for building multi-step AI agents as graphs of states and decisions, from the LangChain ecosystem.</dd></div><div class="g-item"><dt>LLM</dt><dd>Large language model - the engine behind chatbots and copilots.</dd></div><div class="g-item"><dt>MCP</dt><dd>Model Context Protocol - an open standard (from Anthropic) for connecting AI models to tools and data sources.</dd></div><div class="g-item"><dt>MCP Hub</dt><dd>A centralized, governed catalog of MCP servers so teams share vetted tools instead of wiring their own.</dd></div><div class="g-item"><dt>Multi-tenant</dt><dd>One platform serving many business units or customers, each isolated in its own logical space.</dd></div><div class="g-item"><dt>Paged attention</dt><dd>vLLM's memory-management technique that lets a GPU serve many more model requests at once.</dd></div><div class="g-item"><dt>Prompt registry</dt><dd>A central, versioned store of approved prompts so teams reuse and govern them instead of copying text around.</dd></div><div class="g-item"><dt>RAG</dt><dd>Retrieval-augmented generation - the model first looks up your documents, then answers from them.</dd></div><div class="g-item"><dt>RAG as a Service</dt><dd>RAG offered as a shared platform capability: any team brings documents, the platform handles chunking, search, and grounding.</dd></div><div class="g-item"><dt>Reliability</dt><dd>How consistently a system produces correct results over time, not just whether it is up.</dd></div><div class="g-item"><dt>Scalability</dt><dd>A system's ability to handle more users or work by adding resources rather than redesigning.</dd></div><div class="g-item"><dt>Solution Architect</dt><dd>The person who designs how a business problem becomes a working technical system.</dd></div><div class="g-item"><dt>TensorRT-LLM</dt><dd>NVIDIA's toolkit that compiles language models to run much faster on NVIDIA GPUs.</dd></div><div class="g-item"><dt>TOGAF</dt><dd>The Open Group Architecture Framework - the standard method for enterprise architecture work.</dd></div><div class="g-item"><dt>Token</dt><dd>The small chunk of text a model reads or writes; billing and limits are measured in tokens.</dd></div><div class="g-item"><dt>Unified tool catalog</dt><dd>One governed marketplace of every tool an agent may call, with ownership, cost, and policy attached.</dd></div><div class="g-item"><dt>Vector database</dt><dd>A database that stores embeddings and finds the most similar items - the search layer behind RAG.</dd></div><div class="g-item"><dt>vLLM</dt><dd>An open-source engine that serves language models fast by managing GPU memory efficiently.</dd></div><div class="g-item"><dt>watsonx</dt><dd>IBM's enterprise AI platform for building, governing, and running models.</dd></div><div class="g-item"><dt>Well-Architected Framework</dt><dd>Cloud vendors' published checklists (AWS, Azure) of design principles for secure, reliable, efficient systems.</dd></div><div class="g-item"><dt>Workflow automation</dt><dd>Software that runs multi-step business processes automatically, now increasingly with AI agents inside.</dd></div></dl>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    Built as a learning companion to <a href="https://www.instagram.com/architect_it_cloud/">Govindh Varadharajan's @architect_it_cloud</a> reels. All teaching content originates with him; the explanations here expand on it in plain English. Reel audio transcribed from the original posts. Not affiliated with the creator.
+    <p>Built from the public reels of <a href="https://www.instagram.com/architect_it_cloud/" target="_blank" rel="noopener">@architect_it_cloud</a> - 72 reels transcribed and explained, Dec 11, 2022 to Sep 8, 2026. Not affiliated; a learning companion for his content.</p>
   </div>
 </footer>
-
+<script>
+// mobile tap-to-toggle tooltips
+document.addEventListener('click', e => {
+  const t = e.target.closest('.tip');
+  document.querySelectorAll('.tip.open').forEach(x => { if (x !== t) x.classList.remove('open'); });
+  if (t) t.classList.toggle('open');
+});
+</script>
 </body>
 </html>
