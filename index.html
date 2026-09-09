@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Platform Playbook - Learnings from @architect_it_cloud</title>
+<meta name="description" content="A learning site built from Govindh Varadharajan's Instagram reels on AI platform solution architecture: every reel explained in full, plain English.">
+<style>
+  :root{
+    --paper:#faf8f5;
+    --ink:#1c1a17;
+    --ink-soft:#57534b;
+    --line:#e6e0d8;
+    --accent:#2563eb;
+    --accent-soft:#eff4ff;
+    --green:#0f7b4d;
+    --green-soft:#ecf7f1;
+    --amber:#b45309;
+    --amber-soft:#fdf6ec;
+    --card:#ffffff;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--paper);color:var(--ink);
+    line-height:1.65;font-size:17px;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+  /* header */
+  header.top{
+    border-bottom:1px solid var(--line);
+    background:rgba(250,248,245,.9);backdrop-filter:blur(8px);
+    position:sticky;top:0;z-index:50;
+  }
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brand{font-weight:650;font-size:15px;letter-spacing:-.01em}
+  .brand span{color:var(--accent)}
+  nav.chapters{display:flex;gap:4px;overflow-x:auto;font-size:13px}
+  nav.chapters a{color:var(--ink-soft);text-decoration:none;padding:6px 10px;border-radius:8px;white-space:nowrap}
+  nav.chapters a:hover{background:var(--accent-soft);color:var(--accent)}
+  /* hero */
+  .hero{padding:84px 0 56px;border-bottom:1px solid var(--line)}
+  .kicker{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+  .hero h1{font-size:clamp(34px,5.5vw,52px);line-height:1.08;letter-spacing:-.03em;font-weight:700;max-width:16ch}
+  .hero p.sub{margin-top:22px;font-size:19px;color:var(--ink-soft);max-width:60ch}
+  .hero .byline{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:14px;color:var(--ink-soft)}
+  .pill{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:550;color:var(--ink-soft);text-decoration:none}
+  .pill:hover{border-color:var(--accent);color:var(--accent)}
+  /* platform map */
+  .map-section{padding:64px 0}
+  .map-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;overflow-x:auto}
+  .map-note{font-size:13px;color:var(--ink-soft);margin-top:14px}
+  svg text{font-family:inherit}
+  .map-node{cursor:pointer}
+  .map-node rect{transition:filter .15s ease}
+  .map-node:hover rect{filter:brightness(.94)}
+  /* sections */
+  section.chapter{padding:64px 0;border-top:1px solid var(--line)}
+  .ch-tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  .tag-ep{background:var(--accent-soft);color:var(--accent)}
+  .tag-career{background:var(--green-soft);color:var(--green)}
+  .tag-news{background:var(--amber-soft);color:var(--amber)}
+  h2{font-size:30px;letter-spacing:-.02em;line-height:1.15;font-weight:700;margin-bottom:8px}
+  .ch-meta{font-size:14px;color:var(--ink-soft);margin-bottom:28px}
+  .ch-meta a{color:var(--accent);text-decoration:none;font-weight:550}
+  .ch-meta a:hover{text-decoration:underline}
+  h3{font-size:19px;font-weight:650;margin:34px 0 12px;letter-spacing:-.01em}
+  p{margin-bottom:16px;color:#2c2a26}
+  p.lead{font-size:18px;color:var(--ink)}
+  .he-says{
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:0 10px 10px 0;padding:18px 22px;margin:22px 0;font-size:15.5px;color:var(--ink-soft);
+  }
+  .he-says b{color:var(--ink)}
+  .he-says .lbl{display:block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+  ul.takeaways{margin:14px 0 18px 4px;list-style:none}
+  ul.takeaways li{position:relative;padding-left:26px;margin-bottom:10px;color:#2c2a26}
+  ul.takeaways li::before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+  ul.takeaways.green li::before{background:var(--green)}
+  /* tooltips */
+  .term{border-bottom:1.5px dotted var(--accent);cursor:help;position:relative;color:inherit;text-decoration:none}
+  .term:hover{background:var(--accent-soft)}
+  .term::after{
+    content:attr(data-def);
+    position:absolute;left:50%;bottom:135%;transform:translateX(-50%) translateY(4px);
+    background:var(--ink);color:#fff;font-size:13px;line-height:1.45;
+    padding:10px 14px;border-radius:10px;width:max-content;max-width:280px;
+    opacity:0;pointer-events:none;transition:opacity .15s,transform .15s;z-index:40;font-weight:400;
+    box-shadow:0 8px 24px rgba(0,0,0,.18);white-space:normal;text-align:left;
+  }
+  .term:hover::after{opacity:1;transform:translateX(-50%) translateY(0)}
+  /* glossary */
+  .glossary{padding:64px 0;border-top:1px solid var(--line)}
+  .g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:24px}
+  .g-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .g-item b{display:block;font-size:14.5px;margin-bottom:5px}
+  .g-item span{font-size:13.5px;color:var(--ink-soft);line-height:1.5;display:block}
+  /* reels index */
+  .reels-index{padding:64px 0;border-top:1px solid var(--line)}
+  .r-row{display:flex;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .r-row .d{color:var(--ink-soft);font-size:13px;min-width:96px;font-variant-numeric:tabular-nums}
+  .r-row a{color:var(--accent);text-decoration:none;font-weight:550}
+  .r-row a:hover{text-decoration:underline}
+  .r-row .t{flex:1}
+  .r-row .dup{color:var(--ink-soft);font-size:13px}
+  footer{border-top:1px solid var(--line);padding:40px 0 60px;font-size:13.5px;color:var(--ink-soft)}
+  footer a{color:var(--accent);text-decoration:none}
+  @media(max-width:640px){
+    nav.chapters{display:none}
+    .hero{padding:56px 0 40px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">The AI Platform <span>Playbook</span></div>
+    <nav class="chapters">
+      <a href="#map">The Map</a>
+      <a href="#ep1">Ep 1</a><a href="#ep2">Ep 2</a><a href="#ep3">Ep 3</a><a href="#ep4">Ep 4</a>
+      <a href="#ep5">Ep 5</a><a href="#ep6">Ep 6</a><a href="#ep7">Ep 7</a><a href="#ep8">Ep 8</a>
+      <a href="#career">Career</a><a href="#glossary">Glossary</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="kicker">A learning site built from Instagram reels</div>
+    <h1>How to architect an enterprise AI platform, one reel at a time.</h1>
+    <p class="sub">Govindh Varadharajan (<a href="https://www.instagram.com/architect_it_cloud/" style="color:var(--accent)">@architect_it_cloud</a>), an AI architect and 2x LinkedIn Top Voice, is posting a reel series called <b>AI Platform Solution Architect Transformation</b>. Each reel is one to four minutes of dense, practical guidance. This site takes every reel he has posted, writes out what he says, and then explains each concept in full, plain English - so you can actually learn it, not just watch it.</p>
+    <div class="byline">
+      <a class="pill" href="https://www.instagram.com/architect_it_cloud/">Instagram - @architect_it_cloud</a>
+      <a class="pill" href="https://www.youtube.com/@ArchitectITCloud">YouTube - Architect IT Cloud</a>
+      <span class="pill">12 reels collected - 8 episodes + career advice + announcements</span>
+      <span class="pill">Reels current as of Sep 9, 2026</span>
+    </div>
+  </div>
+</section>
+
+<section class="map-section" id="map">
+  <div class="wrap">
+    <div class="kicker">Start here</div>
+    <h2>The whole series on one map</h2>
+    <p style="margin-top:10px;color:var(--ink-soft);max-width:62ch">Every episode is one building block of a single idea: an enterprise should not let every team build its own AI plumbing. It should build one shared <b>AI platform</b> that every line of business uses. Click any block to jump to the chapter that explains it.</p>
+    <div class="map-card" style="margin-top:26px">
+      <svg viewBox="0 0 820 470" width="100%" role="img" aria-label="Architecture map of the enterprise AI platform described in the reel series">
+        <!-- Applications layer -->
+        <text x="20" y="30" font-size="12" font-weight="700" fill="#57534b" letter-spacing="2">APPLICATIONS - what the business teams build</text>
+        <g class="map-node" onclick="location.hash='ep1'">
+          <rect x="20" y="42" width="780" height="56" rx="12" fill="#eff4ff" stroke="#c7d9fa"/>
+          <text x="400" y="66" text-anchor="middle" font-size="15" font-weight="650" fill="#1c1a17">AI agent apps from every line of business (LOB 1, LOB 2, ... LOB 15)</text>
+          <text x="400" y="86" text-anchor="middle" font-size="12.5" fill="#57534b">Each team builds agents - they should NOT each build the plumbing (Episode 1)</text>
+        </g>
+        <!-- Platform layer -->
+        <text x="20" y="132" font-size="12" font-weight="700" fill="#57534b" letter-spacing="2">THE AI INTERNAL DEVELOPER PLATFORM - shared services, built once</text>
+        <g class="map-node" onclick="location.hash='ep2'">
+          <rect x="20" y="144" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="145" y="172" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Centralized MCP Hub</text>
+          <text x="145" y="192" text-anchor="middle" font-size="11.5" fill="#57534b">One place hosting every MCP</text>
+          <text x="145" y="208" text-anchor="middle" font-size="11.5" fill="#57534b">server - no duplicates (Ep 2)</text>
+        </g>
+        <g class="map-node" onclick="location.hash='ep8'">
+          <rect x="285" y="144" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="410" y="172" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Unified Tool Catalog</text>
+          <text x="410" y="192" text-anchor="middle" font-size="11.5" fill="#57534b">REST / OpenAPI turned into</text>
+          <text x="410" y="208" text-anchor="middle" font-size="11.5" fill="#57534b">LLM-ready tools (Ep 8)</text>
+        </g>
+        <g class="map-node" onclick="location.hash='ep4'">
+          <rect x="550" y="144" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="675" y="172" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Centralized Prompt Registry</text>
+          <text x="675" y="192" text-anchor="middle" font-size="11.5" fill="#57534b">Prompts versioned, tested and</text>
+          <text x="675" y="208" text-anchor="middle" font-size="11.5" fill="#57534b">stored outside the code (Ep 4)</text>
+        </g>
+        <g class="map-node" onclick="location.hash='ep6'">
+          <rect x="20" y="246" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="145" y="274" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">RAG as a Service</text>
+          <text x="145" y="294" text-anchor="middle" font-size="11.5" fill="#57534b">Document pipelines + vector</text>
+          <text x="145" y="310" text-anchor="middle" font-size="11.5" fill="#57534b">search behind one API (Ep 6)</text>
+        </g>
+        <g class="map-node" onclick="location.hash='ep5'">
+          <rect x="285" y="246" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="410" y="274" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Standard Agent SDK</text>
+          <text x="410" y="294" text-anchor="middle" font-size="11.5" fill="#57534b">One blessed way to build</text>
+          <text x="410" y="310" text-anchor="middle" font-size="11.5" fill="#57534b">agents across the org (Ep 5)</text>
+        </g>
+        <g class="map-node" onclick="location.hash='ep7'">
+          <rect x="550" y="246" width="250" height="86" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+          <text x="675" y="274" text-anchor="middle" font-size="14" font-weight="650" fill="#1c1a17">Evaluation Platform</text>
+          <text x="675" y="294" text-anchor="middle" font-size="11.5" fill="#57534b">LLM-as-judge + golden data +</text>
+          <text x="675" y="310" text-anchor="middle" font-size="11.5" fill="#57534b">regression tests in CI (Ep 7)</text>
+        </g>
+        <!-- Multi-tenancy band -->
+        <g class="map-node" onclick="location.hash='ep3'">
+          <rect x="20" y="348" width="780" height="52" rx="12" fill="#ecf7f1" stroke="#9fd8bd"/>
+          <text x="400" y="370" text-anchor="middle" font-size="14" font-weight="650" fill="#0f7b4d">Multi-tenant by design: hard tenant isolation - usage metering - per-LOB rate limits - model routing gateway</text>
+          <text x="400" y="389" text-anchor="middle" font-size="12" fill="#57534b">One platform safely shared by every LOB (Episode 3)</text>
+        </g>
+        <!-- Infra layer -->
+        <text x="20" y="432" font-size="12" font-weight="700" fill="#57534b" letter-spacing="2">INFRASTRUCTURE - GPU clusters, nodes, cloud or on-prem (the platform architect provisions this, Ep 1)</text>
+        <rect x="20" y="442" width="780" height="20" rx="8" fill="#f1ede6" stroke="#e6e0d8"/>
+      </svg>
+      <p class="map-note">Read the map bottom to top: infrastructure at the base, the shared platform in the middle, business applications on top. Episodes 2 and 4 to 8 are the individual platform services. Episode 3 is the design discipline that lets many teams share them safely.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ep1">
+  <div class="wrap">
+    <span class="ch-tag tag-ep">Season 2 - Episode 1 - Aug 25, 2026</span>
+    <h2>Basics of Platform: what a platform actually is</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dcck0sXtqNE/">instagram.com/reel/Dcck0sXtqNE</a> (3 min 45 s) - posted twice, also as <a href="https://www.instagram.com/reel/DcckU0kBvLf/">reel/DcckU0kBvLf</a></p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    A platform is the layer between <b>infrastructure</b> and <b>application</b>. Picture a cake: the bottom layer is infrastructure, the cream and cookies in the middle are the platform, the decoration on top is the application. In the classic world, a platform architect builds the tools application teams need to run on something like OpenShift. In the AI world, the platform architect must know how to provision GPUs, deploy LLMs on top, and support application teams running AI agent apps. With 10 to 15 lines of business each building agent apps, the platform architect must build common tools all of them share - an <b>internal developer platform</b> - so duplicate work disappears.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead">Most people who "work in tech" work on one of three layers, and being clear about which layer you are on changes every design decision you make.</p>
+    <p>The <b>infrastructure layer</b> is raw capacity: servers, GPUs, networks, storage. It answers the question "what compute do we have?" The <b>application layer</b> is what the business actually wanted: the customer-support agent, the document-summarizing tool, the sales-copilot. It answers "what does the user get?" The <b>platform layer</b> sits between them and answers a third question: "how does an application team get from raw compute to a running, reliable app without becoming infrastructure experts?"</p>
+    <p>That middle layer is easy to underestimate because when it works, nobody notices it. In the classic cloud world, platforms like OpenShift or Kubernetes distros did this job: an app team shipped code, and the platform handled deployment, scaling, logging and secrets. The app team never thought about load balancers or node pools.</p>
+    <p>AI changes what the platform must provide. An application team building an AI agent needs things a classic platform never offered: GPU capacity carved out for them, a deployed LLM endpoint they can call, a vector database, a way to register tools the agent can use, somewhere to keep prompts, and a way to test whether the model's answers are any good. If the platform does not offer these as shared services, every team builds its own version - badly, and five times over.</p>
+    <p>That is the punchline of Episode 1, and honestly of the whole series: the AI platform architect's job is to build an <span class="term" data-def="Internal Developer Platform - a company's own internal product that gives development teams self-serve tools (environments, pipelines, AI services) so they can ship without waiting on other teams.">internal developer platform</span> (IDP) for AI. "Internal" because its customers are your own developers. "Platform" because it is built once and used by every team. When 10 to 15 lines of business each need an agent app, the choice is not "15 teams build 15 apps." It is "15 teams build 15 apps, and either 15 copies of the plumbing or one."</p>
+
+    <h3>Why it matters</h3>
+    <ul class="takeaways">
+      <li><b>Duplicated plumbing is invisible waste.</b> Every team that builds its own document pipeline, its own prompt store, its own model gateway is spending engineering months the company pays for more than once.</li>
+      <li><b>The platform is a product, not a project.</b> It has customers (your developers), a roadmap, and adoption as its success metric. Episode 1 is where that framing starts.</li>
+      <li><b>Your role definition follows the layer.</b> An AI platform solution architect is not the person building the agent app. They are the person making it cheap and safe for fifteen teams to build theirs.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="ep2">
+  <div class="wrap">
+    <span class="ch-tag tag-ep">Season 2 - Episode 2 - Aug 26, 2026</span>
+    <h2>The Centralized MCP Hub</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DcgefFpJdoC/">instagram.com/reel/DcgefFpJdoC</a> (1 min 14 s)</p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    In an enterprise, multiple lines of business work on different AI projects. If one LOB builds an <b>MCP server</b> to connect to a DB2 database, the other LOBs need to know it exists - otherwise you end up with duplicate MCP servers doing the same job. As an AI platform architect, build a <b>centralized MCP Hub</b>: produce MCP servers based on each LOB's requirements, host them in one central location, and let every team use them. It avoids duplicate work and saves the organization real cost.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead">An AI agent is only as useful as the systems it can reach. <span class="term" data-def="Model Context Protocol - an open standard (started by Anthropic) that defines how an LLM application discovers and calls external tools and data sources in a uniform way, instead of every integration being custom code.">Model Context Protocol</span> (MCP) is the emerging standard for making those connections.</p>
+    <p>Before MCP, connecting an LLM to a company system meant bespoke work every time: custom function-calling schemas, custom glue code, custom auth handling. MCP standardizes this. An <span class="term" data-def="MCP server - a small service that exposes a system (a database, an API, a file store) to LLM applications through the Model Context Protocol: it lists the tools it offers and executes them on request.">MCP server</span> wraps a system - say a DB2 database, a ticketing tool, or a document store - and presents it to any MCP-aware agent in a uniform way: "here are the tools I offer, here is how to call them."</p>
+    <p>Now picture the enterprise without a hub. Team A needs DB2 data, so they write a DB2 MCP server: connection handling, credentials, query tools, tests, deployment. Three months later Team B needs the same database, does not know Team A's server exists, and builds it again. Multiply by every database and every SaaS tool in the company, and you get dozens of near-identical connectors, each with its own bugs, its own security posture, its own on-call burden.</p>
+    <p>The centralized MCP Hub is the platform answer: one team (the platform team) builds and hosts the MCP servers as shared services. A hub gives you four concrete benefits. <b>Discovery</b>: a team can look up "is there already a connector for this system?" before building anything. <b>Security review once</b>: credentials, network rules and audit logging are vetted a single time by people who own that risk, instead of fifteen times with fifteen levels of care. <b>Maintenance once</b>: when the DB2 driver changes, one server gets patched, not fifteen. <b>Cost</b>: one deployment to run and monitor, not a fleet of forgotten duplicates.</p>
+
+    <h3>Why it matters</h3>
+    <ul class="takeaways">
+      <li><b>Connectors are infrastructure, not features.</b> The hub treats them as shared platform services, owned and operated centrally.</li>
+      <li><b>The registry is as valuable as the servers.</b> "What do we already have?" being answerable in one search is what actually stops duplication.</li>
+      <li><b>This is the same pattern as Episode 1's IDP</b> applied to integrations: build once, share with every LOB.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="ep3">
+  <div class="wrap">
+    <span class="ch-tag tag-ep">Season 2 - Episode 3 - Aug 27, 2026</span>
+    <h2>Multi-tenant Service Platform Architecture</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DcjG3YWy0jc/">instagram.com/reel/DcjG3YWy0jc</a> (1 min 19 s)</p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    Multiple LOBs build AI projects, and they all need a platform. One platform per LOB is a cost overhead, so you need <b>one centralized AI platform</b> they all share. Four design principles make that work: (1) <b>hard tenant isolation</b> so each LOB only touches its own area, (2) <b>usage metering</b> per LOB so consumption is measurable, (3) <b>custom rate limiting</b> per LOB, and (4) a <b>model routing gateway</b> that prioritizes usage so the right service reaches the right LOB.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead">Sharing one platform across the whole company is the cost-efficient answer - but sharing without design is how one team's experiment takes down everyone else's production.</p>
+    <p><b>Hard tenant isolation</b> means each LOB's data, prompts, documents and workloads are separated by construction, not by politeness. In practice: separate namespaces or accounts, separate API keys, separate vector indexes, no shared caches that could bleed one tenant's data into another's answer. "Hard" is the key word. If isolation depends on developers remembering to filter by customer ID, it will eventually leak. AI makes this sharper than classic multi-tenancy, because a retrieval system that mixes tenants' documents does not just expose rows in a table - it can speak one LOB's confidential data into another LOB's chat window.</p>
+    <p><b>Usage metering</b> means measuring consumption per tenant: tokens processed, GPU minutes, vector storage, number of agent runs. This is not only about billing teams back (though <span class="term" data-def="Chargeback / showback - internal accounting where the platform team reports (showback) or bills (chargeback) each business unit for the share of platform resources it consumed.">chargeback</span> changes behavior fast). It is how you learn which LOB is about to hit its limits, which workloads are unexpectedly expensive, and whether the platform is actually getting adopted.</p>
+    <p><b>Custom rate limiting</b> per LOB is the safety valve. Without it, one team's load-test or runaway agent loop can saturate the shared model endpoints and every other tenant's app slows down. Per-tenant quotas - requests per minute, tokens per day - keep the platform fair and keep one tenant's incident from becoming everyone's incident.</p>
+    <p>The <span class="term" data-def="Model routing gateway - a single entry point that receives every LLM request and decides which model should serve it, based on rules like cost, capability needed, tenant priority and current load.">model routing gateway</span> ties it together. Every LLM call in the company flows through one gateway, which decides where each request goes: an expensive frontier model for a hard reasoning task, a small cheap model for classification, a priority lane for the LOB running a customer-facing launch. This gives the platform team one place to enforce policy, control cost, fail over when a provider degrades, and upgrade models without asking fifteen teams to change code.</p>
+
+    <h3>Why it matters</h3>
+    <ul class="takeaways">
+      <li><b>These four principles are a checklist.</b> Isolation, metering, rate limits, routing - a shared AI platform missing any one of them will either be unsafe, unaffordable, or unfair.</li>
+      <li><b>Multi-tenancy is what makes the economics work.</b> It is the reason "one platform for everyone" beats "one platform each."</li>
+      <li><b>The gateway is the control point.</b> Whoever owns routing owns cost, priority and policy for the whole company's AI usage.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="ep4">
+  <div class="wrap">
+    <span class="ch-tag tag-ep">Season 2 - Episode 4 - Aug 31, 2026</span>
+    <h2>The Centralized Prompt Registry</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DctVc2ZPeNV/">instagram.com/reel/DctVc2ZPeNV</a> (1 min 27 s)</p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    Prompts fall into two major categories: <b>system prompts</b> and <b>application-code-generated prompts</b>. You must decouple the two. System prompts should be separated out, tested, versioned and deployed deliberately. Application-generated prompts also need to be separated, versioned, stored in a repository, and pulled from there when needed. Managing and decoupling these two prompt types - versioning them, storing them in a registry, deploying them - is the AI platform architect's responsibility.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead">In most companies today, the most behavior-critical text in the entire AI system is sitting as a string literal inside some application's source code. That is the problem this episode is about.</p>
+    <p>A <span class="term" data-def="System prompt - the standing instructions given to an LLM that define its role, rules, tone and boundaries for every request: 'You are a support agent for X. Never discuss refunds over $500.'">system prompt</span> is the standing instruction set: who the model is, what it may and may not do, how it should format answers. It is effectively policy written in English. An <b>application-generated prompt</b> is what the code assembles per request: the user's question plus retrieved documents, conversation history, and templated instructions stitched together at runtime.</p>
+    <p>Why decouple them? Because they change for different reasons, at different speeds, owned by different people. A system prompt changes when policy or behavior needs to change - and that change should go through review and testing like any policy change. An application prompt is assembled by code and changes with the code. Hard-coding both into the app means a wording fix to the assistant's tone requires a full application release, and nobody can answer "what instructions is production running right now?"</p>
+    <p>A prompt registry treats prompts as versioned assets, the way an artifact repository treats binaries. Each prompt has a name, versions, a changelog, test results, and a deployment state ("v7 is live for the support agent, v8 is in testing"). That unlocks things hard-coded prompts can never do: <b>rollback</b> when a prompt change degrades answers, <b>A/B comparison</b> between versions on real traffic, <b>review workflow</b> so a domain expert can improve wording without touching code, and <b>audit</b> - when the model said something wrong last Tuesday, you can see exactly which instructions it was running.</p>
+    <p>Notice how this connects to the evaluation platform in Episode 7: versioned prompts in a registry are what make prompt changes testable in CI, instead of vibes.</p>
+
+    <h3>Why it matters</h3>
+    <ul class="takeaways">
+      <li><b>Prompts are configuration and policy, not code.</b> Manage their lifecycle the way you manage any other production asset.</li>
+      <li><b>"Which prompt produced that answer?" must be answerable.</b> Versioning is what makes AI behavior auditable.</li>
+      <li><b>Decoupling unlocks speed.</b> The people best at improving prompts are often not the people who deploy the app.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="ep5">
+  <div class="wrap">
+    <span class="ch-tag tag-ep">Season 2 - Episode 5 - Sep 3, 2026</span>
+    <h2>Agent SDK Standardization</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dc0xH_jNX75/">instagram.com/reel/Dc0xH_jNX75</a> (1 min 32 s)</p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    You have standardized the MCP hub and the centralized prompt registry. Now focus on the <b>agent SDK</b>. An agent SDK gives you the standards, documentation, procedures and best practices for implementing agent solutions in your organization. Every serious organization has one - Claude has the Claude Agent SDK - and you can take a standard SDK like that and customize it for your needs. As the AI platform solution architect, designing the standard agent SDK for your LOBs is your responsibility.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead">An <span class="term" data-def="Agent SDK - a software development kit for building AI agents: libraries, templates and conventions covering how an agent calls tools, keeps memory, logs its steps, handles errors and gets evaluated.">agent SDK</span> answers a deceptively simple question: when a developer in your company sits down to build an AI agent, what do they start from?</p>
+    <p>Without a standard, each developer starts from a tutorial. One team builds agents as Python scripts with raw API calls and hand-rolled retry logic. Another uses a framework with completely different conventions. A third copy-pastes something from a hackathon. Six months later the company has fifteen agent codebases that share nothing: different logging, different error handling, different ways of calling tools, different levels of security care. Nobody can maintain anyone else's agent, and every review starts from zero.</p>
+    <p>A standard agent SDK fixes the shape of the solution before anyone writes business logic. A good one typically includes: <b>scaffolding</b> (a new agent starts from a template with the right project structure), <b>tool interfaces</b> (one blessed way to connect tools - in this series, through the MCP hub), <b>memory and state patterns</b> (how conversation context is stored and retrieved), <b>observability</b> (every agent run logs its steps, tool calls and token usage in a format the platform can collect), <b>guardrail hooks</b> (standard places to insert safety checks), and <b>evaluation hooks</b> (every agent built on the SDK can be plugged into the Episode 7 evaluation pipeline without extra work).</p>
+    <p>His point about customization is practical: you do not have to invent this from nothing. Vendor SDKs (he names the Claude Agent SDK) encode tested patterns for tool use, agent loops and context management. The platform architect's job is to adopt one as the base, wrap it in the organization's own conventions - naming, auth, logging destinations, approved models through the routing gateway - and publish that as "the way we build agents here."</p>
+
+    <h3>Why it matters</h3>
+    <ul class="takeaways">
+      <li><b>Standardization is what turns agents from experiments into a portfolio.</b> Fifteen agents built one way can be operated; fifteen built fifteen ways cannot.</li>
+      <li><b>The SDK is where the platform's other services get adopted.</b> If the template wires in the MCP hub, prompt registry and evaluation hooks by default, teams use them without being told to.</li>
+      <li><b>Onboarding speed is the visible win.</b> A new team's first agent goes from weeks of framework decisions to days of filling in business logic.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="ep6">
+  <div class="wrap">
+    <span class="ch-tag tag-ep">Season 2 - Episode 6 - Sep 4, 2026</span>
+    <h2>RAG as a Service</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dc3yyC4ROi2/">instagram.com/reel/Dc3yyC4ROi2</a> (1 min 49 s)</p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    Different teams build AI projects with different architectures - RAG, ReAct, human-in-the-loop. Every team doing RAG ends up building the same key components: a <b>document pipeline</b>, <b>vector indexing</b>, and <b>hybrid search</b> (dense and sparse). When many teams each build these, the platform gets messy. The fix: provision <b>RAG as a Service</b> - document pipeline, vector indexing and hybrid search exposed as API calls - so no team builds redundant mechanisms. Think about offering RAG as a Service, or even ReAct as a Service, to your development teams.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead"><span class="term" data-def="RAG (Retrieval-Augmented Generation) - the pattern where the AI first retrieves relevant documents from your own data, then the LLM answers using those documents as context, so answers are grounded in company facts instead of model memory.">RAG</span> is how an AI answers questions from your company's own documents: find the relevant pieces, hand them to the model, and let it answer from them. It is the most common enterprise AI pattern - and the one most often rebuilt from scratch by every team that needs it.</p>
+    <p>Under the hood, every RAG system has the same three machinery layers he names. The <b>document pipeline</b> takes raw content - PDFs, wikis, policy docs - and prepares it: extracting text, splitting it into chunks, and computing an <span class="term" data-def="Embedding - a numerical vector that captures the meaning of a piece of text, so that texts with similar meaning have similar vectors and can be found by mathematical similarity.">embedding</span> for each chunk. <b>Vector indexing</b> stores those embeddings in a database built for similarity search, so "find chunks about refund policy" becomes a fast lookup. <b>Hybrid search</b> combines two retrieval styles: <b>dense</b> search (embedding similarity - good at meaning, so "money back" finds "refund") and <b>sparse</b> search (keyword matching like BM25 - good at exact terms like part numbers and error codes). Neither alone is reliable; together they cover both ways people phrase things.</p>
+    <p>Each of these layers has real depth: chunking strategy changes answer quality, index tuning changes latency, hybrid ranking needs weighting. When every application team implements this stack independently, you get the Episode 2 problem again, squared: five document pipelines with five different chunking bugs, five vector indexes to operate, five search quality levels. And the team building the customer-support agent - whose actual job is the agent - is instead spending its quarter on retrieval plumbing.</p>
+    <p>RAG as a Service turns the whole stack into platform APIs: "ingest these documents into collection X" and "query collection X with this question, hybrid mode." Teams get retrieval as a dependency, the way they get databases today. The platform team owns chunking defaults, index operations and search quality tuning once, centrally, and every consumer benefits from every improvement. His aside about <b>ReAct as a Service</b> generalizes the thought: any agent pattern every team rebuilds (the ReAct reasoning loop, human-in-the-loop approval flows) is a candidate for the same treatment.</p>
+
+    <h3>Why it matters</h3>
+    <ul class="takeaways">
+      <li><b>Retrieval quality is a platform concern.</b> Centralizing it means one team gets very good at chunking, indexing and ranking - instead of every team getting mediocre at it.</li>
+      <li><b>The API boundary is the point.</b> Application teams think in questions and answers; the platform thinks in pipelines and indexes.</li>
+      <li><b>Watch for the pattern, not just RAG.</b> Anything three teams have each built once belongs on the platform roadmap.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="ep7">
+  <div class="wrap">
+    <span class="ch-tag tag-ep">Season 2 - Episode 7 - Sep 7, 2026</span>
+    <h2>The Enterprise Evaluation Platform</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dc_b2DQSNwn/">instagram.com/reel/Dc_b2DQSNwn</a> (59 s)</p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    One of the critical tasks in any GenAI or agent project is evaluating the LLM's output. Do it effectively: build an automated pipeline using <b>LLM-as-a-judge</b> architecture, use <b>curated datasets</b> with ideal outputs, and run <b>semantic regression tests</b> in the continuous integration pipeline. Then you can properly evaluate the LLM and hand a reliable foundation to the teams building agent projects.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead">Classic software testing asks "does the output equal the expected output?" AI breaks that question. Ask an LLM the same thing twice and you get two different phrasings - both possibly correct. So how do you test it? This episode is the platform answer.</p>
+    <p>The first tool is <span class="term" data-def="LLM-as-a-judge - using a second LLM to grade the first model's answers against criteria (correctness, completeness, tone, faithfulness to sources), producing scores automatically instead of humans reviewing every output.">LLM-as-a-judge</span>: since a model's output is open-ended text, use another model to grade it. The judge gets the question, the system's answer, and a rubric - "is this answer correct, grounded in the provided documents, and appropriately concise?" - and returns scores. It is not perfect, but it scales: thousands of answers graded in minutes, consistently, where human review covers a handful.</p>
+    <p>The second tool is the <b>curated dataset</b>, often called a golden set: a carefully built collection of representative inputs with ideal outputs, reviewed by humans who know the domain. "Here are 200 real support questions and what great answers look like." This dataset is the yardstick everything else measures against. Building it is unglamorous and absolutely load-bearing - an evaluation pipeline is only as trustworthy as its golden set.</p>
+    <p>The third tool is where it becomes engineering: <b>semantic regression tests in CI</b>. On every change - a new model version, a prompt update from the Episode 4 registry, a retrieval tweak - the pipeline runs the golden set through the system, the judge scores the outputs, and semantic comparison checks answers against the ideal ones (meaning-equivalent counts as passing; exact string match is neither possible nor desired). If quality drops below the bar, the change does not ship, exactly like a failing unit test. "Regression" is the key word: the goal is to catch the moment a change that improved one thing quietly broke three others.</p>
+    <p>As a platform capability, this is offered to every team the way the other services are: register your agent, point at your golden set, get evaluation runs on every change and dashboards over time. Nobody should be shipping prompt or model changes on instinct.</p>
+
+    <h3>Why it matters</h3>
+    <ul class="takeaways">
+      <li><b>Evaluation is what makes AI changes deployable.</b> Without it, every model upgrade or prompt edit is a gamble discovered by users.</li>
+      <li><b>The golden set is an asset.</b> Curate it with domain experts, grow it from real failures, protect it.</li>
+      <li><b>Automation is the difference between testing and theater.</b> If evaluation is not in CI, it happens once and never again.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="ep8">
+  <div class="wrap">
+    <span class="ch-tag tag-ep">Season 2 - Episode 8 - Sep 8, 2026</span>
+    <h2>The Unified Tool Catalog</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DdCAKP-hisW/">instagram.com/reel/DdCAKP-hisW</a> (1 min 56 s)</p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    Application teams building AI agents spend a lot of time writing instructions so LLMs can use their systems - "prompt wrapping." Instead of doing this manually, use <b>MCP as an auto-translator</b>: convert existing REST APIs and OpenAPI standards into a form LLMs understand easily, and build a <b>tool catalog</b> - a library. When the AI development team connects to this unified tool catalog, the LLM can see how to connect to the local database or local software through MCP servers and execute the task successfully.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead">An agent acts on the world through <span class="term" data-def="Tool calling (function calling) - the mechanism where the LLM, instead of replying in text, requests a specific action: 'call get_order_status with order_id 12345' - and the system executes it and feeds the result back.">tools</span>: callable actions like "look up an order," "create a ticket," "run this query." Episode 8 is about where those tools come from, and why nobody should be writing them by hand.</p>
+    <p>The manual approach he warns against - writing per-integration prompt instructions and glue for every system - has three failure modes. It is slow: every team hand-describes the same APIs for their own agents. It drifts: five hand-written descriptions of the same API diverge, and each agent behaves slightly differently against the same system. And it rots: when the API changes, somebody has to remember every place its description was embedded.</p>
+    <p>Here is the leverage most enterprises are sitting on: their systems are already described. Decades of REST APIs come with <span class="term" data-def="OpenAPI (Swagger) - a standard machine-readable format for describing a REST API: its endpoints, parameters and responses. Most enterprise APIs already publish an OpenAPI spec.">OpenAPI</span> specifications - machine-readable documents listing every endpoint, parameter and response. MCP tooling can read an OpenAPI spec and generate the corresponding tool definitions automatically: the endpoint becomes a tool, the parameters become its schema, the descriptions become what the LLM reads to decide when and how to call it. The "auto-translator" framing is exact: from API-speak to LLM-speak, without a human rewriting anything.</p>
+    <p>The <b>unified tool catalog</b> is where those generated tools live: one library, browsable by every team - "we have tools for orders, inventory, ticketing, the DB2 reporting database" - each backed by the MCP servers from Episode 2's hub. An application team building an agent stops integrating systems and starts selecting capabilities from a catalog. The LLM gets accurate, current tool definitions; the platform team gets one place to version, secure and audit every tool in the company.</p>
+    <p>Notice the series closing its own loop here: the tool catalog (Ep 8) sits on the MCP hub (Ep 2), is consumed through the standard agent SDK (Ep 5), shared safely across LOBs by the multi-tenant design (Ep 3), and kept honest by the evaluation platform (Ep 7). It is one platform, explained one reel at a time.</p>
+
+    <h3>Why it matters</h3>
+    <ul class="takeaways">
+      <li><b>Your API specs are a head start.</b> OpenAPI-to-tool generation turns years of existing documentation into agent capability almost for free.</li>
+      <li><b>Generated beats handwritten.</b> Tools derived from the spec stay correct as APIs evolve; hand-written prompt glue silently rots.</li>
+      <li><b>A catalog changes the team's job</b> from "integrate systems" to "compose capabilities" - which is where the business value actually is.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="career">
+  <div class="wrap">
+    <span class="ch-tag tag-career">Career advice - Aug 23, 2026</span>
+    <h2>"Don't Do This": experienced developers and architects, don't start over</h2>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DcXSYZDyqhI/">instagram.com/reel/DcXSYZDyqhI</a> (2 min 54 s)</p>
+
+    <div class="he-says"><span class="lbl">What he says in the reel</span>
+    Do not get overwhelmed by the flood of AI courses, tools and certifications from every company. Do a self-analysis of your base experience first. If you have 10 years as a developer, that experience cannot be replaced by AI - companies need it to implement AI solutions. Pick AI tools that <b>elevate your base experience</b>, not overwrite it. Developers: learn AI integrations in your IDE and automation in your core toolchain. Cloud architects: do not drop everything to chase a generic AI certification - learn the AI services of <b>your</b> cloud provider and build AI architecture on top of the expertise you already have.</div>
+
+    <h3>The idea, explained</h3>
+    <p class="lead">The anxiety is real: every week brings a new model, a new framework, a new certification track, and a new wave of "learn this or be left behind." His advice cuts through it with one move - anchor on what you already are.</p>
+    <p>The logic is about where value actually sits. A company adopting AI does not need fifteen thousand people who all took the same introductory AI course. It needs people who understand its systems, its data, its customers - and can now also apply AI there. Ten years of knowing how this organization's software actually works, where the bodies are buried, and why that integration is fragile, is precisely the context that makes someone's AI work land in production instead of in a demo. The model is interchangeable; the context is not.</p>
+    <p>So the learning strategy is additive, not replacement. A developer asks: "how does AI plug into how I already build?" - AI assistance in the IDE, AI-driven test generation, automation in the existing toolchain. A cloud solution architect asks: "what AI services does my cloud provider offer, and how do they compose into the architectures I already design?" Someone with a decade on AWS who learns AWS's AI services is immediately dangerous in a way that a person with a fresh generic certification and no architecture scar tissue is not.</p>
+    <p>There is a second, quieter benefit: this path is finite. "Learn all of AI" is an endless, demoralizing curriculum. "Learn the AI capabilities adjacent to my existing expertise" is a bounded one you can actually finish - and each new thing connects to something you already understand, which is how learning sticks.</p>
+
+    <h3>How to apply it</h3>
+    <ul class="takeaways green">
+      <li><b>Write down your base experience in one sentence</b> ("10 years, backend, payments systems"). Every AI learning decision gets judged against it: does this make that sentence more powerful?</li>
+      <li><b>Map AI onto your current tools first</b> - your IDE, your cloud, your framework - before touching anything outside your stack.</li>
+      <li><b>Treat certifications as a means, not the goal.</b> The goal is AI applied to your domain; a cert is worth doing only if it serves that.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter" id="announcements">
+  <div class="wrap">
+    <span class="ch-tag tag-news">Also on his channel</span>
+    <h2>Two announcements worth knowing</h2>
+
+    <h3>Season 1 exists - and there is a full-length roles-and-responsibilities video</h3>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/Dc8n65IBiab/">instagram.com/reel/Dc8n65IBiab</a> (42 s, Sep 6, 2026)</p>
+    <p>Before this Season 2 on the AI <b>platform</b> architect, he completed <b>Season 1: AI Infrastructure Solution Architect Transformation</b> - the layer below this one: GPUs, clusters, nodes, the infrastructure itself. He has posted a full-length video on the roles and responsibilities of the AI infrastructure solution architect on his YouTube channel (<a href="https://www.youtube.com/@ArchitectITCloud" style="color:var(--accent)">@ArchitectITCloud</a>), with a promised bonus detail at the end. If Episode 1's "provision GPUs and deploy LLMs" layer is what you want to go deeper on, Season 1 is the companion curriculum.</p>
+
+    <h3>A second account: The NextGen Leaders</h3>
+    <p class="ch-meta">Source reel: <a href="https://www.instagram.com/reel/DcvnT7xABlN/">instagram.com/reel/DcvnT7xABlN</a> (20 s, Sep 1, 2026)</p>
+    <p>A short teaser announcing his new account, <b>The NextGen Leaders</b>. His caption states the premise: alongside technical skill, you need leadership skill to succeed in your career and life. The reel itself is just a musical teaser - no teaching content - but it tells you where his non-technical content will live going forward.</p>
+  </div>
+</section>
+
+<section class="glossary" id="glossary">
+  <div class="wrap">
+    <div class="kicker">Reference</div>
+    <h2>Glossary: every key term in one place</h2>
+    <div class="g-grid">
+      <div class="g-item"><b>AI platform</b><span>The shared layer between infrastructure and applications that gives every team common AI services: models, tools, retrieval, prompts, evaluation.</span></div>
+      <div class="g-item"><b>Internal developer platform (IDP)</b><span>A company's internal self-serve product for its own developers: environments, pipelines and services consumed without tickets or waiting.</span></div>
+      <div class="g-item"><b>LOB (line of business)</b><span>A distinct business unit inside an enterprise - retail, insurance, support - each building its own applications on the shared platform.</span></div>
+      <div class="g-item"><b>MCP (Model Context Protocol)</b><span>An open standard for connecting LLM applications to external tools and data in a uniform way, replacing custom per-integration glue.</span></div>
+      <div class="g-item"><b>MCP server</b><span>A service that wraps one system (database, API, file store) and exposes it to agents through MCP: listing its tools and executing them.</span></div>
+      <div class="g-item"><b>MCP Hub</b><span>A centralized, governed home hosting all of an organization's MCP servers, so connectors are discovered and reused instead of rebuilt.</span></div>
+      <div class="g-item"><b>Tool calling</b><span>The mechanism where an LLM requests a concrete action ("call get_order_status") instead of just replying in text, and the system executes it.</span></div>
+      <div class="g-item"><b>OpenAPI</b><span>A machine-readable standard describing a REST API's endpoints, parameters and responses - the raw material tools are generated from.</span></div>
+      <div class="g-item"><b>Unified tool catalog</b><span>A central library of LLM-ready tools, generated from API specs via MCP, that every agent team composes from instead of hand-integrating.</span></div>
+      <div class="g-item"><b>System prompt</b><span>The standing instructions defining an LLM's role, rules and boundaries for every request - policy written in English.</span></div>
+      <div class="g-item"><b>Prompt registry</b><span>A versioned store for prompts, managed like release artifacts: tested, reviewed, deployed, and answerable to "which version ran when?"</span></div>
+      <div class="g-item"><b>Multi-tenancy</b><span>One platform serving many business units, with hard isolation between each tenant's data, prompts and workloads.</span></div>
+      <div class="g-item"><b>Usage metering</b><span>Measuring each tenant's consumption (tokens, GPU time, storage) for cost visibility, limits and adoption tracking.</span></div>
+      <div class="g-item"><b>Rate limiting</b><span>Per-tenant quotas on requests or tokens, so one team's spike or runaway agent cannot degrade the shared platform for everyone.</span></div>
+      <div class="g-item"><b>Model routing gateway</b><span>A single entry point for all LLM traffic that picks the right model per request by cost, capability, tenant priority and load.</span></div>
+      <div class="g-item"><b>RAG</b><span>Retrieval-Augmented Generation: retrieve relevant documents first, then have the LLM answer grounded in them instead of its memory.</span></div>
+      <div class="g-item"><b>Document pipeline</b><span>The machinery that turns raw documents into searchable knowledge: text extraction, chunking, embedding.</span></div>
+      <div class="g-item"><b>Embedding</b><span>A numerical vector capturing a text's meaning, so semantically similar texts can be found by mathematical similarity.</span></div>
+      <div class="g-item"><b>Hybrid search</b><span>Retrieval combining dense (embedding/meaning) and sparse (keyword/BM25) search, covering both paraphrases and exact terms.</span></div>
+      <div class="g-item"><b>Agent SDK</b><span>The standard kit for building agents in an org: scaffolding, tool interfaces, memory patterns, logging and evaluation hooks.</span></div>
+      <div class="g-item"><b>ReAct</b><span>An agent pattern that interleaves reasoning steps and tool actions: think, act, observe, repeat until done.</span></div>
+      <div class="g-item"><b>LLM-as-a-judge</b><span>Using a second LLM to grade the first's outputs against a rubric, so evaluation scales beyond human review.</span></div>
+      <div class="g-item"><b>Golden dataset</b><span>A curated set of representative inputs with expert-reviewed ideal outputs - the yardstick all evaluation measures against.</span></div>
+      <div class="g-item"><b>Semantic regression test</b><span>A CI check that fails a change when answer quality drops by meaning (not exact string match), catching quiet AI regressions.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="reels-index">
+  <div class="wrap">
+    <div class="kicker">Provenance</div>
+    <h2>Every reel, accounted for</h2>
+    <p style="margin-top:10px;color:var(--ink-soft)">All 12 reels on @architect_it_cloud as of Sep 9, 2026, collected and transcribed. Each chapter above links its source; here is the flat list.</p>
+    <div style="margin-top:18px">
+      <div class="r-row"><span class="d">Sep 8, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DdCAKP-hisW/">Ep 8 - Unified Tools Catalog</a></span></div>
+      <div class="r-row"><span class="d">Sep 7, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dc_b2DQSNwn/">Ep 7 - Enterprise Evaluation Platform</a></span></div>
+      <div class="r-row"><span class="d">Sep 6, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dc8n65IBiab/">Announcement - Season 1 recap + full-length YouTube video</a></span></div>
+      <div class="r-row"><span class="d">Sep 4, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dc3yyC4ROi2/">Ep 6 - RAG as a Service</a></span></div>
+      <div class="r-row"><span class="d">Sep 3, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dc0xH_jNX75/">Ep 5 - Agent SDK Standardization</a></span></div>
+      <div class="r-row"><span class="d">Sep 1, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcvnT7xABlN/">Announcement - The NextGen Leaders (new account)</a></span></div>
+      <div class="r-row"><span class="d">Aug 31, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DctVc2ZPeNV/">Ep 4 - Centralized Prompt Registry</a></span></div>
+      <div class="r-row"><span class="d">Aug 27, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcjG3YWy0jc/">Ep 3 - Multi-tenant Service Platform Architecture</a></span></div>
+      <div class="r-row"><span class="d">Aug 26, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcgefFpJdoC/">Ep 2 - Centralized MCP Hub</a></span></div>
+      <div class="r-row"><span class="d">Aug 25, 2026</span><span class="t"><a href="https://www.instagram.com/reel/Dcck0sXtqNE/">Ep 1 - Basics of Platform</a></span></div>
+      <div class="r-row"><span class="d">Aug 25, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcckU0kBvLf/">Ep 1 - Basics of Platform</a> <span class="dup">(same video posted twice)</span></span></div>
+      <div class="r-row"><span class="d">Aug 23, 2026</span><span class="t"><a href="https://www.instagram.com/reel/DcXSYZDyqhI/">Career advice - "Experienced Developer or Architect? Don't Do This"</a></span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Built as a learning companion to <a href="https://www.instagram.com/architect_it_cloud/">Govindh Varadharajan's @architect_it_cloud</a> reels. All teaching content originates with him; the explanations here expand on it in plain English. Reel audio transcribed from the original posts. Not affiliated with the creator.
+  </div>
+</footer>
+
+</body>
+</html>
